@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBD</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+
+
+<body>
+    <svg id="choropleth" height="800" width="800"></svg>
+    <script>
+      const svg = d3.select("#choropleth");
+
+      const width = svg.attr("width");
+      const height = svg.attr("height");
+
+      const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+      const mapHeight = height - margin.top - margin.bottom;
+      const mapWidth = width - margin.left - margin.right;
+
+      const map = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+      const getData = async function () {
+    //     const us_uni = await d3.json("us-colleges-universities.geojson");
+    //     const income = await d3.csv("mrc_table2.csv");
+
+    //     console.log("Loaded dataset:", us_uni);
+
+    //     var state = geojson.feature(us_uni, us_uni.state);
+        
+    //     // var state = us_uni.geojson(d => d.properties.type ==  "state")
+    //     var proj = d3.geoMercator().fitSize([mapWidth, mapHeight], state);
+    //     //var path = d3.geoPath().projection(proj);
+
+        const us_uni = await d3.json("us-colleges-universities.geojson");
+        const income = await d3.csv("mrc_table2.csv");
+
+        console.log("Loaded dataset:", us_uni);
+
+        // Assuming you're rendering the state features in the GeoJSON
+        const state = us_uni.features; // You can adjust based on your GeoJSON structure
+        var proj = d3.geoMercator().fitSize([mapWidth, mapHeight], d3.geoBounds(state));
+        const path = d3.geoPath().projection(proj);
+
+        const incomeScale = d3.scaleSequential(d3.interpolateBlues)
+          .domain([0, d3.max(income, d => +d.par_mean)]);
+
+        // Draw the map's state features (e.g., college/university locations)
+        map.selectAll("path")
+          .data(state)
+          .join("path")
+          .attr("d", path)
+          .attr("fill", d => incomeScale(d.properties.par_mean)) // Replace with actual property
+          .attr("stroke", "#fff")
+          .attr("stroke-width", 0.5);
+
+        let elements = map.append("g")
+        elements.selectAll("path.state").data(state.features)
+          .join("path")
+          .attr("d", path)
+          .attr("class", "state");
+
+
+
+        // Add circles for the colleges/universities
+        map.selectAll("circle")
+          .data(us_uni.features)
+          .join("circle")
+          .attr("cx", function(d) {
+            return proj(d.geometry.coordinates)[0]; // Longitude (x-coordinate)
+          })
+          .attr("cy", function(d) {
+            // Accessing coordinates as [longitude, latitude]
+            return proj(d.geometry.coordinates)[0]; // Latitude (y-coordinate)
+          })
+          .attr("r", 5) // Adjust circle size
+          .attr("fill", "black");
+
+          }
+      
+      getData();
+      
+    </script>
+
+
+</body>
+
+
+</html>
+

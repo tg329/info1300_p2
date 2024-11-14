@@ -1,0 +1,1133 @@
+number,name,tier,tier_name,state,par_median,k_median,mr_kq5_pq1
+1,Abilene Christian University,6,Selective private,TX,101000,40100,0.014363836
+2,Adams State University,5,Selective public,CO,67200,34100,0.018844681
+3,Adelphi University,6,Selective private,NY,96300,50700,0.032585073
+4,Adrian College,6,Selective private,MI,88500,40300,0.0095646288
+5,Agnes Scott College,4,Highly selective private,GA,97200,38900,0.014744159
+6,Alabama Agricultural & Mechanical University,5,Selective public,AL,44500,32900,0.0421931
+7,Albany State University,5,Selective public,GA,43800,31900,0.025794942
+8,Albertus Magnus College,6,Selective private,CT,68600,43400,0.055204768
+9,Albion College,6,Selective private,MI,120700,48900,0.0068131848
+10,Albright College,6,Selective private,PA,89000,47300,0.013705797
+11,Alderson Broaddus University,6,Selective private,WV,59500,37800,0.027365765
+12,Alfred University,6,Selective private,NY,90800,44600,0.014770933
+13,Allegheny College,6,Selective private,PA,102800,52500,0.013434455
+14,Alma College,6,Selective private,MI,98200,48000,0.011659105
+15,Alvernia University,6,Selective private,PA,84300,41800,0.021852216
+16,Alverno College,6,Selective private,WI,65600,33200,0.026607819
+17,American International College,6,Selective private,MA,68700,41900,0.026896371
+18,American University ,4,Highly selective private,DC,135700,59100,0.012844238
+19,Amherst College,2,Other elite schools (public and private),MA,181300,69300,0.019616831
+20,"Anderson University of Anderson, IN",6,Selective private,IN,88400,34900,0.0071356744
+21,Andrews University,6,Selective private,MI,73900,37200,0.02404573
+22,Angelo State University,5,Selective public,TX,68400,38500,0.021094922
+23,Anna Maria College,6,Selective private,MA,90400,40700,0.01695396
+24,Appalachian State University,5,Selective public,NC,105900,39100,0.0054004826
+25,Aquinas College,6,Selective private,MI,94800,39300,0.0058400971
+26,Arcadia University,6,Selective private,PA,92200,44900,0.019300634
+27,Arizona State And Northern Arizona University And University Of Arizona,5,Selective public,AZ,110700,46300,0.015779939
+28,Arkansas State University,5,Selective public,AR,60800,34500,0.023571217
+29,Arkansas Tech University,5,Selective public,AR,63200,35100,0.021171754
+30,Armstrong Atlantic State University,5,Selective public,GA,76000,34600,0.018230883
+31,Asbury College,6,Selective private,KY,91700,33800,0.0078622261
+32,Ashland University,6,Selective private,OH,84600,39200,0.0056378758
+33,Assumption College,6,Selective private,MA,120100,57500,0.008881609
+34,Auburn University,5,Selective public,AL,123200,47300,0.010658238
+35,Auburn University Montgomery,5,Selective public,AL,73600,35400,0.024405176
+36,Augsburg College,6,Selective private,MN,99100,49000,0.012930907
+37,"Augustana College of Rock Island, IL",4,Highly selective private,IL,114300,53700,0.0099985851
+38,"Augustana College of Sioux Falls, SD",6,Selective private,SD,93200,44200,0.0044448045
+39,Aurora University,6,Selective private,IL,87100,43500,0.01104902
+40,Austin College,4,Highly selective private,TX,109300,49700,0.022787016
+41,Austin Peay State University,5,Selective public,TN,66600,33500,0.013754671
+42,Averett University,6,Selective private,VA,65400,35500,0.0058118408
+43,Avila University,6,Selective private,MO,88200,44800,0.0052561383
+44,Azusa Pacific University,6,Selective private,CA,103700,42100,0.015201175
+45,Babson College,4,Highly selective private,MA,140500,95300,0.027997315
+46,Baker University,6,Selective private,KS,96200,45800,0.01278977
+47,Baldwin Wallace University,6,Selective private,OH,89200,46100,0.011461781
+48,Ball State University,5,Selective public,IN,94900,40100,0.0077425609
+49,Bard College,4,Highly selective private,NY,117900,30900,0.015318513
+50,Barnard College,2,Other elite schools (public and private),NY,148000,56300,0.034545787
+51,Barry University,6,Selective private,FL,69500,39200,0.035723217
+52,Barton College,6,Selective private,NC,87500,39300,0.0054118219
+53,Bates College,2,Other elite schools (public and private),ME,176900,55900,0.0075810608
+54,Bay Path College,6,Selective private,MA,84100,35800,0.017043661
+55,Baylor University,4,Highly selective private,TX,132400,50300,0.013736501
+56,Becker College,6,Selective private,MA,75500,33100,0.0089575732
+57,Belhaven University,6,Selective private,MS,77300,32200,0.031970855
+58,Bellarmine University,6,Selective private,KY,98200,46700,0.009435893
+59,Bellevue University,6,Selective private,NE,73100,40000,0.0098948237
+60,Belmont Abbey College,6,Selective private,NC,97900,38100,0.014704109
+61,Belmont University,6,Selective private,TN,116700,37900,0.0057811551
+62,Beloit College,4,Highly selective private,WI,109800,40600,0.0090190554
+63,Benedictine College,6,Selective private,KS,90200,43400,0.010532828
+64,Benedictine University,6,Selective private,IL,104500,54800,0.01114781
+65,Bennett College,6,Selective private,NC,50000,33400,0.03884872
+66,Bennington College,4,Highly selective private,VT,99200,19700,0.0092656333
+67,Bentley University,4,Highly selective private,MA,119600,79800,0.029418632
+68,Berry College,6,Selective private,GA,103100,43400,0.012153942
+69,"Bethany College of Bethany, WV",6,Selective private,WV,77600,42400,0.020469109
+70,"Bethany College of Lindsborg, KS",6,Selective private,KS,73700,39800,0.011337067
+71,Bethel College,6,Selective private,IN,81300,31500,0.0062512481
+72,"Bethel University of McKenzie, TN",6,Selective private,TN,54700,34500,0.016350059
+73,"Bethel University of Saint Paul, MN",6,Selective private,MN,100000,40200,0.0049796971
+74,Bethune Cookman University,6,Selective private,FL,43000,32500,0.02163641
+75,Binghamton University,3,Highly selective public,NY,104400,65700,0.050876305
+76,Biola University,6,Selective private,CA,95300,35700,0.017981296
+77,Birmingham Southern College,6,Selective private,AL,137900,48100,0.010045541
+78,Blackburn University,6,Selective private,IL,65800,41300,0.012327814
+79,Bloomfield College,6,Selective private,NJ,40800,35600,0.060373791
+80,Bloomsburg University Of Pennsylvania,5,Selective public,PA,89800,45700,0.015696971
+81,Bluefield State College,5,Selective public,WV,54700,24800,0.011984185
+82,Bluffton University,6,Selective private,OH,77100,42400,0.0015012556
+83,Boise State University,5,Selective public,ID,77100,31900,0.012776014
+84,Boricua College,6,Selective private,NY,28900,23200,0.03635373
+85,Boston College,2,Other elite schools (public and private),MA,168400,71800,0.016028848
+86,Boston University,4,Highly selective private,MA,126800,62000,0.020175174
+87,Bowdoin College,2,Other elite schools (public and private),ME,177600,61000,0.010947428
+88,Bowling Green State University,5,Selective public,OH,92800,42600,0.0073367259
+89,Bradley University,6,Selective private,IL,112900,54900,0.011705709
+90,Brandeis University,2,Other elite schools (public and private),MA,142700,63100,0.020382755
+91,Brenau University,6,Selective private,GA,87000,34600,0.020909321
+92,Brewton Parker College,6,Selective private,GA,63400,30400,0.0079967873
+93,Briar Cliff University,6,Selective private,IA,74400,39500,0.0098542068
+94,Bridgewater College,6,Selective private,VA,91300,42100,0.0097876126
+95,Bridgewater State University,5,Selective public,MA,93300,45400,0.013210518
+96,Brigham Young University,6,Selective private,UT,119600,32600,0.0065053944
+97,Brigham Young University - Hawaii,6,Selective private,HI,93200,22600,0.012499791
+98,Brown University,1,Ivy Plus,RI,197000,66900,0.015486852
+99,Bryan College,6,Selective private,TN,78800,28100,0.0047017862
+100,Bryant University,6,Selective private,RI,116900,73300,0.016033988
+101,Bryn Mawr College,2,Other elite schools (public and private),PA,125400,47400,0.018263785
+102,Bucknell University,2,Other elite schools (public and private),PA,149800,71800,0.014601452
+103,Buena Vista University,6,Selective private,IA,69800,45900,0.016441403
+104,Butler University,6,Selective private,IN,121500,57300,0.010017018
+105,CUNY Bernard M. Baruch College,5,Selective public,NY,42800,57600,0.12938586
+106,CUNY Brooklyn College,5,Selective public,NY,52200,44300,0.080658495
+107,CUNY Hunter College,5,Selective public,NY,49800,44400,0.075420022
+108,CUNY John Jay College Of Criminal Justice,5,Selective public,NY,41800,45200,0.096914381
+109,CUNY Lehman College,5,Selective public,NY,32500,40700,0.10235137
+110,CUNY Medgar Evers College,5,Selective public,NY,35100,30900,0.050478742
+111,CUNY Queens College,5,Selective public,NY,63300,48200,0.071382657
+112,CUNY York College,5,Selective public,NY,36500,36400,0.068195067
+113,Cabrini College,6,Selective private,PA,98100,46700,0.013427556
+114,Cairn University,6,Selective private,PA,77100,26500,0.007040408
+115,Caldwell College,6,Selective private,NJ,84300,45400,0.025125738
+116,California Baptist University,6,Selective private,CA,82600,36200,0.023633266
+117,California Institute Of Technology,2,Other elite schools (public and private),CA,124500,83000,0.031777687
+118,California Lutheran University,6,Selective private,CA,110600,50900,0.012286789
+119,California Maritime Academy,5,Selective public,CA,113100,85800,0.050363775
+120,California Polytechnic State University,5,Selective public,CA,124800,65500,0.022484858
+121,"California State Polytechnic University, Pomona",5,Selective public,CA,80200,55100,0.06833405
+122,California State University - Sacramento,5,Selective public,CA,88700,47900,0.033332288
+123,"California State University, Bakersfield",5,Selective public,CA,67700,46100,0.04607648
+124,"California State University, Chico",5,Selective public,CA,112200,48700,0.01958406
+125,"California State University, Dominguez Hills",5,Selective public,CA,45600,40300,0.056009766
+126,"California State University, East Bay",5,Selective public,CA,86000,51300,0.043488853
+127,"California State University, Fresno",5,Selective public,CA,72400,44400,0.041856874
+128,"California State University, Fullerton",5,Selective public,CA,83300,47800,0.047993153
+129,"California State University, Long Beach",5,Selective public,CA,85800,48800,0.044307064
+130,"California State University, Los Angeles",5,Selective public,CA,36600,43000,0.09918455
+131,"California State University, Monterey Bay",5,Selective public,CA,93200,41100,0.033873096
+132,"California State University, Northridge",5,Selective public,CA,61100,44100,0.063248597
+133,"California State University, San Bernardino",5,Selective public,CA,69800,43500,0.043982204
+134,"California State University, San Marcos",5,Selective public,CA,93600,44400,0.020967012
+135,"California State University, Stanislaus",5,Selective public,CA,72300,44800,0.038550034
+136,California University Of Pennsylvania,5,Selective public,PA,73800,38500,0.014919632
+137,Calvin College,6,Selective private,MI,111500,45900,0.0098208189
+138,Cameron University,5,Selective public,OK,56400,32800,0.029703129
+139,Campbell University,6,Selective private,NC,69900,42700,0.03085978
+140,Campbellsville University,6,Selective private,KY,68100,35100,0.017751163
+141,Canisius College,6,Selective private,NY,94200,50900,0.023605259
+142,Capital University,6,Selective private,OH,84100,44000,0.0091380253
+143,Cardinal Stritch University,6,Selective private,WI,88400,39100,0.019627208
+144,Carleton College,2,Other elite schools (public and private),MN,152000,51700,0.013661893
+145,Carlow University,6,Selective private,PA,66100,37900,0.025027391
+146,Carnegie Mellon University,2,Other elite schools (public and private),PA,134400,78400,0.021873826
+147,Carroll College,6,Selective private,MT,89700,47800,0.018208114
+148,Carroll University,6,Selective private,WI,95000,43300,0.0064128581
+149,Carson - Newman University,6,Selective private,TN,79100,36300,0.015280725
+150,Carthage College,6,Selective private,WI,101600,47500,0.010403308
+151,Case Western Reserve University,2,Other elite schools (public and private),OH,118200,73400,0.017887011
+152,Catawba College,6,Selective private,NC,94000,42000,0.012521857
+153,Catholic University Of America ,6,Selective private,DC,133000,57700,0.008010637
+154,Cazenovia College,6,Selective private,NY,64200,28800,0.01259689
+155,Cedarville University,6,Selective private,OH,99500,37600,0.0087931501
+156,Centenary College,6,Selective private,NJ,94300,35200,0.01035414
+157,Centenary College Of Louisiana,6,Selective private,LA,100300,45400,0.014953231
+158,Central College,6,Selective private,IA,87700,44200,0.009312517
+159,Central Connecticut State University,5,Selective public,CT,93300,46600,0.014561397
+160,Central Methodist University,6,Selective private,MO,66000,36200,0.01253188
+161,Central Michigan University,5,Selective public,MI,98300,42400,0.010340575
+162,Central State University,5,Selective public,OH,40300,25200,0.020660078
+163,Central Washington University,5,Selective public,WA,97100,45000,0.013766491
+164,Centre College Of Kentucky,4,Highly selective private,KY,111000,49400,0.0069167702
+165,Chadron State College,5,Selective public,NE,68100,38600,0.019025898
+166,Chaminade University Of Honolulu,6,Selective private,HI,66600,38100,0.034261223
+167,Champlain College,6,Selective private,VT,85200,39200,0.017630156
+168,Chapman University,4,Highly selective private,CA,109600,47900,0.017024867
+169,Charleston Southern University,6,Selective private,SC,70500,36900,0.021454673
+170,Chatham University,6,Selective private,PA,71200,31800,0.016273953
+171,Chestnut Hill College,6,Selective private,PA,76600,38900,0.014189931
+172,Cheyney University Of Pennsylvania,5,Selective public,PA,38600,26500,0.023012543
+173,Chicago State University,5,Selective public,IL,43700,31900,0.036516991
+174,Christian Brothers University,6,Selective private,TN,97600,52000,0.02648765
+175,Christopher Newport University,5,Selective public,VA,92500,41300,0.010826487
+176,"Citadel, The Military College Of South Carolina",5,Selective public,SC,106800,62800,0.019621627
+177,City College Of New York - CUNY,5,Selective public,NY,35500,48500,0.11723747
+178,Claflin University,6,Selective private,SC,35400,33600,0.035919443
+179,Claremont Mckenna College,2,Other elite schools (public and private),CA,142000,69900,0.029592477
+180,Clarion University Of Pennsylvania,5,Selective public,PA,75500,38100,0.010521275
+181,Clark Atlanta University,6,Selective private,GA,54500,35200,0.033000425
+182,Clark University,4,Highly selective private,MA,103000,49600,0.022418769
+183,Clarke University,6,Selective private,IA,75700,45100,0.034456961
+184,Clarkson University,6,Selective private,NY,94600,73300,0.029669976
+185,Clayton State University,5,Selective public,GA,77600,35000,0.015449493
+186,Clearwater Christian College,6,Selective private,FL,64300,41500,0.00808674
+187,Clemson University,3,Highly selective public,SC,120200,52300,0.012014057
+188,Cleveland State University,5,Selective public,OH,72700,37000,0.016072698
+189,Coastal Carolina University,5,Selective public,SC,91500,37800,0.010405573
+190,Coe College,6,Selective private,IA,90600,48500,0.015621743
+191,Coker College,6,Selective private,SC,59000,34600,0.012170363
+192,Colby College,2,Other elite schools (public and private),ME,208700,59200,0.0090376502
+193,Colby-Sawyer College,6,Selective private,NH,99400,41900,0.0099231089
+194,Colgate University,2,Other elite schools (public and private),NY,208900,71500,0.0087406812
+195,College Of Charleston,5,Selective public,SC,119500,39900,0.0095318928
+196,College Of Idaho ,6,Selective private,ID,92200,45700,0.019359518
+197,College Of Mount Saint Joseph,6,Selective private,OH,88500,41700,0.0045749447
+198,College Of Mount Saint Vincent And Manhattan College,6,Selective private,NY,94800,67900,0.057835598
+199,College Of New Jersey ,2,Other elite schools (public and private),NJ,122300,60100,0.018082317
+200,College Of New Rochelle ,6,Selective private,NY,40400,30800,0.028672865
+201,College Of Our Lady Of The Elms,6,Selective private,MA,87500,45400,0.018826811
+202,College Of Saint Benedict,6,Selective private,MN,106800,47300,0.012409491
+203,College Of Saint Elizabeth,6,Selective private,NJ,75200,44700,0.025033178
+204,College Of Saint Rose,6,Selective private,NY,91000,46200,0.017303271
+205,College Of Saint Scholastica,6,Selective private,MN,87700,54800,0.021893101
+206,College Of Staten Island/CUNY,5,Selective public,NY,73500,41200,0.041348025
+207,College Of The Holy Cross,2,Other elite schools (public and private),MA,157000,71900,0.010001441
+208,College Of The Ozarks,6,Selective private,MO,49200,32000,0.033171967
+209,College Of William & Mary,2,Other elite schools (public and private),VA,147100,59800,0.0052360371
+210,College Of Wooster ,6,Selective private,OH,108100,47200,0.0070711519
+211,Colorado Christian University,6,Selective private,CO,98600,30700,0.0035530364
+212,Colorado College,4,Highly selective private,CO,154600,43600,0.018225832
+213,Colorado Mesa University,5,Selective public,CO,75800,35000,0.020071208
+214,Colorado School Of Mines,3,Highly selective public,CO,111500,81500,0.024911636
+215,Colorado State University,5,Selective public,CO,115400,45800,0.011196307
+216,Colorado State University-Pueblo,5,Selective public,CO,72300,38100,0.024855316
+217,"Columbia College of Chicago, IL",6,Selective private,IL,85100,28500,0.0095007485
+218,"Columbia College of Columbia, MO",6,Selective private,MO,61700,31100,0.017756516
+219,"Columbia College of Columbia, SC",6,Selective private,SC,62600,33800,0.013072638
+220,Columbia University In The City Of New York,1,Ivy Plus,NY,169600,75300,0.030735934
+221,Columbus State University,5,Selective public,GA,72600,35400,0.017842893
+222,Concord University,5,Selective public,WV,66800,31800,0.01432975
+223,Concordia College - Moorhead,6,Selective private,MN,86400,45600,0.013580244
+224,Concordia University - Saint Paul,6,Selective private,MN,77900,39900,0.017048677
+225,Concordia University - Wisconsin,6,Selective private,WI,79300,38600,0.0081852181
+226,Concordia University Texas,6,Selective private,TX,91300,40400,0.012233841
+227,"Concordia University of Irvine, CA",6,Selective private,CA,94000,39600,0.014180595
+228,"Concordia University of Portland, OR",6,Selective private,OR,88400,41700,0.0087526208
+229,"Concordia University of River Forest, IL",6,Selective private,IL,86300,35100,0.0076721529
+230,"Concordia University of Seward, NE",6,Selective private,NE,75500,36500,0.0070259594
+231,Connecticut College,2,Other elite schools (public and private),CT,170500,55500,0.015796896
+232,Converse College,6,Selective private,SC,93000,32700,0.006902115
+233,Cooper Union For The Advancement Of Science & Art ,2,Other elite schools (public and private),NY,110100,64300,0.04277638
+234,Corban University,6,Selective private,OR,79000,32200,0.0047163591
+235,Cornell College,6,Selective private,IA,91800,45500,0.0087094642
+236,Cornell University,1,Ivy Plus,NY,143300,79800,0.029070236
+237,Cornerstone University,6,Selective private,MI,84200,29400,0.0032964707
+238,Covenant College,6,Selective private,GA,86400,32300,0.021523731
+239,Creighton University,6,Selective private,NE,119200,57200,0.016024692
+240,Culver-Stockton College,6,Selective private,MO,78600,38900,0.015609925
+241,Cumberland University,6,Selective private,TN,68800,37500,0.020049477
+242,Curry College,6,Selective private,MA,101600,38800,0.019095086
+243,D'Youville College,6,Selective private,NY,75800,45200,0.039663244
+244,Daemen College,6,Selective private,NY,77600,41900,0.015489782
+245,Dallas Baptist University,6,Selective private,TX,87000,39500,0.0083096549
+246,Dartmouth College,1,Ivy Plus,NH,185500,76600,0.013762614
+247,Davenport University,6,Selective private,MI,55800,23400,0.012456022
+248,Davidson College,2,Other elite schools (public and private),NC,208500,60300,0.0041020564
+249,Davis & Elkins College,6,Selective private,WV,68000,32700,0.0055872784
+250,DePauw University,6,Selective private,IN,117700,52900,0.0090761594
+251,DeSales University,6,Selective private,PA,98800,51100,0.0068456563
+252,Defiance College,6,Selective private,OH,77900,39900,0.011066434
+253,Delaware Valley College Of Science & Agriculture,6,Selective private,PA,90700,45100,0.016287908
+254,Delta State University,5,Selective public,MS,71000,37600,0.0224602
+255,Denison University,4,Highly selective private,OH,149300,53700,0.0093918415
+256,Depaul University,6,Selective private,IL,99900,51300,0.028553518
+257,Dickinson College,4,Highly selective private,PA,136600,55100,0.012097311
+258,Dickinson State University,5,Selective public,ND,57800,40700,0.040979888
+259,Dillard University,6,Selective private,LA,42600,36700,0.050284807
+260,Doane College,6,Selective private,NE,76600,45100,0.014534251
+261,Dominican College Of Blauvelt,6,Selective private,NY,88900,48900,0.036583826
+262,Dominican University,6,Selective private,IL,87300,44300,0.014196316
+263,Dominican University Of California,6,Selective private,CA,98100,45200,0.031980876
+264,Dordt College,6,Selective private,IA,80500,35400,0.003423932
+265,Dowling College,6,Selective private,NY,71500,45800,0.049541503
+266,Drake University,6,Selective private,IA,109600,57200,0.017473824
+267,Drew University,6,Selective private,NJ,140400,55600,0.02305807
+268,Drury University,6,Selective private,MO,74400,34000,0.012201751
+269,Duke University,1,Ivy Plus,NC,196000,87500,0.016026281
+270,Duquesne University Of The Holy Spirit,6,Selective private,PA,104000,56300,0.017168846
+271,Earlham College,6,Selective private,IN,99100,33300,0.0024436503
+272,East Carolina University,5,Selective public,NC,96000,41200,0.011932503
+273,East Stroudsburg University Of Pennsylvania,5,Selective public,PA,85700,43000,0.017018918
+274,East Tennessee State University,5,Selective public,TN,75600,33200,0.014986984
+275,East Texas Baptist University,6,Selective private,TX,72500,35900,0.014889835
+276,Eastern Connecticut State University,5,Selective public,CT,94900,45000,0.008899264
+277,Eastern Illinois University,5,Selective public,IL,100100,44800,0.009658183
+278,Eastern Kentucky University,5,Selective public,KY,69700,33800,0.015209559
+279,Eastern Mennonite University,6,Selective private,VA,90700,39600,0.010012529
+280,Eastern Michigan University,5,Selective public,MI,98400,38500,0.011686578
+281,Eastern Nazarene College,6,Selective private,MA,81600,34400,0.013295866
+282,Eastern New Mexico University,5,Selective public,NM,47200,27500,0.021399237
+283,Eastern Oregon University,5,Selective public,OR,74600,37300,0.019505963
+284,Eastern University,6,Selective private,PA,93900,33300,0.007069828
+285,Eastern Washington University,5,Selective public,WA,85900,41700,0.019227237
+286,Eckerd College,6,Selective private,FL,113100,38800,0.011483468
+287,Edgewood College,6,Selective private,WI,93300,40500,0.01235362
+288,Edinboro University Of Pennsylvania,5,Selective public,PA,74800,34600,0.010094229
+289,Elizabeth City State University,5,Selective public,NC,37400,31000,0.038773548
+290,Elizabethtown College,6,Selective private,PA,98100,50900,0.0093476037
+291,Elmhurst College,6,Selective private,IL,100200,48500,0.016476316
+292,Elmira College,6,Selective private,NY,91400,47500,0.013689324
+293,Elon University,4,Highly selective private,NC,146000,47300,0.0063649565
+294,Embry-Riddle Aeronautical University,6,Selective private,FL,92400,65600,0.034791574
+295,Emerson College,4,Highly selective private,MA,120500,44800,0.010786374
+296,"Emmanuel College of Boston, MA",6,Selective private,MA,93400,46600,0.018747658
+297,Emory & Henry College,6,Selective private,VA,84000,40700,0.015035091
+298,Emory University,2,Other elite schools (public and private),GA,175700,67800,0.018005462
+299,Emporia State University,5,Selective public,KS,80100,37500,0.0073185368
+300,Endicott College,6,Selective private,MA,108400,47500,0.014197784
+301,Erskine College,6,Selective private,SC,94700,37400,0.001567531
+302,Eureka College,6,Selective private,IL,76500,41300,0.018272847
+303,Evangel University,6,Selective private,MO,73800,33200,0.0095689874
+304,Evergreen State College ,5,Selective public,WA,100200,27000,0.0051437938
+305,Fairfield University,6,Selective private,CT,151500,69900,0.015773047
+306,Fairleigh Dickinson University,6,Selective private,NJ,87000,48200,0.033313226
+307,Fashion Institute Of Technology,5,Selective public,NY,79800,36700,0.036484793
+308,Faulkner University,6,Selective private,AL,63500,26300,0.0071953624
+309,Fayetteville State University,5,Selective public,NC,41400,28700,0.024320804
+310,Felician College,6,Selective private,NJ,73300,40400,0.024379453
+311,Ferris State University,5,Selective public,MI,82500,42400,0.01697208
+312,Ferrum College,6,Selective private,VA,71100,37000,0.016068542
+313,Fitchburg State University,5,Selective public,MA,89500,45000,0.017469816
+314,Flagler College,6,Selective private,FL,100900,40300,0.015132731
+315,Florida Agricultural & Mechanical University,5,Selective public,FL,57000,39300,0.032663293
+316,Florida Atlantic University,5,Selective public,FL,77100,40500,0.03070315
+317,Florida Gulf Coast University,5,Selective public,FL,78900,39700,0.018777234
+318,Florida Institute Of Technology,6,Selective private,FL,86300,59600,0.037505582
+319,Florida International University,5,Selective public,FL,66700,46800,0.052249581
+320,Florida Memorial University,6,Selective private,FL,33400,29300,0.025294451
+321,Florida Southern College,6,Selective private,FL,85400,38700,0.01863743
+322,Florida State University,5,Selective public,FL,100500,46400,0.021649536
+323,Fontbonne University,6,Selective private,MO,88800,37300,0.0090163993
+324,Fordham University,4,Highly selective private,NY,113300,63300,0.039781969
+325,Fort Hays State University,5,Selective public,KS,71100,38500,0.013584882
+326,Fort Lewis College,5,Selective public,CO,90600,32700,0.0085251462
+327,Fort Valley State University,5,Selective public,GA,45100,30900,0.028276326
+328,Francis Marion University,5,Selective public,SC,68500,34100,0.014445205
+329,Franciscan University Of Steubenville,6,Selective private,OH,102500,29500,0.0062151663
+330,Franklin & Marshall College,2,Other elite schools (public and private),PA,162900,57800,0.012550002
+331,Franklin College Of Indiana,6,Selective private,IN,85300,44000,0.011643652
+332,Franklin Pierce University,6,Selective private,NH,86300,39100,0.013234765
+333,Freed Hardeman University,6,Selective private,TN,77500,34500,0.014443509
+334,Fresno Pacific University,6,Selective private,CA,71100,37900,0.037159514
+335,Friends University,6,Selective private,KS,82200,35000,0.009742884
+336,Furman University,4,Highly selective private,SC,156700,48100,0.0069198092
+337,Gannon University,6,Selective private,PA,83300,49000,0.014403216
+338,Gardner - Webb University,6,Selective private,NC,84800,37200,0.012200096
+339,Geneva College,6,Selective private,PA,77800,37900,0.012010647
+340,George Fox University,6,Selective private,OR,89000,39200,0.011665585
+341,George Mason University,5,Selective public,VA,107500,56500,0.030900523
+342,George Washington University,2,Other elite schools (public and private),DC,137300,63900,0.021565983
+343,Georgetown College,6,Selective private,KY,93600,44900,0.014632449
+344,Georgetown University,2,Other elite schools (public and private),DC,195100,84400,0.01945704
+345,Georgia College & State University,5,Selective public,GA,95100,40500,0.011395562
+346,Georgia Institute Of Technology,3,Highly selective public,GA,126000,78900,0.018577013
+347,Georgia Southern University,5,Selective public,GA,88100,40500,0.016830379
+348,Georgia Southwestern State University,5,Selective public,GA,73400,37400,0.018960178
+349,Georgia State University,5,Selective public,GA,82200,38900,0.020784898
+350,Georgian Court University,6,Selective private,NJ,83300,41000,0.02104051
+351,Gettysburg College,4,Highly selective private,PA,138500,58800,0.0081598666
+352,Glenville State College,5,Selective public,WV,55900,34300,0.013810954
+353,Goldey-Beacom College,6,Selective private,DE,80300,44800,0.0081316652
+354,Gonzaga University,4,Highly selective private,WA,121100,54900,0.0080217542
+355,Gordon College,6,Selective private,MA,95900,37300,0.0059589026
+356,Goshen College,6,Selective private,IN,86900,37400,0.010853255
+357,Goucher College,6,Selective private,MD,106300,41800,0.021792538
+358,Grace College And Theological Seminary,6,Selective private,IN,73100,30800,0.01632075
+359,Graceland University,6,Selective private,IA,77200,39300,0.02081232
+360,Grambling State University,5,Selective public,LA,34300,30500,0.046168223
+361,Grand Valley State University,5,Selective public,MI,96400,41300,0.0079063745
+362,Grand View University,6,Selective private,IA,71800,38900,0.015049594
+363,Green Mountain College,6,Selective private,VT,93200,31200,0.015690058
+364,Greensboro College,6,Selective private,NC,95400,37200,0.0058948286
+365,Greenville College,6,Selective private,IL,80000,33800,0.014662865
+366,Grinnell College,4,Highly selective private,IA,126400,47300,0.014552889
+367,Guilford College,6,Selective private,NC,109900,36800,0.0084330942
+368,Gustavus Adolphus College,4,Highly selective private,MN,114000,53100,0.0066766385
+369,Gwynedd Mercy University,6,Selective private,PA,94700,52700,0.013760934
+370,Hamilton College,2,Other elite schools (public and private),NY,164600,60300,0.023019336
+371,Hamline University,6,Selective private,MN,94300,47600,0.01494779
+372,Hampden Sydney College,6,Selective private,VA,141200,59900,0.0064616059
+373,Hampshire College,4,Highly selective private,MA,119300,31200,0.0074167168
+374,Hampton University,6,Selective private,VA,79500,45900,0.021393161
+375,Hannibal - Lagrange University,6,Selective private,MO,71800,30600,0.012957712
+376,Hanover College,6,Selective private,IN,107800,46300,0.0042376798
+377,Hardin-Simmons University,6,Selective private,TX,91700,41600,0.013860577
+378,Harding University,6,Selective private,AR,98200,41400,0.0074631837
+379,Hartwick College,6,Selective private,NY,94400,45900,0.016615044
+380,Harvard University,1,Ivy Plus,MA,174000,81500,0.017591679
+381,Harvey Mudd College,2,Other elite schools (public and private),CA,139800,82400,0.029232727
+382,Hastings College,6,Selective private,NE,82700,45000,0.010933083
+383,Haverford College,2,Other elite schools (public and private),PA,174200,57200,0.017978437
+384,Hawaii Pacific University,6,Selective private,HI,68600,41100,0.029230911
+385,Heidelberg University,6,Selective private,OH,80000,43000,0.0091001345
+386,Henderson State University,5,Selective public,AR,63900,36200,0.024084078
+387,Hendrix College,4,Highly selective private,AR,107500,40900,0.0062430608
+388,High Point University,6,Selective private,NC,86100,40800,0.01739048
+389,Hilbert College,6,Selective private,NY,66300,40200,0.027616285
+390,Hiram College,6,Selective private,OH,78900,43300,0.01356729
+391,Hobart And William Smith Colleges,6,Selective private,NY,120400,52700,0.021943677
+392,Hofstra University,6,Selective private,NY,105300,55700,0.029875586
+393,Hollins University,6,Selective private,VA,110700,36400,0.010574323
+394,Holy Family University,6,Selective private,PA,83200,46400,0.01699614
+395,Hood College,6,Selective private,MD,92600,45800,0.027859967
+396,Hope College,6,Selective private,MI,114100,46800,0.0053216363
+397,Houghton College,6,Selective private,NY,85300,35300,0.018982267
+398,Houston Baptist University,6,Selective private,TX,93400,43100,0.024330314
+399,Howard Payne University,6,Selective private,TX,69200,36800,0.021346293
+400,Howard University,6,Selective private,DC,76900,49600,0.040040046
+401,Humboldt State University,5,Selective public,CA,96000,35500,0.016260199
+402,Huntingdon College,6,Selective private,AL,87200,38100,0.018319014
+403,Huntington University,6,Selective private,IN,81400,29500,0.0055070887
+404,Husson University,6,Selective private,ME,60900,34300,0.019603565
+405,Idaho State University,5,Selective public,ID,71500,29900,0.011982939
+406,Illinois College,6,Selective private,IL,80900,41000,0.014177011
+407,Illinois Institute Of Technology,4,Highly selective private,IL,91600,72300,0.036340974
+408,Illinois State University,5,Selective public,IL,107600,49000,0.010804862
+409,Illinois Wesleyan University,4,Highly selective private,IL,120900,58000,0.010769322
+410,Immaculata University,6,Selective private,PA,92700,43100,0.0080032125
+411,Indiana Institute Of Technology,6,Selective private,IN,67800,40700,0.012844061
+412,Indiana State University,5,Selective public,IN,82600,37800,0.010691955
+413,Indiana University Of Pennsylvania,5,Selective public,PA,77100,38800,0.014237016
+414,Indiana University System,5,Selective public,IN,99400,40100,0.009217469
+415,Iona College,6,Selective private,NY,97400,56200,0.030527983
+416,Iowa State University Of Science & Technology,5,Selective public,IA,92900,51900,0.01310383
+417,Ithaca College,6,Selective private,NY,117800,52500,0.013821164
+418,Jackson State University,5,Selective public,MS,37100,31700,0.029727178
+419,Jacksonville State University,5,Selective public,AL,69100,34300,0.01316584
+420,Jacksonville University,6,Selective private,FL,85000,43700,0.012346011
+421,James Madison University,5,Selective public,VA,134300,55900,0.0074854619
+422,Jamestown College,6,Selective private,ND,75200,43100,0.024772471
+423,John Brown University,6,Selective private,AR,86800,35300,0.021008391
+424,John Carroll University,6,Selective private,OH,101500,54500,0.0097164838
+425,Johns Hopkins University,2,Other elite schools (public and private),MD,142300,75000,0.021514801
+426,Johnson & Wales University,6,Selective private,RI,75100,35200,0.018311018
+427,Judson University,6,Selective private,IL,83000,35900,0.012514249
+428,Juniata College,6,Selective private,PA,92100,49500,0.021759938
+429,Kalamazoo College,4,Highly selective private,MI,139700,53700,0.010934224
+430,Kansas State University,5,Selective public,KS,92100,45600,0.012689818
+431,Kansas Wesleyan University,6,Selective private,KS,66000,41000,0.0
+432,Kean University,5,Selective public,NJ,79200,46900,0.034185618
+433,Keene State College,5,Selective public,NH,97700,41500,0.009485594
+434,Kennesaw State University,5,Selective public,GA,99900,36600,0.011789772
+435,Kent State University,5,Selective public,OH,78400,36800,0.010914355
+436,Kentucky Christian University,6,Selective private,KY,77900,33400,0.0042522736
+437,Kentucky State University,5,Selective public,KY,54000,28200,0.019366039
+438,Kentucky Wesleyan College,6,Selective private,KY,82500,38800,0.014455378
+439,Kenyon College,2,Other elite schools (public and private),OH,168400,48000,0.006436008
+440,Kettering University,4,Highly selective private,MI,100100,85400,0.031106485
+441,Keuka College,6,Selective private,NY,67700,42100,0.022801867
+442,Keystone College,6,Selective private,PA,60200,29900,0.010262592
+443,King University,6,Selective private,TN,76000,37100,0.00034503455
+444,"King's College of Wilkes-Barre, PA",6,Selective private,PA,89900,52400,0.016503258
+445,Knox College,4,Highly selective private,IL,99900,44700,0.010817061
+446,Kutztown University Of Pennsylvania,5,Selective public,PA,94100,43100,0.0088745095
+447,La Roche College,6,Selective private,PA,78700,39800,0.022898763
+448,La Salle University,6,Selective private,PA,101500,58700,0.018244173
+449,La Sierra University,6,Selective private,CA,81300,43200,0.032972757
+450,Lafayette College,2,Other elite schools (public and private),PA,156700,75300,0.016269231
+451,Lagrange College,6,Selective private,GA,100800,39400,0.0032230143
+452,Lake Erie College,6,Selective private,OH,76700,31200,0.00074440107
+453,Lake Forest College,6,Selective private,IL,116000,51400,0.017924456
+454,Lake Superior State University,5,Selective public,MI,75500,35700,0.013305768
+455,Lakeland College,6,Selective private,WI,75400,39200,0.0055645178
+456,Lamar University,5,Selective public,TX,77200,39400,0.029002167
+457,Lander University,5,Selective public,SC,83300,36100,0.0097744772
+458,Langston University,5,Selective public,OK,38800,25300,0.01986186
+459,Lasell College,6,Selective private,MA,74300,45300,0.031484902
+460,Lawrence Technological University,6,Selective private,MI,95100,54600,0.024249569
+461,Lawrence University Of Wisconsin,4,Highly selective private,WI,111600,44500,0.011534142
+462,Le Moyne College,6,Selective private,NY,89100,49400,0.015694968
+463,Lebanon Valley College,6,Selective private,PA,92700,49000,0.012868647
+464,Lee University,6,Selective private,TN,78600,32400,0.01377523
+465,Lees-Mcrae College,6,Selective private,NC,83200,33100,0.0031134812
+466,Lehigh University,2,Other elite schools (public and private),PA,138300,81200,0.018740082
+467,Lenoir-Rhyne University,6,Selective private,NC,91600,39400,0.012167468
+468,Lesley University,6,Selective private,MA,96100,29500,0.01264025
+469,Letourneau University,6,Selective private,TX,85700,49300,0.038236253
+470,Lewis & Clark College,6,Selective private,OR,119100,41600,0.013648864
+471,Lewis University,6,Selective private,IL,93700,49300,0.016398102
+472,Lewis-Clark State College,5,Selective public,ID,66000,31800,0.021265127
+473,Limestone College,6,Selective private,SC,73900,36800,0.0072934655
+474,Lincoln Memorial University,6,Selective private,TN,69000,40600,0.020953804
+475,"Lincoln University of Lincoln University, PA",5,Selective public,PA,47500,37400,0.033566434
+476,Lindenwood University,6,Selective private,MO,91100,38500,0.0094058346
+477,Lindsey Wilson College,6,Selective private,KY,49100,27500,0.015122303
+478,Linfield College,6,Selective private,OR,105500,50100,0.009520215
+479,Lipscomb University,6,Selective private,TN,106400,40300,0.006195535
+480,Lock Haven University Of Pennsylvania,5,Selective public,PA,76600,39600,0.010481519
+481,Long Island University System,6,Selective private,NY,59000,39900,0.055359606
+482,Longwood University,5,Selective public,VA,105700,41800,0.0065998333
+483,Loras College,6,Selective private,IA,94100,46300,0.00952625
+484,Louisiana College,6,Selective private,LA,84500,40500,0.019554704
+485,Louisiana State University In Shreveport,5,Selective public,LA,66500,35600,0.019494791
+486,Louisiana State University System,5,Selective public,LA,94300,44000,0.02137957
+487,Louisiana Tech University,5,Selective public,LA,81500,42200,0.022207914
+488,Lourdes University,6,Selective private,OH,81600,27600,0.001718455
+489,Loyola Marymount University,6,Selective private,CA,131800,56200,0.024588708
+490,Loyola University Chicago,4,Highly selective private,IL,98600,53500,0.030813236
+491,Loyola University Maryland,4,Highly selective private,MD,151200,69800,0.0067202942
+492,Loyola University New Orleans,4,Highly selective private,LA,113800,42800,0.015620732
+493,Lubbock Christian University,6,Selective private,TX,71900,37900,0.015160448
+494,Luther College,6,Selective private,IA,101300,46300,0.0098190969
+495,Lycoming College,6,Selective private,PA,83600,47100,0.0045768674
+496,Lynn University,6,Selective private,FL,149800,28300,0.01754616
+497,MCP Hahnemann And Drexel Universities,6,Selective private,PA,94100,65500,0.033046082
+498,MacMurray College,6,Selective private,IL,75500,38600,0.023021029
+499,Macalester College,2,Other elite schools (public and private),MN,115500,47000,0.0139422
+500,Madonna University,6,Selective private,MI,100700,41400,0.016361732
+501,Maine Maritime Academy,5,Selective public,ME,85300,75900,0.034627073
+502,Malone University,6,Selective private,OH,79000,37500,0.010476858
+503,Manchester University,6,Selective private,IN,81400,39900,0.0044042668
+504,Manhattanville College,6,Selective private,NY,95400,48900,0.0348414
+505,Mansfield University Of Pennsylvania,5,Selective public,PA,70300,38400,0.010778463
+506,"Marian University of Fond Du Lac, WI",6,Selective private,WI,80900,38900,0.0067669936
+507,Marietta College,6,Selective private,OH,85300,46800,0.016607501
+508,Marist College,6,Selective private,NY,119300,59500,0.017162638
+509,Marquette University,4,Highly selective private,WI,124800,60100,0.011462465
+510,Mars Hill University,6,Selective private,NC,72900,34300,0.013681385
+511,Marshall University,5,Selective public,WV,76400,35400,0.016595608
+512,Mary Baldwin College,6,Selective private,VA,81100,38700,0.011975961
+513,Marymount Manhattan College,6,Selective private,NY,91100,35800,0.032945585
+514,Marymount University,6,Selective private,VA,91800,47000,0.034363579
+515,Maryville College,6,Selective private,TN,84900,37700,0.012819733
+516,Maryville University Of Saint Louis,6,Selective private,MO,92900,44600,0.012820481
+517,Marywood University,6,Selective private,PA,80600,40500,0.0083087683
+518,Massachusetts College Of Liberal Arts,5,Selective public,MA,81400,36900,0.013480057
+519,Massachusetts Institute Of Technology,1,Ivy Plus,MA,141000,98500,0.033982009
+520,Massachusetts Maritime Academy,5,Selective public,MA,105300,84800,0.019935429
+521,Master's College & Seminary ,6,Selective private,CA,87700,30700,0.010637505
+522,Mayville State University,5,Selective public,ND,68300,40000,0.012299011
+523,McDaniel College,6,Selective private,MD,108100,52100,0.015907239
+524,McKendree University,6,Selective private,IL,79900,43500,0.004864566
+525,McMurry University,6,Selective private,TX,78000,39900,0.028226078
+526,McPherson College,6,Selective private,KS,70000,37200,0.034085538
+527,Mcneese State University,5,Selective public,LA,75800,36300,0.025569314
+528,Medaille College,6,Selective private,NY,72100,35700,0.021728449
+529,Mercer University,6,Selective private,GA,90000,46400,0.021415448
+530,Mercy College,6,Selective private,NY,50700,31100,0.035249505
+531,Mercyhurst University,6,Selective private,PA,87400,40900,0.0083564883
+532,Meredith College,6,Selective private,NC,107700,35500,0.012782317
+533,Merrimack College,6,Selective private,MA,109700,56700,0.0077797174
+534,Messiah College,6,Selective private,PA,97100,44100,0.011928859
+535,Methodist University,6,Selective private,NC,68600,39300,0.031531721
+536,Metropolitan State University Of Denver,5,Selective public,CO,87500,36500,0.0099023478
+537,Miami University,5,Selective public,OH,118800,50400,0.0077545019
+538,Michigan State University,5,Selective public,MI,120400,52600,0.013878376
+539,Michigan Technological University,5,Selective public,MI,98700,65900,0.017467972
+540,Midamerica Nazarene University,6,Selective private,KS,82900,33800,0.0075826203
+541,Middle Tennessee State University,5,Selective public,TN,89100,37100,0.011028236
+542,Middlebury College,2,Other elite schools (public and private),VT,219600,61800,0.012677005
+543,Midland University,6,Selective private,NE,73300,51500,0.0083030993
+544,Midwestern State University,5,Selective public,TX,70800,38000,0.020030687
+545,Millersville University Of Pennsylvania,5,Selective public,PA,93500,45400,0.0089512076
+546,Milligan College,6,Selective private,TN,85900,36700,0.0095936423
+547,Millikin University,6,Selective private,IL,96500,46500,0.011048079
+548,Mills College,6,Selective private,CA,79100,40200,0.032862529
+549,Millsaps College,6,Selective private,MS,110600,44600,0.017996125
+550,Milwaukee School Of Engineering,4,Highly selective private,WI,91700,72700,0.018848887
+551,"Minnesota State University System, Century And Various Other Minnesota Community Colleges",5,Selective public,MN,77500,36900,0.011335982
+552,Minot State University,5,Selective public,ND,64400,38000,0.020477919
+553,Misericordia  University,6,Selective private,PA,85000,50200,0.020134674
+554,Mississippi College,6,Selective private,MS,93400,43000,0.011761039
+555,Mississippi State University,5,Selective public,MS,90700,44100,0.017684894
+556,Mississippi University For Women,5,Selective public,MS,68500,31900,0.026654826
+557,Mississippi Valley State University,5,Selective public,MS,28800,24900,0.03947296
+558,Missouri Baptist University,6,Selective private,MO,85100,34600,0.0017413279
+559,Missouri Southern State University,5,Selective public,MO,63800,33200,0.017238347
+560,Missouri State University,5,Selective public,MO,87900,39800,0.011580038
+561,Missouri Valley College,6,Selective private,MO,63500,38100,0.012052591
+562,Missouri Western State University,5,Selective public,MO,68300,35100,0.015143937
+563,Mitchell College,6,Selective private,CT,98200,28500,0.0091045229
+564,Monmouth College,6,Selective private,IL,88100,41500,0.01511289
+565,Monmouth University,6,Selective private,NJ,110000,51900,0.020736568
+566,Montana State University - Billings,5,Selective public,MT,66000,31500,0.015617129
+567,Montana State University - Northern,5,Selective public,MT,56100,33600,0.036096528
+568,Montana State University Bozeman,5,Selective public,MT,84500,40400,0.014773595
+569,Montana Tech Of The University Of Montana,5,Selective public,MT,68300,46700,0.033390671
+570,Montclair State University,5,Selective public,NJ,86600,50000,0.031705961
+571,Moravian College,6,Selective private,PA,97100,56200,0.013847758
+572,Morehead State University,5,Selective public,KY,65700,33000,0.017078405
+573,Morehouse College,6,Selective private,GA,81800,49800,0.03098028
+574,Morningside College,6,Selective private,IA,67100,39400,0.018422524
+575,Mount Aloysius College,6,Selective private,PA,57700,40900,0.012886406
+576,Mount Holyoke College,4,Highly selective private,MA,108700,48900,0.025985811
+577,Mount Ida College,6,Selective private,MA,64900,30000,0.013384931
+578,Mount Marty College,6,Selective private,SD,67100,35000,0.015407146
+579,Mount Mary University,6,Selective private,WI,80800,34300,0.011010212
+580,Mount Mercy University,6,Selective private,IA,76500,43600,0.015141819
+581,Mount Saint Mary College,6,Selective private,NY,91700,47100,0.03293195
+582,Mount Saint Mary's University,6,Selective private,MD,111700,52500,0.0097342851
+583,Mount St. Mary's College,6,Selective private,CA,48500,44900,0.063886866
+584,Mount Vernon Nazarene University,6,Selective private,OH,77200,34800,0.0080199577
+585,Muhlenberg College,4,Highly selective private,PA,150300,60100,0.010286807
+586,Murray State University,5,Selective public,KY,79800,36100,0.014342665
+587,Muskingum University,6,Selective private,OH,83100,41800,0.0093349544
+588,Nazareth College Of Rochester,6,Selective private,NY,100500,45400,0.0067328531
+589,Nebraska Wesleyan University,6,Selective private,NE,88200,49000,0.006083061
+590,Neumann University,6,Selective private,PA,85200,40800,0.013220158
+591,New England College,6,Selective private,NH,94400,36600,0.008709291
+592,New Jersey City University,5,Selective public,NJ,51600,41200,0.053184673
+593,New Jersey Institute Of Technology,5,Selective public,NJ,84000,71600,0.064678028
+594,New Mexico Highlands University,5,Selective public,NM,48500,33600,0.03087878
+595,New Mexico Institute Of Mining & Technology,3,Highly selective public,NM,91800,55000,0.039902415
+596,New Mexico State University,5,Selective public,NM,59300,33500,0.031813055
+597,New York City College Of Technology Of The City University Of New,5,Selective public,NY,33500,37000,0.083340757
+598,New York Institute Of Technology,6,Selective private,NY,78500,49900,0.054028045
+599,New York University,2,Other elite schools (public and private),NY,130500,58100,0.036272708
+600,Newberry College,6,Selective private,SC,80400,37100,0.00889559
+601,Newman University,6,Selective private,KS,91400,45700,0.0034396648
+602,Niagara University,6,Selective private,NY,92300,46500,0.0149982
+603,Nicholls State University,5,Selective public,LA,69800,38900,0.028574781
+604,Nichols College,6,Selective private,MA,95300,56800,0.023336964
+605,Norfolk State University,5,Selective public,VA,48000,34400,0.034440201
+606,North Carolina Agricultural & Technical State University,5,Selective public,NC,52600,34300,0.027148971
+607,North Carolina Central University,5,Selective public,NC,45600,32300,0.028412145
+608,North Carolina State University,5,Selective public,NC,111400,52300,0.013513586
+609,North Carolina Wesleyan College,6,Selective private,NC,63100,34100,0.01446971
+610,North Central College,6,Selective private,IL,103700,48800,0.01095138
+611,North Central University,6,Selective private,MN,74000,28700,0.0083867377
+612,North Dakota State University - Main Campus - Fargo,5,Selective public,ND,81900,50600,0.016936833
+613,North Park University,6,Selective private,IL,87200,40200,0.017052133
+614,Northeastern Illinois University,5,Selective public,IL,53300,34900,0.031765535
+615,Northeastern State University,5,Selective public,OK,62100,33800,0.02204542
+616,Northeastern University,4,Highly selective private,MA,108300,61800,0.024375604
+617,Northern Illinois University,5,Selective public,IL,97700,48000,0.016347265
+618,Northern Kentucky University,5,Selective public,KY,86400,36900,0.0093852589
+619,Northern Michigan University,5,Selective public,MI,81000,35800,0.013368618
+620,Northland College,6,Selective private,WI,74600,31000,0.0056189671
+621,Northwest Missouri State University,5,Selective public,MO,80900,41500,0.0095001664
+622,Northwest Nazarene University,6,Selective private,ID,83800,34300,0.013963337
+623,Northwest University,6,Selective private,WA,80400,38000,0.01429916
+624,"Northwestern College of Orange City, IA",6,Selective private,IA,75300,38900,0.011893411
+625,Northwestern Oklahoma State University,5,Selective public,OK,61400,35500,0.018086972
+626,Northwestern State University,5,Selective public,LA,57700,32900,0.02783468
+627,Northwestern University,2,Other elite schools (public and private),IL,168500,72600,0.016942441
+628,Northwood University,6,Selective private,MI,86000,45400,0.023574322
+629,Norwich University,6,Selective private,VT,88200,54600,0.027689336
+630,Notre Dame Of Maryland University,6,Selective private,MD,81100,45900,0.022400821
+631,Nova Southeastern University,6,Selective private,FL,64000,43500,0.032588042
+632,Nyack College,6,Selective private,NY,58400,31000,0.037367687
+633,Oakland City University,6,Selective private,IN,60300,27500,0.0033326682
+634,Oakland University,5,Selective public,MI,110600,43600,0.011023696
+635,Oberlin College,2,Other elite schools (public and private),OH,127100,38900,0.012481108
+636,Occidental College,2,Other elite schools (public and private),CA,122400,49000,0.033389218
+637,Oglethorpe University,6,Selective private,GA,98600,42700,0.023360895
+638,Ohio Dominican University,6,Selective private,OH,73700,37100,0.011736508
+639,Ohio Northern University,6,Selective private,OH,91300,63200,0.015782932
+640,Ohio University,5,Selective public,OH,90900,42000,0.0077718832
+641,Ohio Wesleyan University,6,Selective private,OH,103000,46500,0.017458169
+642,Oklahoma Baptist University,6,Selective private,OK,91700,39500,0.0067705675
+643,Oklahoma Christian University,6,Selective private,OK,88100,36100,0.012590239
+644,Oklahoma City University,6,Selective private,OK,101700,39600,0.014778396
+645,Oklahoma Panhandle State University,5,Selective public,OK,56900,33600,0.025308723
+646,Oklahoma State University,5,Selective public,OK,90000,45800,0.020010026
+647,Old Dominion University,5,Selective public,VA,82400,44300,0.023708621
+648,Olivet College,6,Selective private,MI,66600,34700,0.012264696
+649,Olivet Nazarene University,6,Selective private,IL,81400,35800,0.012181556
+650,Oral Roberts University,6,Selective private,OK,76600,32700,0.01434755
+651,Oregon Institute Of Technology,5,Selective public,OR,76400,51900,0.035221688
+652,Oregon State University,5,Selective public,OR,100600,50000,0.016455978
+653,Otterbein University,6,Selective private,OH,88100,42300,0.012216149
+654,Ouachita Baptist University,6,Selective private,AR,88300,40000,0.023570523
+655,Our Lady Of Holy Cross College,6,Selective private,LA,88400,36600,0.018520266
+656,Our Lady Of The Lake University,6,Selective private,TX,46000,38800,0.036030967
+657,Pace University,6,Selective private,NY,68600,60700,0.084326468
+658,Pacific Lutheran University,6,Selective private,WA,100900,47900,0.0094195455
+659,Pacific Union College,6,Selective private,CA,96400,50700,0.027723918
+660,Pacific University,6,Selective private,OR,92700,47500,0.01356675
+661,Paine College,6,Selective private,GA,36800,34100,0.020358527
+662,Palm Beach Atlantic University,6,Selective private,FL,92200,36000,0.015135125
+663,Park University,6,Selective private,MO,65300,43600,0.038710412
+664,Pennsylvania College Of Technology,5,Selective public,PA,73400,40800,0.016200243
+665,Pennsylvania State University ,5,Selective public,PA,95400,50900,0.017627658
+666,Pepperdine University,4,Highly selective private,CA,124100,55800,0.018597502
+667,Peru State College,5,Selective public,NE,64600,36000,0.012720671
+668,Pfeiffer University,6,Selective private,NC,83600,40200,0.015698779
+669,Philadelphia University,6,Selective private,PA,99600,49900,0.020442298
+670,Philander Smith College,6,Selective private,AR,32000,23500,0.0099397274
+671,Piedmont College,6,Selective private,GA,81400,36000,0.0070336601
+672,Pittsburg State University,5,Selective public,KS,75300,40900,0.015296591
+673,Pitzer College,4,Highly selective private,CA,131900,43500,0.022146214
+674,Plymouth State University Of The University System Of New Hampshire,5,Selective public,NH,94200,41000,0.010567838
+675,Point Loma Nazarene University,6,Selective private,CA,113300,45900,0.014089341
+676,Point Park University,6,Selective private,PA,79200,32800,0.015400576
+677,Pomona College,2,Other elite schools (public and private),CA,161600,62000,0.019502569
+678,Portland State University,5,Selective public,OR,86900,37200,0.020111205
+679,Prairie View Agricultural & Mechanical University,5,Selective public,TX,45500,34800,0.034532607
+680,Presbyterian College,6,Selective private,SC,118100,43900,0.011835594
+681,Princeton University,1,Ivy Plus,NJ,218100,90700,0.013457949
+682,Providence College,4,Highly selective private,RI,139300,66300,0.0093238577
+683,Purdue University,5,Selective public,IN,103200,48800,0.010032993
+684,Queens University Of Charlotte,6,Selective private,NC,99700,38300,0.026364388
+685,Quincy University,6,Selective private,IL,84000,39600,0.010007878
+686,Quinnipiac University,4,Highly selective private,CT,127000,60000,0.0090074828
+687,Radford University,5,Selective public,VA,101700,43500,0.0096741868
+688,Ramapo College Of New Jersey,3,Highly selective public,NJ,106400,49600,0.025084743
+689,Randolph - Macon College,6,Selective private,VA,121700,51200,0.0064757913
+690,Randolph College,6,Selective private,VA,107300,37400,0.0099733053
+691,Reed College,2,Other elite schools (public and private),OR,121900,36900,0.011408932
+692,Regis College,6,Selective private,MA,86900,45200,0.023588927
+693,Regis University,6,Selective private,CO,121400,47600,0.015786842
+694,Reinhardt University,6,Selective private,GA,101500,31100,0.012624418
+695,Rensselaer Polytechnic Institute,2,Other elite schools (public and private),NY,114200,84100,0.030490816
+696,Rhode Island College,5,Selective public,RI,82700,41300,0.014993242
+697,Rhodes College,4,Highly selective private,TN,164400,52000,0.012574136
+698,Rice University,2,Other elite schools (public and private),TX,149200,76700,0.01603426
+699,Richard Stockton College Of New Jersey ,5,Selective public,NJ,92700,48600,0.018967113
+700,Rider University,6,Selective private,NJ,102100,51600,0.021870352
+701,Ripon College,6,Selective private,WI,92100,45600,0.015475043
+702,Roanoke College,6,Selective private,VA,111800,46300,0.010248341
+703,Robert Morris University,6,Selective private,PA,83600,48300,0.025243485
+704,Roberts Wesleyan College,6,Selective private,NY,72600,34600,0.0084154233
+705,Rochester Institute Of Technology,6,Selective private,NY,95700,62400,0.03271028
+706,Rockford University,6,Selective private,IL,83500,43400,0.016759682
+707,Rockhurst University,6,Selective private,MO,107300,48400,0.016252588
+708,Rocky Mountain College,6,Selective private,MT,72600,38800,0.035964228
+709,Roger Williams University,6,Selective private,RI,111600,50800,0.01064077
+710,Rollins College,4,Highly selective private,FL,120800,42800,0.0128005
+711,Roosevelt University,6,Selective private,IL,73500,37000,0.031764559
+712,Rose - Hulman Institute Of Technology,2,Other elite schools (public and private),IN,109500,83600,0.022180673
+713,Rowan University,5,Selective public,NJ,102400,51200,0.018180341
+714,Rust College,6,Selective private,MS,33000,22500,0.023471
+715,"Rutgers, The State University Of New Jersey",3,Highly selective public,NJ,101000,58400,0.037468784
+716,SUNY At Fredonia,5,Selective public,NY,94300,44000,0.01159788
+717,SUNY College At Brockport,5,Selective public,NY,86800,43500,0.016267536
+718,SUNY College At Buffalo,5,Selective public,NY,77700,38400,0.018443212
+719,SUNY College At Cortland,5,Selective public,NY,94500,50600,0.017234307
+720,SUNY College At Geneseo,3,Highly selective public,NY,107400,51500,0.017466716
+721,SUNY College At Old Westbury,5,Selective public,NY,48400,39200,0.050406143
+722,SUNY College At Oneonta,5,Selective public,NY,92700,45900,0.018011078
+723,SUNY College At Oswego,5,Selective public,NY,85900,45200,0.017234406
+724,SUNY College At Purchase,5,Selective public,NY,103100,36200,0.018390216
+725,SUNY College Of Agriculture & Technology At Cobleskill,5,Selective public,NY,71700,34200,0.013682729
+726,SUNY College Of Technology At Alfred,5,Selective public,NY,66700,38400,0.020553736
+727,SUNY Maritime College,5,Selective public,NY,103800,90500,0.022504309
+728,SUNY Upstate Medical University And SUNY College Of Environment Science And Forestry,5,Selective public,NY,89900,49700,0.018566083
+729,Sacred Heart University,6,Selective private,CT,114500,57300,0.019537028
+730,Sage Colleges,6,Selective private,NY,77900,35300,0.020342322
+731,Saginaw Valley State University,5,Selective public,MI,86500,40000,0.012916086
+732,Saint Ambrose University,6,Selective private,IA,99200,48500,0.0077696261
+733,Saint Anselm College,6,Selective private,NH,109700,59000,0.009693183
+734,Saint Augustine's University,6,Selective private,NC,38800,26800,0.017899884
+735,Saint Francis College,6,Selective private,NY,70500,53000,0.06619294
+736,Saint Francis University,6,Selective private,PA,80200,51300,0.022233896
+737,Saint John Fisher College,6,Selective private,NY,88200,46500,0.019023929
+738,"Saint John's University of Collegeville, MN",6,Selective private,MN,114300,66600,0.010258666
+739,"Saint John's University of Queens, NY",6,Selective private,NY,69200,58900,0.067959361
+740,"Saint Joseph's College of Brooklyn, NY",6,Selective private,NY,96700,61200,0.024691625
+741,"Saint Joseph's College of Rensselaer, IN",6,Selective private,IN,94000,43200,0.0064639198
+742,"Saint Joseph's College of Standish, ME",6,Selective private,ME,77000,38000,0.0076229805
+743,Saint Joseph's University,6,Selective private,PA,144500,62400,0.011201222
+744,Saint Leo University,6,Selective private,FL,57300,38000,0.036343481
+745,Saint Louis University,6,Selective private,MO,119700,57100,0.01333356
+746,Saint Martin's University,6,Selective private,WA,82100,49100,0.030191984
+747,Saint Mary's College,6,Selective private,IN,130600,43100,0.00621336
+748,Saint Mary's College Of California,6,Selective private,CA,110500,55200,0.029426431
+749,Saint Mary's University,6,Selective private,TX,76700,49700,0.051140383
+750,Saint Mary's University Of Minnesota,6,Selective private,MN,105900,45100,0.0076889568
+751,Saint Michael's College,6,Selective private,VT,119100,49500,0.0082741333
+752,Saint Norbert College,6,Selective private,WI,106700,47100,0.0053353836
+753,Saint Olaf College,4,Highly selective private,MN,124700,48600,0.0077091283
+754,Saint Peter's University,6,Selective private,NJ,59700,45500,0.054974649
+755,Saint Thomas University,6,Selective private,FL,37500,35300,0.045534585
+756,Saint Vincent College & Seminary,6,Selective private,PA,90200,47600,0.013035415
+757,Saint Xavier University,6,Selective private,IL,82800,44500,0.027966641
+758,Salem College,6,Selective private,NC,84200,32500,0.0084808581
+759,Salem State University,5,Selective public,MA,87100,42400,0.01932558
+760,Salve Regina University,6,Selective private,RI,117500,49700,0.01680178
+761,Sam Houston State University,5,Selective public,TX,84000,43000,0.020554697
+762,Samford University,6,Selective private,AL,131000,40800,0.0071679298
+763,San Diego State University,5,Selective public,CA,100500,51000,0.036618356
+764,San Francisco State University,5,Selective public,CA,87200,45800,0.034955118
+765,San Jose State University,5,Selective public,CA,91700,56500,0.054279134
+766,Santa Clara University,4,Highly selective private,CA,149900,72500,0.022468021
+767,Sarah Lawrence College,4,Highly selective private,NY,146500,34300,0.012169213
+768,Savannah State University,5,Selective public,GA,45400,29400,0.040362801
+769,Schreiner University,6,Selective private,TX,82300,39600,0.0082969181
+770,Scripps College,2,Other elite schools (public and private),CA,126300,46400,0.025185836
+771,Seattle Pacific University,6,Selective private,WA,104200,39100,0.013475233
+772,Seattle University,6,Selective private,WA,105700,55400,0.019009631
+773,Seton Hall University,6,Selective private,NJ,100900,56900,0.03183965
+774,Seton Hill University,6,Selective private,PA,62900,33800,0.013039657
+775,Shaw University,6,Selective private,NC,37800,24200,0.0286758
+776,Shawnee State University,5,Selective public,OH,61800,35300,0.016727358
+777,Shenandoah University,6,Selective private,VA,100000,41200,0.010993632
+778,Shepherd University,5,Selective public,WV,83400,37900,0.011038137
+779,Shippensburg University Of Pennsylvania,5,Selective public,PA,93000,47500,0.013792257
+780,Shorter University,6,Selective private,GA,84000,37400,0.01425923
+781,Siena College,6,Selective private,NY,116800,61100,0.01330429
+782,Siena Heights University,6,Selective private,MI,87000,37100,0.0081289317
+783,Simmons College,6,Selective private,MA,89800,50900,0.023206858
+784,Simpson College,6,Selective private,IA,80800,48800,0.012289778
+785,Simpson University,6,Selective private,CA,72700,27800,0.016695656
+786,Skidmore College,4,Highly selective private,NY,175400,47500,0.019758493
+787,Slippery Rock University,5,Selective public,PA,79200,40600,0.010988096
+788,Smith College,4,Highly selective private,MA,114900,46600,0.018842867
+789,Sonoma State University,5,Selective public,CA,113700,46400,0.017271277
+790,South Carolina State University,5,Selective public,SC,42000,33500,0.027923875
+791,Southeast Missouri State University,5,Selective public,MO,85200,38500,0.0095555121
+792,Southeastern Louisiana University,5,Selective public,LA,72700,34000,0.018495673
+793,Southeastern Oklahoma State University,5,Selective public,OK,58700,34100,0.03238241
+794,Southeastern University,6,Selective private,FL,67000,33400,0.016231846
+795,Southern Adventist University,6,Selective private,TN,80500,42700,0.024383549
+796,Southern Arkansas University,5,Selective public,AR,60500,35300,0.029371753
+797,Southern Connecticut State University,5,Selective public,CT,91300,43400,0.014568358
+798,Southern Illinois University At Carbondale,5,Selective public,IL,87300,42000,0.01311865
+799,Southern Illinois University Edwardsville,5,Selective public,IL,87400,41400,0.012956618
+800,Southern Methodist University,4,Highly selective private,TX,176400,55400,0.017678505
+801,Southern Nazarene University,6,Selective private,OK,83000,41500,0.010273316
+802,Southern New Hampshire University,6,Selective private,NH,85800,42700,0.01440589
+803,Southern Oregon University,5,Selective public,OR,84400,34400,0.016108815
+804,Southern Polytechnic State University,5,Selective public,GA,92400,54800,0.022838436
+805,Southern University And Agricultural & Mechanical Colg At Baton R,5,Selective public,LA,38600,34200,0.043384399
+806,Southern University At New Orleans,5,Selective public,LA,32100,27300,0.035815127
+807,Southern Utah University,5,Selective public,UT,81700,28700,0.0096598687
+808,Southern Wesleyan University,6,Selective private,SC,70600,33700,0.007896171
+809,Southwest Baptist University,6,Selective private,MO,72000,31500,0.010602326
+810,Southwestern Adventist University,6,Selective private,TX,66100,37100,0.022882435
+811,Southwestern College,6,Selective private,KS,71300,42600,0.027011991
+812,Southwestern Oklahoma State University,5,Selective public,OK,61700,37300,0.028698593
+813,Southwestern University,4,Highly selective private,TX,130600,50000,0.0076792287
+814,Spelman College,6,Selective private,GA,84500,49800,0.032888282
+815,Spring Arbor University,6,Selective private,MI,81800,35500,0.0091817053
+816,Spring Hill College,6,Selective private,AL,107000,45100,0.025963189
+817,Springfield College,6,Selective private,MA,105300,55500,0.0061457339
+818,St. Bonaventure University,6,Selective private,NY,103300,52000,0.0066686086
+819,St. Catherine University,6,Selective private,MN,84800,41500,0.020494115
+820,St. Edward's University,6,Selective private,TX,101100,42600,0.026569691
+821,St. John's College,4,Highly selective private,MD,110900,34500,0.016536757
+822,St. Lawrence University,4,Highly selective private,NY,108400,49400,0.020602625
+823,Stanford University,1,Ivy Plus,CA,172600,84800,0.022457635
+824,State University Of New York At Albany,5,Selective public,NY,98000,56300,0.036183577
+825,State University Of New York At Buffalo,5,Selective public,NY,95300,52700,0.034704667
+826,State University Of New York At Farmingdale,5,Selective public,NY,85600,44200,0.025317978
+827,State University Of New York At New Paltz,5,Selective public,NY,91900,46300,0.036890224
+828,State University Of New York At Stony Brook,3,Highly selective public,NY,73600,60100,0.084127478
+829,State University Of New York College At Plattsburgh,5,Selective public,NY,91400,44600,0.02040836
+830,State University Of New York College At Potsdam,5,Selective public,NY,83800,39400,0.012028201
+831,State University Of New York Institute Of Technology At Utica,5,Selective public,NY,78000,51300,0.024750035
+832,Stephen F Austin State University,5,Selective public,TX,89300,41900,0.019608129
+833,Stephens College,6,Selective private,MO,94500,32900,0.0071728989
+834,Sterling College,6,Selective private,KS,71600,35000,0.008410993
+835,Stetson University,6,Selective private,FL,98300,44500,0.026462711
+836,Stevens Institute Of Technology,4,Highly selective private,NJ,96000,92100,0.042902324
+837,Stevenson University,6,Selective private,MD,99000,55200,0.01626686
+838,Stillman College,6,Selective private,AL,37200,29600,0.01406983
+839,Stonehill College,6,Selective private,MA,123800,64500,0.006295267
+840,Suffolk University,6,Selective private,MA,88100,47600,0.02682866
+841,Sul Ross State University,5,Selective public,TX,45000,37100,0.052495364
+842,Susquehanna University,6,Selective private,PA,113300,52900,0.007308871
+843,Swarthmore College,2,Other elite schools (public and private),PA,135900,56700,0.022861147
+844,Sweet Briar College,6,Selective private,VA,109900,39000,0.0080719553
+845,Syracuse University,4,Highly selective private,NY,119700,61100,0.029369734
+846,Tabor College,6,Selective private,KS,74000,32800,0.021576794
+847,Tarleton State University,5,Selective public,TX,75900,41000,0.020677008
+848,Taylor University,6,Selective private,IN,102100,34200,0.010390258
+849,Temple University,5,Selective public,PA,82700,46700,0.033044096
+850,Tennessee State University,5,Selective public,TN,52600,36200,0.029438972
+851,Tennessee Technological University,5,Selective public,TN,78400,39700,0.023016704
+852,Tennessee Wesleyan College,6,Selective private,TN,71800,36300,0.0098634427
+853,Texas A&M University,3,Highly selective public,TX,119400,59400,0.014348201
+854,Texas A&M University - Commerce,5,Selective public,TX,72800,38000,0.019332644
+855,Texas A&M University - Corpus Christi,5,Selective public,TX,81700,43400,0.022967625
+856,Texas A&M University - Kingsville,5,Selective public,TX,47700,39800,0.05293503
+857,Texas Christian University,4,Highly selective private,TX,142700,52200,0.010120558
+858,Texas Lutheran University,6,Selective private,TX,92800,47600,0.024114691
+859,Texas Southern University,5,Selective public,TX,36300,27700,0.034088165
+860,Texas State University,5,Selective public,TX,100900,44000,0.014921669
+861,Texas Tech University,5,Selective public,TX,110300,48800,0.015510181
+862,Texas Wesleyan University,6,Selective private,TX,62800,42000,0.013073719
+863,Texas Woman's University,5,Selective public,TX,82600,40200,0.025340879
+864,Thiel College,6,Selective private,PA,69500,36300,0.019863466
+865,Thomas College,6,Selective private,ME,60700,38000,0.02988348
+866,Thomas More College,6,Selective private,KY,89700,45600,0.011097357
+867,Tiffin University,6,Selective private,OH,75400,38400,0.0054639587
+868,Transylvania University,6,Selective private,KY,98300,45200,0.015476429
+869,Trevecca Nazarene University,6,Selective private,TN,79400,34000,0.0042032902
+870,Trine University,6,Selective private,IN,83700,50800,0.019929627
+871,Trinity Christian College,6,Selective private,IL,92700,37800,0.011040245
+872,"Trinity College of Hartford, CT",4,Highly selective private,CT,198000,67300,0.019886125
+873,Trinity International University,6,Selective private,IL,86400,33700,0.0060571944
+874,Trinity University,4,Highly selective private,TX,153200,58100,0.011731648
+875,"Troy University And Troy State Universities, Montgomery And Dothan",5,Selective public,AL,64400,35800,0.023605941
+876,Truman State University,5,Selective public,MO,104700,46400,0.007500594
+877,Tufts University,2,Other elite schools (public and private),MA,187900,73100,0.021266045
+878,Tusculum College,6,Selective private,TN,67600,37100,0.0066619669
+879,Tuskegee University,6,Selective private,AL,54400,38900,0.052321043
+880,"Union College of Barbourville, KY",6,Selective private,KY,56400,36900,0.042775631
+881,"Union College of Schenectady, NY",4,Highly selective private,NY,134700,66600,0.019334517
+882,Union University,6,Selective private,TN,89300,38900,0.019848457
+883,University Of Akron ,5,Selective public,OH,74300,35700,0.012058979
+884,University Of Alabama,5,Selective public,AL,106100,44300,0.016160509
+885,University Of Alabama At Birmingham,5,Selective public,AL,74600,38100,0.018933684
+886,University Of Alabama In Huntsville,5,Selective public,AL,91300,45800,0.023543155
+887,University Of Alaska System,5,Selective public,AK,85000,35300,0.015362619
+888,University Of Arkansas,5,Selective public,AR,93400,45800,0.023464656
+889,University Of Arkansas At Little Rock,5,Selective public,AR,62900,30900,0.020554366
+890,University Of Arkansas At Monticello,5,Selective public,AR,58800,31400,0.026918091
+891,University Of Arkansas At Pine Bluff,5,Selective public,AR,35400,28200,0.028306451
+892,University Of Bridgeport,6,Selective private,CT,56600,31900,0.028920719
+893,"University Of California, Berkeley",3,Highly selective public,CA,114700,67900,0.048850957
+894,"University Of California, Davis",5,Selective public,CA,109400,61600,0.044437986
+895,"University Of California, Irvine",3,Highly selective public,CA,92100,60400,0.067682147
+896,"University Of California, Los Angeles",2,Other elite schools (public and private),CA,105500,65800,0.055962522
+897,"University Of California, Riverside",5,Selective public,CA,75000,52800,0.060172301
+898,"University Of California, San Diego",3,Highly selective public,CA,111300,65300,0.048327465
+899,"University Of California, Santa Barbara",3,Highly selective public,CA,124000,58800,0.030754454
+900,"University Of California, Santa Cruz",5,Selective public,CA,115400,46100,0.027699087
+901,University Of Central Arkansas,5,Selective public,AR,77200,38800,0.021545719
+902,University Of Central Florida,5,Selective public,FL,91200,46000,0.025976531
+903,University Of Central Missouri,5,Selective public,MO,83800,38900,0.0084636854
+904,University Of Central Oklahoma,5,Selective public,OK,77500,37800,0.01706117
+905,University Of Charleston,6,Selective private,WV,77700,38000,0.012052436
+906,University Of Chicago ,1,Ivy Plus,IL,132000,61700,0.019408904
+907,University Of Cincinnati,5,Selective public,OH,85200,39100,0.01036342
+908,University Of Colorado System,5,Selective public,CO,128200,48300,0.012256199
+909,University Of Connecticut,3,Highly selective public,CT,110300,56700,0.017135376
+910,University Of Dallas,6,Selective private,TX,116700,44200,0.01315752
+911,University Of Dayton,6,Selective private,OH,128400,57300,0.0064703356
+912,University Of Delaware,5,Selective public,DE,131400,57700,0.0087063462
+913,University Of Denver,6,Selective private,CO,152000,51200,0.014104524
+914,University Of Detroit Mercy,6,Selective private,MI,85200,45600,0.018596377
+915,University Of Evansville,6,Selective private,IN,96700,41600,0.011167428
+916,University Of Findlay ,6,Selective private,OH,81800,39900,0.0098107625
+917,University Of Florida,3,Highly selective public,FL,106100,56700,0.026087113
+918,University Of Georgia,3,Highly selective public,GA,127400,49900,0.01061404
+919,University Of Hartford,6,Selective private,CT,106300,47400,0.013198072
+920,University Of Hawaii And Hawaii Community Colleges,5,Selective public,HI,75200,35600,0.017558586
+921,University Of Houston System,5,Selective public,TX,65700,45400,0.049141705
+922,University Of Idaho,5,Selective public,ID,86600,41300,0.015251331
+923,University Of Illinois System,3,Highly selective public,IL,109000,59700,0.021192649
+924,University Of Indianapolis,6,Selective private,IN,86100,40600,0.0096931811
+925,University Of Iowa,5,Selective public,IA,114700,52600,0.010060681
+926,University Of Kansas,5,Selective public,KS,116600,47300,0.0095507437
+927,University Of Kentucky,5,Selective public,KY,98800,40100,0.0095957257
+928,University Of La Verne,6,Selective private,CA,72300,48600,0.036298785
+929,University Of Louisiana At Lafayette,5,Selective public,LA,75800,39200,0.027127836
+930,University Of Louisiana At Monroe,5,Selective public,LA,59700,35000,0.036614422
+931,University Of Louisville,5,Selective public,KY,87400,39800,0.012302854
+932,University Of Maine System,5,Selective public,ME,72600,34300,0.013956944
+933,University Of Mary,6,Selective private,ND,79700,49800,0.024269696
+934,University Of Mary Hardin-Baylor,6,Selective private,TX,83700,40100,0.019624859
+935,University Of Mary Washington,5,Selective public,VA,133800,50000,0.0076948632
+936,University Of Maryland System (Except University College) And Baltimore City Community College,3,Highly selective public,MD,102800,53500,0.022417931
+937,University Of Massachusetts System,5,Selective public,MA,100000,51700,0.020928269
+938,University Of Memphis ,5,Selective public,TN,83000,36100,0.012482209
+939,University Of Miami,2,Other elite schools (public and private),FL,110100,54800,0.029765638
+940,University Of Michigan - Ann Arbor,3,Highly selective public,MI,156100,68700,0.015084569
+941,University Of Michigan - Dearborn,5,Selective public,MI,105200,50200,0.023838041
+942,University Of Michigan - Flint,5,Selective public,MI,94500,38700,0.01624147
+943,University Of Minnesota System,3,Highly selective public,MN,101600,48800,0.011697055
+944,University Of Mississippi,5,Selective public,MS,109100,43300,0.016521731
+945,University Of Missouri System And Missouri University Of Science And Technology,5,Selective public,MO,103000,48800,0.011646654
+946,University Of Mobile,6,Selective private,AL,77600,31300,0.01024286
+947,University Of Montana ,5,Selective public,MT,82400,34600,0.013028888
+948,University Of Montana Western ,5,Selective public,MT,59700,32200,0.018436743
+949,University Of Montevallo,5,Selective public,AL,87700,34900,0.010199877
+950,University Of Mount Olive,6,Selective private,NC,57100,38100,0.012975934
+951,University Of Mount Union,6,Selective private,OH,83400,44100,0.011336589
+952,University Of Nebraska System,5,Selective public,NE,89400,45200,0.012720068
+953,"University Of Nevada , Reno",5,Selective public,NV,103500,45900,0.011658425
+954,University Of Nevada - Las Vegas,5,Selective public,NV,90400,41500,0.018881215
+955,University Of New England,6,Selective private,ME,89600,48100,0.010725766
+956,University Of New Hampshire,5,Selective public,NH,109900,49100,0.011960809
+957,University Of New Haven,6,Selective private,CT,84900,49800,0.018366631
+958,University Of New Mexico,5,Selective public,NM,73900,34900,0.020363495
+959,University Of New Orleans ,5,Selective public,LA,66400,36500,0.030657338
+960,University Of North Alabama,5,Selective public,AL,80300,36000,0.014887502
+961,University Of North Carolina  Asheville,5,Selective public,NC,90600,36500,0.0070221387
+962,University Of North Carolina - Chapel Hill,2,Other elite schools (public and private),NC,129500,54200,0.011518728
+963,University Of North Carolina - Charlotte,5,Selective public,NC,92300,42700,0.01638039
+964,University Of North Carolina - Greensboro,5,Selective public,NC,88700,36800,0.012650148
+965,University Of North Carolina At Pembroke,5,Selective public,NC,63600,33100,0.019961538
+966,University Of North Carolina At Wilmington ,5,Selective public,NC,106500,41700,0.0071167783
+967,University Of North Dakota,5,Selective public,ND,90000,49400,0.015714563
+968,University Of North Florida,5,Selective public,FL,88900,42400,0.016936943
+969,University Of North Georgia,5,Selective public,GA,96300,40700,0.012176153
+970,University Of North Texas,5,Selective public,TX,98700,42000,0.014619863
+971,University Of Northern Colorado,5,Selective public,CO,99000,40900,0.010328252
+972,University Of Northern Iowa,5,Selective public,IA,88700,45800,0.01121862
+973,University Of Northwestern- St Paul,6,Selective private,MN,79700,32800,0.010495855
+974,University Of Notre Dame,2,Other elite schools (public and private),IN,165400,78800,0.0089727286
+975,University Of Oklahoma,5,Selective public,OK,98500,47200,0.019244652
+976,University Of Oregon,5,Selective public,OR,108700,43700,0.014200409
+977,University Of Pennsylvania,1,Ivy Plus,PA,175300,91800,0.020525046
+978,University Of Pikeville,6,Selective private,KY,57400,32000,0.015828652
+979,University Of Pittsburgh System,3,Highly selective public,PA,91200,48900,0.01799047
+980,University Of Portland,6,Selective private,OR,117600,56100,0.0092387525
+981,University Of Puget Sound,4,Highly selective private,WA,129700,51400,0.0073641879
+982,University Of Redlands,6,Selective private,CA,108400,47700,0.017173236
+983,University Of Rhode Island,5,Selective public,RI,105900,53400,0.015883412
+984,University Of Richmond,2,Other elite schools (public and private),VA,180600,69600,0.0064246743
+985,University Of Rio Grande,6,Selective private,OH,60300,27900,0.012656126
+986,University Of Rochester,2,Other elite schools (public and private),NY,129200,62000,0.030212082
+987,"University Of Saint Francis of Fort Wayne, IN",6,Selective private,IN,83700,38600,0.0084346281
+988,"University Of Saint Francis of Joliet, IL",6,Selective private,IL,91600,48500,0.013452135
+989,University Of Saint Joseph,6,Selective private,CT,86600,45800,0.030457607
+990,"University Of Saint Thomas of Houston, TX",6,Selective private,TX,90600,48600,0.028413193
+991,"University Of Saint Thomas of Saint Paul, MN",6,Selective private,MN,122900,57400,0.0097989738
+992,University Of San Diego,4,Highly selective private,CA,139300,61200,0.023036603
+993,University Of San Francisco,6,Selective private,CA,106900,56900,0.027077734
+994,University Of Science & Arts Of Oklahoma,5,Selective public,OK,59400,28400,0.020168917
+995,University Of Scranton,6,Selective private,PA,120200,60000,0.015549001
+996,University Of Sioux Falls,6,Selective private,SD,78600,42600,0.014573715
+997,University Of South Alabama,5,Selective public,AL,76700,36700,0.019542847
+998,University Of South Carolina System,5,Selective public,SC,85400,39600,0.016827494
+999,"University Of South Dakota, South Dakota State Universities And South Dakota School Of Mines And Technology",5,Selective public,SD,71600,39600,0.016158605
+1000,University Of South Florida,5,Selective public,FL,80500,42400,0.027492894
+1001,University Of Southern California,2,Other elite schools (public and private),CA,120100,63700,0.039329737
+1002,University Of Southern Indiana,5,Selective public,IN,83700,35400,0.006327522
+1003,University Of Southern Mississippi,5,Selective public,MS,76700,37200,0.021440152
+1004,University Of Tampa ,6,Selective private,FL,92900,44700,0.026373705
+1005,University Of Tennessee System,5,Selective public,TN,99200,42000,0.012680815
+1006,University Of Texas - Pan American,5,Selective public,TX,31700,39300,0.076487988
+1007,University Of Texas At Arlington,5,Selective public,TX,83600,46500,0.025995217
+1008,University Of Texas At Austin,3,Highly selective public,TX,125100,57900,0.022225698
+1009,University Of Texas At Dallas,3,Highly selective public,TX,100800,57100,0.024302004
+1010,University Of Texas At El Paso,5,Selective public,TX,42400,38400,0.06820751
+1011,University Of Texas At San Antonio,5,Selective public,TX,74300,43000,0.029185917
+1012,University Of The Cumberlands,6,Selective private,KY,67000,36000,0.023227936
+1013,University Of The District Of Columbia,5,Selective public,DC,40000,30100,0.03778879
+1014,University Of The Incarnate Word,6,Selective private,TX,69900,40200,0.028314995
+1015,University Of The Ozarks,6,Selective private,AR,72600,40300,0.0093466211
+1016,University Of The Pacific,6,Selective private,CA,96500,59000,0.04254083
+1017,University Of The Sciences In Philadelphia,6,Selective private,PA,95300,102700,0.033514135
+1018,University Of The South ,4,Highly selective private,TN,174200,46600,0.011153774
+1019,University Of Toledo,5,Selective public,OH,85200,41400,0.011262643
+1020,University Of Tulsa ,4,Highly selective private,OK,93600,46400,0.011506592
+1021,University Of Utah,5,Selective public,UT,107400,41400,0.011315004
+1022,University Of Vermont And State Agricultural College,5,Selective public,VT,120100,46700,0.011759596
+1023,University Of Virginia,2,Other elite schools (public and private),VA,151000,71200,0.014619415
+1024,University Of Virginia's College At Wise ,5,Selective public,VA,69900,38200,0.024868697
+1025,University Of Washington System,5,Selective public,WA,108100,57500,0.024520488
+1026,University Of West Alabama,5,Selective public,AL,60200,35800,0.024878439
+1027,University Of West Florida ,5,Selective public,FL,79700,37500,0.02001611
+1028,University Of West Georgia,5,Selective public,GA,85400,37500,0.014645496
+1029,University Of Wisconsin System,3,Highly selective public,WI,96100,44000,0.0087985052
+1030,University Of Wyoming,5,Selective public,WY,90100,45700,0.015060502
+1031,Upper Iowa University,6,Selective private,IA,62000,36900,0.014431433
+1032,Urbana University,6,Selective private,OH,75500,38900,0.0052408893
+1033,Ursinus College,6,Selective private,PA,103200,58500,0.0096541364
+1034,Ursuline College,6,Selective private,OH,75100,39300,0.017069841
+1035,Utah State University,5,Selective public,UT,91300,30100,0.0064854589
+1036,Utica College,6,Selective private,NY,67500,47800,0.05026231
+1037,Valdosta State University,5,Selective public,GA,83400,37800,0.012920764
+1038,Valley City State University,5,Selective public,ND,62700,41800,0.021546252
+1039,Valparaiso University,6,Selective private,IN,107000,51200,0.0080710137
+1040,Vanderbilt University,2,Other elite schools (public and private),TN,197900,72800,0.014718471
+1041,Vanguard University Of Southern California,6,Selective private,CA,83200,32900,0.011353597
+1042,Vassar College,2,Other elite schools (public and private),NY,145100,46000,0.010944489
+1043,Villanova University,2,Other elite schools (public and private),PA,159900,78300,0.013182082
+1044,Virginia Commonwealth University,5,Selective public,VA,90700,40200,0.019243585
+1045,Virginia Military Institute,5,Selective public,VA,116700,70800,0.019949649
+1046,Virginia Polytechnic Institute & State University,3,Highly selective public,VA,123300,62300,0.013518651
+1047,Virginia State University,5,Selective public,VA,52200,35900,0.034331579
+1048,Virginia Wesleyan College,6,Selective private,VA,90400,40400,0.01279017
+1049,Viterbo University,6,Selective private,WI,78200,38600,0.008021649
+1050,Wabash College,6,Selective private,IN,100800,58200,0.017322537
+1051,Wagner College,6,Selective private,NY,114400,58000,0.021850966
+1052,Wake Forest University,2,Other elite schools (public and private),NC,191500,71500,0.0072119986
+1053,Walla Walla University,6,Selective private,WA,94100,39000,0.012220651
+1054,Walsh University,6,Selective private,OH,82700,42600,0.0063308454
+1055,Warren Wilson College,6,Selective private,NC,104100,23800,0.006320864
+1056,Wartburg College,6,Selective private,IA,85100,48400,0.0076405262
+1057,Washburn University - Topeka,5,Selective public,KS,80800,39400,0.0091756936
+1058,Washington Adventist University,6,Selective private,MD,74900,36200,0.015974376
+1059,Washington And Jefferson College,6,Selective private,PA,99300,54700,0.013819983
+1060,Washington And Lee University,2,Other elite schools (public and private),VA,226700,78200,0.00570929
+1061,Washington College,6,Selective private,MD,120900,51500,0.01230266
+1062,Washington State University,5,Selective public,WA,104200,50000,0.014843442
+1063,Washington University In St. Louis,2,Other elite schools (public and private),MO,180200,67500,0.01037176
+1064,Wayland Baptist University,6,Selective private,TX,60200,39800,0.019498071
+1065,Wayne State College,5,Selective public,NE,67800,40500,0.0098945107
+1066,Wayne State University,5,Selective public,MI,81800,38400,0.024474362
+1067,Waynesburg University,6,Selective private,PA,74000,42900,0.023815975
+1068,Webber International University,6,Selective private,FL,62400,42000,0.014950736
+1069,Weber State University,5,Selective public,UT,92000,35500,0.0086152814
+1070,Webster University,6,Selective private,MO,96000,36900,0.0087023275
+1071,Wellesley College,2,Other elite schools (public and private),MA,142500,56300,0.024083447
+1072,Wells College,6,Selective private,NY,74900,41500,0.024599908
+1073,Wentworth Institute Of Technology,6,Selective private,MA,93600,59700,0.026162557
+1074,Wesley College,6,Selective private,DE,81500,44100,0.023901707
+1075,Wesleyan University,2,Other elite schools (public and private),CT,165300,56500,0.019636208
+1076,West Chester University Of Pennsylvania,5,Selective public,PA,102700,47500,0.012733021
+1077,West Liberty University,5,Selective public,WV,72200,36400,0.012908548
+1078,West Texas A&M University,5,Selective public,TX,74600,39900,0.021536281
+1079,West Virginia Community And Technical College System,5,Selective public,WV,64200,33900,0.015997078
+1080,West Virginia State University,5,Selective public,WV,65100,27200,0.013531802
+1081,"West Virginia University, West Virginia University Institute Of Technology, West Virginia University - Parkersburg, And Potomac State College",5,Selective public,WV,86700,42700,0.016364807
+1082,West Virginia Wesleyan College,6,Selective private,WV,86300,46800,0.0058931899
+1083,Western Carolina University,5,Selective public,NC,88000,36700,0.011105026
+1084,Western Connecticut State University,5,Selective public,CT,100500,47300,0.017392995
+1085,Western Illinois University,5,Selective public,IL,93400,45200,0.011547994
+1086,Western Kentucky University,5,Selective public,KY,76100,35100,0.014070529
+1087,Western Michigan University,5,Selective public,MI,112200,45000,0.010054297
+1088,Western New England University,6,Selective private,MA,99300,57100,0.020167124
+1089,Western New Mexico University,5,Selective public,NM,51200,28000,0.030912109
+1090,Western Oregon University,5,Selective public,OR,86900,40800,0.012520499
+1091,Western State Colorado University,5,Selective public,CO,94700,35800,0.0077849077
+1092,Western Washington University,5,Selective public,WA,108100,45900,0.011292228
+1093,Westfield State University,5,Selective public,MA,98100,48200,0.0089962315
+1094,"Westminster College of Fulton, MO",6,Selective private,MO,96600,47300,0.015415492
+1095,"Westminster College of New Wilmington, PA",6,Selective private,PA,87900,46400,0.018366123
+1096,"Westminster College of Salt Lake City, UT",6,Selective private,UT,95400,41500,0.017022833
+1097,Westmont College,4,Highly selective private,CA,132100,47600,0.010913183
+1098,"Wheaton College of Norton, MA",4,Highly selective private,MA,117300,46600,0.012640215
+1099,"Wheaton College of Wheaton, IL",4,Highly selective private,IL,130900,41500,0.017115509
+1100,Wheeling Jesuit University,6,Selective private,WV,85100,47200,0.013205372
+1101,Wheelock College,6,Selective private,MA,95600,35300,0.0097018294
+1102,Whitman College,2,Other elite schools (public and private),WA,138200,48500,0.0088804727
+1103,Whittier College,6,Selective private,CA,98500,47900,0.029580679
+1104,Whitworth University,6,Selective private,WA,98500,41000,0.0050186208
+1105,Wichita State University,5,Selective public,KS,86400,38000,0.01209196
+1106,Widener University,6,Selective private,PA,96000,53400,0.020144884
+1107,Wilkes University,6,Selective private,PA,80100,52500,0.028792452
+1108,Willamette University,6,Selective private,OR,110800,49400,0.018352445
+1109,William Carey University,6,Selective private,MS,66500,31700,0.020372465
+1110,William Jewell College,6,Selective private,MO,95100,42600,0.0055289064
+1111,William Paterson University Of New Jersey,5,Selective public,NJ,89500,46900,0.028375005
+1112,William Penn University,6,Selective private,IA,64400,38300,0.016139179
+1113,William Woods University,6,Selective private,MO,88600,35000,0.002847332
+1114,Williams Baptist College,6,Selective private,AR,53800,30500,0.014642493
+1115,Williams College,2,Other elite schools (public and private),MA,184000,62600,0.0098658074
+1116,Wilmington College,6,Selective private,OH,71400,40400,0.009329536
+1117,Wilmington University,6,Selective private,DE,94300,39600,0.0083767185
+1118,Wingate University,6,Selective private,NC,86600,40700,0.012407327
+1119,Winston-Salem State University,5,Selective public,NC,45400,33800,0.030280408
+1120,Winthrop University,5,Selective public,SC,84100,38600,0.013888506
+1121,Wisconsin Lutheran College,6,Selective private,WI,85400,39300,0.0062708403
+1122,Wittenberg University,6,Selective private,OH,104800,46100,0.0079834191
+1123,Wofford College,4,Highly selective private,SC,133400,55100,0.011826379
+1124,Woodbury University,6,Selective private,CA,61900,44300,0.06364359
+1125,Worcester Polytechnic Institute,4,Highly selective private,MA,109500,85200,0.021758402
+1126,Worcester State University,5,Selective public,MA,87600,44800,0.014952938
+1127,Wright State University,5,Selective public,OH,83200,39400,0.0077764117
+1128,Xavier University,6,Selective private,OH,122100,52200,0.0084580183
+1129,Xavier University Of Louisiana,6,Selective private,LA,63100,48400,0.052551392
+1130,Yale University,1,Ivy Plus,CT,199700,76000,0.020817067
+1131,Yeshiva University,6,Selective private,NY,180100,46400,0.015016814
+1132,Youngstown State University,5,Selective public,OH,71500,36000,0.013419556

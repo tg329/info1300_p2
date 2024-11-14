@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TBD</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <style>
+      .state {
+        fill: lightgrey;
+      }
+      .outline {
+        fill: none;
+        stroke: black;
+        stroke-width: 1px;
+      }
+      .graticule {
+          fill: none;
+          stroke: grey;
+          stroke-width: 1px;
+      }
+      .tooltip {
+          pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <svg id="choropleth" height="800" width="800"></svg>
+    <script>
+      const svg = d3.select("#choropleth");
+      const width = svg.attr("width");
+      const height = svg.attr("height");
+
+      const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+      const mapHeight = height - margin.top - margin.bottom;
+      const mapWidth = width - margin.left - margin.right;
+      const map = svg
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      const getData = async function () {
+        const us = await d3.json("us-smaller.json");
+        const income = await d3.csv("mrc_table2.csv");
+        console.log(us);
+
+        var states = topojson.feature(us, us.objects.states); 
+        var statesMesh = topojson.mesh(us, us.objects.states); 
+        var projection = d3
+          .geoAlbersUsa()
+          .fitSize([mapWidth, mapHeight], states);
+        var path = d3.geoPath().projection(projection);
+        console.log(states);
+        console.log(statesMesh);
+
+        let graticule = d3.geoGraticule10();
+        console.log(graticule);
+        map
+          .append("path")
+          .attr("class", "graticule")
+          .attr("d", path(graticule));
+
+        let statePaths = map
+          .selectAll("path.state")
+          .data(states.features)
+          .join("path")
+          .attr("class", "state")
+          .attr("d", path)
+          .on("mouseover", mouseEntersState)
+          .on("mouseout", mouseLeavesState);
+
+        map
+          .append("path")
+          .datum(statesMesh)
+          .attr("class", "outline")
+          .attr("d", path);
+
+
+        
+      };
+    </script>
+  </body>
+</html>
