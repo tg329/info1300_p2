@@ -1,289 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>College Map</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://d3js.org/topojson.v3.min.js"></script>
-    <style>
-      .state {
-        fill: lightgrey;
-      }
 
-      .outline {
-        fill: none;
-        stroke: black;
-        stroke-width: 1px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Map</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <style>
+    body {
+      background-color: #F9DEC9;
+      color: #3b2a21;
+    }
 
-      .tooltip {
-        pointer-events: none;
-      }
+    .state {
+      fill: lightgrey;
+    }
 
-      #choropleth {
-        border: 2px solid black;
-        border-radius: 5px;
-      }
+    .outline {
+      fill: none;
+      stroke: #685044;
+      stroke-width: .2px;
+    }
 
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .tooltip {
+      pointer-events: none;
+    }
 
-      }
+    #choropleth {
+      border: 2px dotted #685044;
+      border-radius: .5px;
+      width: 100%;
+      background-color: #f4ece8;
+      padding-left: 30px;
+    }
 
-    </style>
-  </head>
+    #scatter-graph {
+      border: 2px dotted #685044;
+      background-color: #f4ece8;
+      padding: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
 
-  <body>
+    .desc1 {
+      margin: 30px;
+      margin-left: 50px;
+      background-color: #F9DEC9;
+      padding: 30px;
+      height: 300px;
+      border-radius: 30px;
+    }
+
+    .desc2 {
+      margin: 30px;
+      margin-left: 0px;
+      background-color: #F9DEC9;
+      padding: 30px;
+      border-radius: 30px;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      background-color: #E9AFA3;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 80px;
+      margin-right: 10px;
+    }
+
+    .main2 {
+      background-color: #E9AFA3;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 80px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      text-transform: capitalize;
+      font-size: 45px;
+      margin: 80px;
+      margin-bottom: -60px;
+    }
+
+    .title {
+      margin: 0px;
+      background-color: #685044;
+      color: #F9DEC9;
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+      font-size: 55px;
+
+    }
+
+    .parent1 {
+      display: flex;
+      gap: 0px;
+    }
+
+    .interacts {
+      background-color: #fff5ed;
+      padding: 30px;
+      margin-left: 0px;
+      height: 400px;
+      margin-top: 80px;
+    }
+
+    .netids {
+      background-color: #fff5ed;
+      padding: 30px;
+      margin: 40px;
+      margin-top: 0px;
+      width: 300px;
+      border-radius: 30px;
+      
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="title">
+    <h2>Data Viz Title Name</h2>
+  </div>
+
+  <h3>Parent Income for each US College</h3>
+  <div class="parent1">
     <div class="main">
       <div class="child">
         <svg id="choropleth" height="600" width="800"></svg>
       </div>
       <div class="sidebar">
-        <svg id="scatter-graph" height="500" width="800"></svg>
+        <p class="desc1">
+          description
+        </p>
       </div>
     </div>
+    <div class="interacts">
+      <p>interactivity goes here</p>
+    </div>
+  </div>
 
-    <div id="tooltip" class="tooltip"></div>
 
-    <!-- MAP -->
-    <script>
-      const svg = d3.select("#choropleth");
-      const width = svg.attr("width");
-      const height = svg.attr("height");
-      const margin = { top: 20, right: 100, bottom: 20, left: 100 };
-      const mapWidth = width - margin.left - margin.right;
-      const mapHeight = height - margin.top - margin.bottom;
-      const map = svg
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  <h3>Parent Income for each US College</h3>
+  <div class="parent">
+    <div class="main2">
+      <svg id="scatter-graph" height="500" width="800"></svg>
 
-      const requestData = async function () {
-        const us = await d3.json("us-smaller.json");
-        const colleges = await d3.json("n_us_unis.geojson");
+      <div class="sidebar">
+        <p class="desc2">
+          description
+        </p>
+      </div>
 
-        var states = topojson.feature(us, us.objects.states);
-        var statesMesh = topojson.mesh(us, us.objects.states);
-        var projection = d3
-          .geoAlbersUsa()
-          .fitSize([mapWidth, mapHeight], states);
-        var path = d3.geoPath().projection(projection);
+    </div>
+  </div>
 
-        let statePaths = map
-          .selectAll("path.state")
-          .data(states.features)
-          .join("path")
-          .attr("class", "state")
-          .attr("d", path)
-          .on("mouseover", function (event, d) {
-            d3.select(this).style("fill", "lightblue");
+  <div class="netids">
+    netids go here
+  </div>
 
-            const tooltip = d3.select("#tooltip");
-            tooltip
-              .style("visibility", "visible")
-              .style("left", event.pageX + 5 + "px")
-              .style("top", event.pageY - 35 + "px");
-          })
-          .on("mousemove", function (event) {
-            const tooltip = d3.select("#tooltip");
-            tooltip
-              .style("left", event.pageX + 5 + "px")
-              .style("top", event.pageY - 35 + "px");
-          })
-          .on("mouseout", function () {
-            d3.select(this).style("fill", "lightgrey");
-            d3.select("#tooltip").style("visibility", "hidden");
-          });
 
-        map
-          .append("path")
-          .datum(statesMesh)
-          .attr("class", "outline")
-          .attr("d", path);
+  <div id="tooltip" class="tooltip"></div>
 
-        colleges.features.forEach((d) => {
-          const coordinates = d.geometry.coordinates;
-          const projectedPoint = projection(coordinates);
+  <!-- MAP -->
+  <script>
+    const svg = d3.select("#choropleth");
+    const width = svg.attr("width");
+    const height = svg.attr("height");
+    const margin = { top: 20, right: 100, bottom: 20, left: 100 };
+    const mapWidth = width - margin.left - margin.right;
+    const mapHeight = height - margin.top - margin.bottom;
+    const map = svg
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .style("background-color", "#BFBDC1");
 
-          if (projectedPoint) {
-            map
-              .append("circle")
-              .attr("cx", projectedPoint[0])
-              .attr("cy", projectedPoint[1])
-              .attr("r", 3)
-              .style("fill", "darkblue")
-              .on("mouseover", function (event) {
-                d3.select(this).attr("r", 5);
+    const requestData = async function () {
+      const us = await d3.json("us-smaller.json");
+      const colleges = await d3.json("n_us_unis.geojson");
 
-                map
-                  .append("text")
-                  .attr("class", "college-label")
-                  .attr("x", projectedPoint[0])
-                  .attr("y", projectedPoint[1] - 10)
-                  .attr("text-anchor", "middle")
-                  .style("font-size", "15px")
-                  .style("font-weight", "bold")
-                  .style("fill", "black")
-                  .text(d.properties.name);
-              })
-              .on("mouseout", function () {
-                d3.select(this).attr("r", 3);
-                map.selectAll(".college-label").remove();
-              });
-          }
+      var states = topojson.feature(us, us.objects.states);
+      var statesMesh = topojson.mesh(us, us.objects.states);
+      var projection = d3
+        .geoAlbersUsa()
+        .fitSize([mapWidth, mapHeight], states);
+      var path = d3.geoPath().projection(projection);
+
+      let statePaths = map
+        .selectAll("path.state")
+        .data(states.features)
+        .join("path")
+        .attr("class", "state")
+        .attr("d", path)
+        .on("mouseover", function (event, d) {
+          d3.select(this).style("fill", "lightblue");
+
+          const tooltip = d3.select("#tooltip");
+          tooltip
+            .style("visibility", "visible")
+            .style("left", event.pageX + 5 + "px")
+            .style("top", event.pageY - 35 + "px");
+        })
+        .on("mousemove", function (event) {
+          const tooltip = d3.select("#tooltip");
+          tooltip
+            .style("left", event.pageX + 5 + "px")
+            .style("top", event.pageY - 35 + "px");
+        })
+        .on("mouseout", function () {
+          d3.select(this).style("fill", "lightgrey");
+          d3.select("#tooltip").style("visibility", "hidden");
         });
 
-        // pan and zoom
-        var zoom = d3
-          .zoom()
-          .scaleExtent([1, 20])
-          .translateExtent([
-            [-50, -50],
-            [mapWidth + 50, mapHeight + 50],
-          ]) // to lock to edges
-          .on("zoom", mapZoomed);
+      map
+        .append("path")
+        .datum(statesMesh)
+        .attr("class", "outline")
+        .attr("d", path);
 
-        svg.call(zoom);
+      colleges.features.forEach((d) => {
+        const coordinates = d.geometry.coordinates;
+        const projectedPoint = projection(coordinates);
 
-        map.call(zoom.transform, d3.zoomIdentity);
+        if (projectedPoint) {
+          map
+            .append("circle")
+            .attr("cx", projectedPoint[0])
+            .attr("cy", projectedPoint[1])
+            .attr("r", 3)
+            .style("fill", "darkblue")
+            .on("mouseover", function (event) {
+              d3.select(this).attr("r", 5);
 
-        function mapZoomed({ transform }) {
-          map.attr("transform", transform.toString());
-
-          map.select(".state-outline").style("stroke-width", 2 / transform.k);
-
-          map.selectAll("circle").attr("r", Math.max(3 / transform.k, 1));
+              map
+                .append("text")
+                .attr("class", "college-label")
+                .attr("x", projectedPoint[0])
+                .attr("y", projectedPoint[1] - 10)
+                .attr("text-anchor", "middle")
+                .style("font-size", "15px")
+                .style("font-weight", "bold")
+                .style("fill", "black")
+                .text(d.properties.name);
+            })
+            .on("mouseout", function () {
+              d3.select(this).attr("r", 3);
+              map.selectAll(".college-label").remove();
+            });
         }
-
-        map.selectAll(".state").on("click", clicked);
-
-        function clicked(event, d) {
-          console.log(d);
-
-          let bounds = path.bounds(d.geometry); // get bounds for clicked state/county
-          let dx = bounds[1][0] - bounds[0][0]; // width of state/county
-          let dy = bounds[1][1] - bounds[0][1]; // height of state/county
-          let x = (bounds[0][0] + bounds[1][0]) / 2; // center x of state/county
-          let y = (bounds[0][1] + bounds[1][1]) / 2; // center y of state/county
-
-          let scale = Math.max(
-            1,
-            Math.min(10, 0.9 / Math.max(dx / mapWidth, dy / mapHeight))
-          );
-
-          let translate = [mapWidth / 2 - x * scale, mapHeight / 2 - y * scale];
-
-          let newTransform = d3.zoomIdentity
-            .translate(translate[0], translate[1])
-            .scale(scale);
-
-          map.transition().duration(1000).call(zoom.transform, newTransform);
-        }
-      };
-      requestData();
-    </script>
-
-    <!-- SCATTER PLOT -->
-    <script>
-      //  const svg = d3.select("#choropleth");
-      // const width = svg.attr("width");
-      // const height = svg.attr("height");
-      // const margin = { top: 20, right: 100, bottom: 20, left: 100 };
-      const scatterSVG = d3.select("#scatter-graph")
-
-      const smargin = { top: 20, right: 100, bottom: 20, left: 100 };
-      const swidth = scatterSVG.attr("width");
-      const sheight = scatterSVG.attr("height");
-
-      const x = d3.scaleLinear().range([0, swidth - smargin.left - smargin.right]);
-      const y = d3.scaleLinear()
-        .range([sheight - smargin.top - smargin.bottom, 0]);
-
-      d3.csv("top_tier_unis.csv").then(function (data) {
-        data.forEach(function (d) {
-          d.k_median = +d.k_median;
-          d.par_median = +d.par_median;
-        });
-
-        x.domain([0, d3.max(data, (d) => d.k_median)]);
-        y.domain([0, d3.max(data, (d) => d.par_median)]);
-
-        scatterSVG
-          .append("g")
-          .attr("class", "grid-x")
-          .selectAll(".tick")
-          .data(x.ticks(5))
-          .enter()
-          .append("g")
-          .attr("class", "tick")
-          .attr("transform", (d) => `translate(${x(d)}, 0)`)
-          .append("line")
-          .attr("y2", sheight - smargin.top - smargin.bottom);
-
-        scatterSVG
-          .append("g")
-          .attr("class", "grid-y")
-          .selectAll(".tick")
-          .data(y.ticks(6))
-          .append("g")
-          .attr("class", "tick")
-          .attr("transform", (d) => `translate(0, ${y(d)})`)
-          .append("line")
-          .attr("x2", swidth - smargin.left - smargin.right);
-
-        scatterSVG.append("g")
-          .attr(
-            "transform",
-            `translate(0,${sheight - smargin.top - smargin.bottom})`
-          )
-          .call(d3.axisBottom(x).ticks(5))
-          .append("text")
-          .attr("class", "x-lbl")
-          .attr("x", swidth - smargin.left - smargin.right)
-          .attr("y", 40)
-          .style("text-anchor", "middle")
-          .text("Median individual income at age 34 (k_median)");
-
-        scatterSVG.append("g")
-          .call(d3.axisLeft(y).ticks(6))
-          .append("text")
-          .attr("class", "y-lbl")
-          .attr("x", -40)
-          .attr("y", 30)
-          .style("text-anchor", "middle")
-          .text("Median family income (par_median)");
-
-        scatterSVG
-          .selectAll("circle")
-          .data(data)
-          .enter()
-          .append("circle")
-          .attr("class", "point")
-          .attr("r", 3)
-          .attr("cx", (d) => x(d.k_median))
-          .attr("cy", (d) => y(d.par_median))
-          .attr("fill", "gray")
-          .attr("opacity", 0.5)
-
-          .on("mouseover", function (event, d) {
-            d3.select(this).attr("fill", "red").attr("opacity", 1).attr("r", 5);
-            scatterSVG.append("text")
-              .attr("id", "tooltip")
-              .attr("x", x(d.k_median) + 10)
-              .attr("y", y(d.par_median) - 10)
-              .text(d.name);
-          })
-          .on("mouseout", function (event, d) {
-            d3.select(this)
-              .attr("fill", "gray")
-              .attr("opacity", 0.5)
-              .attr("r", 3);
-            d3.select("#tooltip").remove();
-          });
       });
-    </script>
-  </body>
+
+      // pan and zoom
+      var zoom = d3
+        .zoom()
+        .scaleExtent([1, 20])
+        .translateExtent([
+          [-50, -50],
+          [mapWidth + 50, mapHeight + 50],
+        ]) // to lock to edges
+        .on("zoom", mapZoomed);
+
+      svg.call(zoom);
+
+      map.call(zoom.transform, d3.zoomIdentity);
+
+      function mapZoomed({ transform }) {
+        map.attr("transform", transform.toString());
+
+        map.select(".state-outline").style("stroke-width", 2 / transform.k);
+
+        map.selectAll("circle").attr("r", Math.max(3 / transform.k, 1));
+      }
+
+      map.selectAll(".state").on("click", clicked);
+
+      function clicked(event, d) {
+        console.log(d);
+
+        let bounds = path.bounds(d.geometry); // get bounds for clicked state/county
+        let dx = bounds[1][0] - bounds[0][0]; // width of state/county
+        let dy = bounds[1][1] - bounds[0][1]; // height of state/county
+        let x = (bounds[0][0] + bounds[1][0]) / 2; // center x of state/county
+        let y = (bounds[0][1] + bounds[1][1]) / 2; // center y of state/county
+
+        let scale = Math.max(
+          1,
+          Math.min(10, 0.9 / Math.max(dx / mapWidth, dy / mapHeight))
+        );
+
+        let translate = [mapWidth / 2 - x * scale, mapHeight / 2 - y * scale];
+
+        let newTransform = d3.zoomIdentity
+          .translate(translate[0], translate[1])
+          .scale(scale);
+
+        map.transition().duration(1000).call(zoom.transform, newTransform);
+      }
+    };
+    requestData();
+  </script>
+
+  <!-- SCATTER PLOT -->
+  <script>
+    const smargins = { top: 10, right: 0, bottom: 20, left: 50 };
+    const scatterSVG = d3.select("#scatter-graph");
+
+    const schartWidth = scatterSVG.attr("width") - smargins.left - smargins.right;
+    const schartHeight = scatterSVG.attr("height") - smargins.top - smargins.bottom;
+
+    const xScale = d3.scaleLinear().range([0, schartWidth]);
+    const yScale = d3.scaleLinear().range([schartHeight, 0]);
+
+    d3.csv("top_tier_unis.csv").then(function (data) {
+      data.forEach(function (d) {
+        d.k_median = +d.k_median;
+        d.par_median = +d.par_median;
+      });
+
+      xScale.domain([0, d3.max(data, (d) => d.k_median)]);
+      yScale.domain([0, d3.max(data, (d) => d.par_median)]);
+
+      let leftAxis = d3.axisLeft(yScale);
+      let bottomAxis = d3.axisBottom(xScale).ticks(5);
+
+      scatterSVG.append("g")
+        .attr("class", "y axis")
+        .attr("transform", `translate(${smargins.left},${smargins.top})`)
+        .call(leftAxis);
+
+      scatterSVG.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(${smargins.left},${schartHeight + smargins.top})`)
+        .call(bottomAxis)
+        .append("text")
+        .attr("class", "x-lbl")
+        .attr("x", schartWidth)
+        .attr("y", 40)
+        .style("text-anchor", "middle")
+        .text("Median individual income at age 34 (k_median)");
+
+      scatterSVG.append("g")
+        .attr("transform", `translate(${smargins.left},${smargins.top})`)
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("class", "point")
+        .attr("r", 3)
+        .attr("cx", (d) => xScale(d.k_median))
+        .attr("cy", (d) => yScale(d.par_median))
+        .attr("fill", "gray")
+        .attr("opacity", 0.5)
+        .on("mouseover", function (event, d) {
+          d3.select(this).attr("fill", "red").attr("opacity", 1).attr("r", 5);
+          scatterSVG.append("text")
+            .attr("id", "tooltip")
+            .attr("x", xScale(d.k_median) + smargins.left + 10)
+            .attr("y", yScale(d.par_median) + smargins.top - 10)
+            .text(d.name);
+        })
+        .on("mouseout", function () {
+          d3.select(this).attr("fill", "gray").attr("opacity", 0.5).attr("r", 3);
+          d3.select("#tooltip").remove();
+        });
+    });
+
+  </script>
+</body>
+
 </html>
