@@ -14,7 +14,7 @@
     }
 
     .state {
-      fill: lightgrey;
+      fill: #ebded4;
     }
 
     .outline {
@@ -117,9 +117,8 @@
       margin-top: 0px;
       width: 300px;
       border-radius: 30px;
-      
-    }
 
+    }
   </style>
 </head>
 
@@ -199,7 +198,7 @@
         .attr("class", "state")
         .attr("d", path)
         .on("mouseover", function (event, d) {
-          d3.select(this).style("fill", "lightblue");
+          d3.select(this).style("fill", "#E9AFA3");
 
           const tooltip = d3.select("#tooltip");
           tooltip
@@ -214,7 +213,7 @@
             .style("top", event.pageY - 35 + "px");
         })
         .on("mouseout", function () {
-          d3.select(this).style("fill", "lightgrey");
+          d3.select(this).style("fill", "#ebded4");
           d3.select("#tooltip").style("visibility", "hidden");
         });
 
@@ -234,7 +233,7 @@
             .attr("cx", projectedPoint[0])
             .attr("cy", projectedPoint[1])
             .attr("r", 3)
-            .style("fill", "darkblue")
+            .style("fill", "#cb6855")
             .on("mouseover", function (event) {
               d3.select(this).attr("r", 5);
 
