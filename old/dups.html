@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Map</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <style>
+      .state {
+        fill: lightgrey;
+      }
+
+      .outline {
+        fill: none;
+        stroke: black;
+        stroke-width: 1px;
+      }
+
+      .tooltip {
+        pointer-events: none;
+      }
+
+      #choropleth {
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="child">
+        <svg id="choropleth" height="600" width="800"></svg>
+      </div>
+    </div>
+
+    <div id="tierCheckboxes">
+      <label><input type="checkbox" value="Selective private"> Selective private</label><br>
+      <label><input type="checkbox" value="Selective public"> Selective public</label><br>
+      <label><input type="checkbox" value="Highly selective private"> Highly selective private</label><br>
+      <label><input type="checkbox" value="Highly selective public"> Highly selective public</label><br>
+      <label><input type="checkbox" value="Moderately selective private"> Moderately selective private</label><br>
+      <label><input type="checkbox" value="Moderately selective public"> Moderately selective public</label><br>
+    </div>
+    
+    
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <!-- MAP -->
+    <script>
+      const svg = d3.select("#choropleth");
+      const width = svg.attr("width");
+      const height = svg.attr("height");
+      const margin = { top: 20, right: 100, bottom: 20, left: 100 };
+      const mapWidth = width - margin.left - margin.right;
+      const mapHeight = height - margin.top - margin.bottom;
+      const map = svg
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      const requestData = async function () {
+        const us = await d3.json("us-smaller.json");
+        const colleges = await d3.json("n_us_unis.geojson");
+
+        var states = topojson.feature(us, us.objects.states);
+        var statesMesh = topojson.mesh(us, us.objects.states);
+        var projection = d3
+          .geoAlbersUsa()
+          .fitSize([mapWidth, mapHeight], states);
+        var path = d3.geoPath().projection(projection);
+
+        let statePaths = map
+          .selectAll("path.state")
+          .data(states.features)
+          .join("path")
+          .attr("class", "state")
+          .attr("d", path)
+          .on("mouseover", function (event, d) {
+            d3.select(this).style("fill", "lightblue");
+
+            const tooltip = d3.select("#tooltip");
+            tooltip
+              .style("visibility", "visible")
+              .style("left", event.pageX + 5 + "px")
+              .style("top", event.pageY - 35 + "px");
+          })
+          .on("mousemove", function (event) {
+            const tooltip = d3.select("#tooltip");
+            tooltip
+              .style("left", event.pageX + 5 + "px")
+              .style("top", event.pageY - 35 + "px");
+          })
+          .on("mouseout", function () {
+            d3.select(this).style("fill", "lightgrey");
+            d3.select("#tooltip").style("visibility", "hidden");
+          });
+
+          map.append("path").datum(statesMesh).attr("class", "outline").attr("d", path);
+
+    // Select the container holding all checkboxes
+    const checkboxContainer = document.getElementById("tierCheckboxes");
+
+    // Function to filter and render circles based on checked options
+    function renderFilteredCircles() {
+  // Get all checked checkboxes
+  const checkedOptions = Array.from(
+    checkboxContainer.querySelectorAll("input[type='checkbox']:checked")
+  ).map((checkbox) => checkbox.value);
+
+  console.log("Selected tiers:", checkedOptions);
+  console.log(colleges.features[0].properties);  // Check the properties of the first college
+
+
+  // Clear existing circles
+  //map.selectAll("circle").remove();
+  
+
+  // Draw circles for colleges that match selected tiers
+  colleges.features
+    .filter((d) => checkedOptions.includes(d.properties.tier_name))
+    .forEach((d) => {
+      console.log("hi")
+      console.log(d.properties);  // Log all properties for the first college
+      const coordinates = d.geometry.coordinates;
+      const projectedPoint = projection(coordinates);
+
+      console.log("Projected Point:", projectedPoint);  // Debugging output
+
+      if (projectedPoint) {
+        map
+          .append("circle")
+          .attr("cx", projectedPoint[0])
+          .attr("cy", projectedPoint[1])
+          .attr("r", 5)  // Try increasing radius
+          .style("fill", "darkblue")
+          .on("mouseover", function (event) {
+            d3.select(this).attr("r", 7);  // Increase size on hover
+            map
+              .append("text")
+              .attr("class", "college-label")
+              .attr("x", projectedPoint[0])
+              .attr("y", projectedPoint[1] - 10)
+              .attr("text-anchor", "middle")
+              .style("font-size", "15px")
+              .style("font-weight", "bold")
+              .style("fill", "black")
+              .text(d.properties.name);
+          })
+          .on("mouseout", function () {
+            d3.select(this).attr("r", 5);
+            map.selectAll(".college-label").remove();
+          });
+      }
+    });
+}
+
+
+    // Add event listener for checkbox changes to trigger re-render
+    checkboxContainer.addEventListener("change", renderFilteredCircles);
+
+    // Initial rendering based on default checked options
+    renderFilteredCircles();
+    }; 
+    requestData();
+    </script>
+  </body>
+</html>
