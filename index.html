@@ -4,14 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TBD</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/topojson.v3.min.js"></script>
     <style>
-        .tooltip {
-            pointer-events: none;
-        }
-
         .state {
             fill: none;
         }
@@ -21,14 +17,30 @@
             stroke: black;
             stroke-width: 0.5px;
         }
+
+        #yearSlider {
+            width: 400px;
+        }
+
+        .tooltip {
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .tooltip text {
+            fill: white;
+            text-anchor: middle;
+        }
     </style>
 </head>
 
 <body>
-    <div id="tooltip" class="tooltip"></div>
-
     <!-- Choropleth Map -->
     <svg id="choropleth" height="1000" width="1000"></svg>
+
+    <input type="range" id="yearSlider" min="2001" max="2022" step="1" value="2001">
+    <span id="sliderYear">2001</span>
+
     <script>
         const svg = d3.select("#choropleth");
         const width = svg.attr("width");
@@ -36,50 +48,139 @@
         const margin = { top: 20, right: 100, bottom: 20, left: 100 };
         const mapWidth = width - margin.left - margin.right;
         const mapHeight = height - margin.top - margin.bottom;
-        const map = svg
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        const map = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+        let energyData = {};
+        let populationData = {};
 
         const requestData = async function () {
-            const us = await d3.json("us-smaller.json");
+            const us = await d3.json("us.json");
+            const states = topojson.feature(us, us.objects.states);
+            const statesMesh = topojson.mesh(us, us.objects.states);
 
-            var states = topojson.feature(us, us.objects.states);
-            var statesMesh = topojson.mesh(us, us.objects.states);
-            var projection = d3
-                .geoAlbersUsa()
-                .fitSize([mapWidth, mapHeight], states);
-            var path = d3.geoPath().projection(projection);
+            const pop = await d3.csv("pop_all_years.csv", d3.autoType);
+            const prod = await d3.csv("producer_years.csv", d3.autoType);
 
-            let statePaths = map
+            // aggregate population by state and year
+            pop.forEach(d => {
+                populationData[d.States] = {};
+                for (let year = 2000; year <= 2023; year++) {
+                    populationData[d.States][year] = d[year];
+                }
+            });
+
+            // aggregate energy gen by state and year
+            prod.forEach(d => {
+                if (!energyData[d.State]) {
+                    energyData[d.State] = {};
+                }
+                if (!energyData[d.State][d.YEAR]) {
+                    energyData[d.State][d.YEAR] = 0;
+                }
+                energyData[d.State][d.YEAR] += d['GENERATION (Megawatthours)'];
+            });
+
+            const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
+            const path = d3.geoPath().projection(projection);
+
+            const statePaths = map
                 .selectAll("path.state")
                 .data(states.features)
                 .join("path")
                 .attr("class", "state")
                 .attr("d", path);
-            map
-                .append("path")
+
+            map.append("path")
                 .datum(statesMesh)
                 .attr("class", "outline")
                 .attr("d", path);
 
-            const pop = await d3.csv("pop_all_years", d3.autoType);
-            const prod = await d3.csv("producer_years.csv", d3.autoType);
+            const colorScale = d3.scaleQuantile()
+                .domain(energyArray(2001))
+                .range(["#084081", "#0868ac", "#43a2ca", "#a8ddb5", "#e0f3f8"]);
 
-            const populationByStateYear = {};
-            pop.forEach(row => {
-                const state = row.States;
-                Object.keys(row).forEach(year => {
-                    if (year !== "States") {
-                        populationByStateYear[`${state}-${year}`] = +row[year];
-                    }
-                });
+            updateMap(2001, colorScale);
+
+            d3.select("#yearSlider").on("input", function () {
+                const year = +this.value;
+                d3.select("#sliderYear").text(year);
+                updateMap(year, colorScale);
             });
-            
-            console.log(populationByStateYear);
+
+            //instructor given code
+            const tooltipWidth = 120;
+            const tooltipHeight = 40;
+            const tooltip = map.append("g")
+                .attr("class", "tooltip");
+
+            tooltip.append("rect")
+                .attr("x", -tooltipWidth / 2.0)
+                .attr("y", 0)
+                .attr("width", tooltipWidth)
+                .attr("height", tooltipHeight);
+
+            const txt = tooltip.append("text")
+                .attr("x", 0)
+                .attr("y", 2);
+
+            const txt2 = tooltip.append("text")
+                .attr("x", 0)
+                .attr("y", 22);
+
+            const momesh = map.append("path")
+                .attr("class", "mouseover outline")
+                .style("stroke", "black")
+                .style("stroke-width", 3)
+                .attr("d", "");
+
+            statePaths.on("mouseover", function (event, d) {
+                const stateName = d.properties.name;
+                const year = +document.getElementById("yearSlider").value;
+                const energyPerCapita = energyPerState(stateName, year);
+                tooltip.style("visibility", "visible");
+
+                txt.text(stateName);
+                txt2.text(`${energyPerCapita.toFixed(2)} MWh`);
 
 
+                const bounds = path.bounds(d);
+                const xPos = (bounds[0][0] + bounds[1][0]) / 2.0;
+                const yPos = bounds[1][1] - 15; 
 
+                tooltip.attr("transform", `translate(${xPos},${yPos})`);
+
+                const stateID = d.id;
+                let mo = topojson.mesh(us, us.objects.states, function (a, b) {
+                    return a.id === stateID || b.id === stateID;
+                });
+                momesh.datum(mo).attr("d", path);
+            });
+
+            statePaths.on("mouseout", function () {
+                tooltip.style("visibility", "hidden");
+                momesh.attr("d", "");
+            });
         };
+
+        // calculate energy per capita for each state per year
+        const energyPerState = (state, year) => {
+            if (energyData[state] && populationData[state] && populationData[state][year]) {
+                return energyData[state][year] / populationData[state][year];
+            } else {
+                return 0;
+            }
+        };
+
+        const energyArray = (year) => {
+            return Object.keys(populationData).map(state => energyPerState(state, year));
+        };
+
+        const updateMap = (year, colorScale) => {
+            map.selectAll("path.state").style("fill", d => {
+                const energyPerCapita = energyPerState(d.properties.name, year);
+                return colorScale(energyPerCapita);
+            });
+        };
+
         requestData();
     </script>
 </body>
