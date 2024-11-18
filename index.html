@@ -12,6 +12,7 @@
       margin: 10px;
       align-items: center;
       justify-content: center;
+      background-color: #DFE0E2;
     }
 
     .state {
@@ -75,41 +76,99 @@
       justify-content: center;
       align-items: center;
     }
+
+    .title-thing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 28px;
+      background-color: #283845;
+      color: #DFE0E2;
+      padding: 50px;
+      width: 100%;
+      margin-bottom: 30px;
+
+    }
+
+    #desc2 {
+      font-size: 15px;
+      margin-left: 80px;
+    }
+
+    h3 {
+      color: #B75D69;
+      font-size: 20px;
+    }
+
+    .map-parent {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .graph-desc {
+      padding: 35px;
+      border-radius: 15px;
+      background-color: #2D898B;
+      color: #DFE0E2;
+    }
+
+    #choro {
+      height: 550px;
+
+    }
   </style>
 </head>
 
 <body>
   <!-- Choropleth Map -->
 
-  <div class="title"></div>
+  <div class="title-thing">
+    <p class="title-desc">
+      viz story title
+    </p>
+    <p class="title-desc" id="desc2">
+      shihan gao, nicole lin (njll), jolly zheng, elaine wu
+    </p>
+  </div>
 
   <div class="main">
-
     <div class="graph1">
       <h3>
         graph 1 title
       </h3>
-      <div class="map">
-        <svg id="choropleth" height="700" width="1000"></svg>
-        <div class="slider">
-          <input type="range" id="yearSlider" min="2001" max="2021" step="1" value="2001">
-          <span id="sliderYear">2001</span>
+
+      <div class="map-parent">
+        <div class=" map">
+
+          <svg id="choropleth" height="700" width="1000"></svg>
+          <div class="slider">
+            <input type="range" id="yearSlider" min="2001" max="2021" step="1" value="2001">
+            <span id="sliderYear">2001</span>
+          </div>
+
+        </div>
+
+        <div class="graph-desc" id="choro">
+          <p>blah blah blah add stuff here</p>
         </div>
       </div>
     </div>
 
 
-    <h3>
-      graph 2 title
-    </h3>
     <div class="lineg">
       <svg id="line-graph" width="1100" height="300"></svg>
       <svg id="line-legend" width="200" height="400"></svg>
 
+      <h3>
+        graph 2 title
+      </h3>
+      <div class="graph-desc" id="lineg">
+        <p>blah blah blah add stuff here</p>
+      </div>
     </div>
   </div>
 
-  <div class="netids">shihan gao, nicole lin (njll), jolly zheng, elaine wu</div>
 
   <!-- CHOROPLETH -->
   <script>
@@ -366,7 +425,7 @@
         "Wood and Wood Derived Fuels": "Wood",
         "Solar Thermal and Photovoltaic": "Solar/Photovoltaic"
       };
-      
+
 
       const circles = lineGraph.selectAll("circle").data(stateData)
         .join("circle")
@@ -450,7 +509,7 @@
 
     updateLineGraph([]);
   </script>
-  
+
 </body>
 
 </html>
