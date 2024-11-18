@@ -439,7 +439,7 @@
       circles.on("mouseover", function (event, d) {
         d3.select(this)
           .attr("r", 5)
-          .attr("fill", "orange");
+          .attr("fill", "steelblue");
 
         const x = yearScale(d['YEAR']) + 10;
         const y = genScale(d['GENERATION (Megawatthours)']) - 10; // Position the text above initially
