@@ -71,6 +71,7 @@
     }
 
     .main {
+      padding: 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -164,7 +165,7 @@
         graph 2 title
       </h3>
       <div class="graph-desc" id="lineg">
-        <p>blah blah blah add stuff here</p>
+        <p>blah blah blah add stuff here mention what MWh means (what we are using to measure)</p>
       </div>
     </div>
   </div>
@@ -358,14 +359,15 @@
         return;
       }
 
-      const energySource = d3.group(stateData, d => d['ENERGY SOURCE']);
+      const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
+      const energySource = d3.group(filtered, d => d['ENERGY SOURCE']);
 
       // SCALE STUFF
-      const yearExtent = d3.extent(stateData, d => d['YEAR']);
+      const yearExtent = d3.extent(filtered, d => d['YEAR']);
       const yearScale = d3.scaleLinear()
         .domain(yearExtent)
         .range([0, graphWidth]);
-      const genExtent = d3.extent(stateData, d => d['GENERATION (Megawatthours)']);
+      const genExtent = d3.extent(filtered, d => d['GENERATION (Megawatthours)']);
       const genScale = d3.scaleLinear()
         .domain(genExtent)
         .range([graphHeight, 0]);
