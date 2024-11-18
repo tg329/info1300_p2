@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Map</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <style>
+    body {
+      background-color: #F9DEC9;
+      color: #3b2a21;
+    }
+
+    .state {
+      fill: #ebded4;
+    }
+
+    .outline {
+      fill: none;
+      stroke: #685044;
+      stroke-width: .2px;
+    }
+
+    .tooltip {
+      pointer-events: none;
+    }
+
+    #choropleth {
+      border: 2px dotted #685044;
+      border-radius: .5px;
+      width: 100%;
+      background-color: #f4ece8;
+      padding-left: 30px;
+    }
+
+    #scatter-graph {
+      border: 2px dotted #685044;
+      background-color: #f4ece8;
+      padding: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+
+    .desc1 {
+      margin: 30px;
+      margin-left: 50px;
+      background-color: #F9DEC9;
+      padding: 30px;
+      height: 300px;
+      border-radius: 30px;
+    }
+
+    .desc2 {
+      margin: 30px;
+      margin-left: 0px;
+      background-color: #F9DEC9;
+      padding: 30px;
+      border-radius: 30px;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      background-color: #E9AFA3;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 80px;
+      margin-right: 10px;
+    }
+
+    .main2 {
+      background-color: #E9AFA3;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 80px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      text-transform: capitalize;
+      font-size: 45px;
+      margin: 80px;
+      margin-bottom: -60px;
+    }
+
+    .title {
+      margin: 0px;
+      background-color: #685044;
+      color: #F9DEC9;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 40px;
+
+    }
+
+    .parent1 {
+      display: flex;
+      gap: 0px;
+    }
+
+    .interacts {
+      background-color: #fff5ed;
+      padding: 30px;
+      margin-left: 0px;
+      height: 400px;
+      margin-top: 80px;
+    }
+
+    .netids {
+      background-color: #E9AFA3;
+      padding: 20px;
+      margin: 40px;
+      margin-left: 80px;
+      margin-top: 0px;
+      width: 100px;
+      border-radius: 30px;
+      font-size: 10px;
+      color: #fff5ed;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="title">
+    <h2>Energy Production </h2>
+  </div>
+
+  <h3>Energy Production / Population per State</h3>
+  <div class="parent1">
+    <div class="main">
+      <div class="child">
+        <svg id="choropleth" height="600" width="800"></svg>
+      </div>
+      <div class="sidebar">
+        <p class="desc1">
+          description
+        </p>
+      </div>
+    </div>
+    <!-- <div class="interacts">
+      <p>interactivity goes here</p>
+    </div> -->
+  </div>
+
+
+  <h3>Energy Source vs Energy Generated</h3>
+  <div class="parent">
+    <div class="main2">
+      <svg id="scatter-graph" height="500" width="800"></svg>
+
+      <div class="sidebar">
+        <p class="desc2">
+          description
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="netids">
+    netids go here
+  </div>
+
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <!-- MAP -->
+  <script>
+    const svg = d3.select("#choropleth");
+    const width = svg.attr("width");
+    const height = svg.attr("height");
+    const margin = { top: 20, right: 100, bottom: 20, left: 100 };
+    const mapWidth = width - margin.left - margin.right;
+    const mapHeight = height - margin.top - margin.bottom;
+    const map = svg
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .style("background-color", "#BFBDC1");
+
+    const requestData = async function () {
+      const us = await d3.json("us-smaller.json");
+      const colleges = await d3.json("n_us_unis.geojson");
+
+      var states = topojson.feature(us, us.objects.states);
+      var statesMesh = topojson.mesh(us, us.objects.states);
+      var projection = d3
+        .geoAlbersUsa()
+        .fitSize([mapWidth, mapHeight], states);
+      var path = d3.geoPath().projection(projection);
+
+      let statePaths = map
+        .selectAll("path.state")
+        .data(states.features)
+        .join("path")
+        .attr("class", "state")
+        .attr("d", path)
+        .on("mouseover", function (event, d) {
+          d3.select(this).style("fill", "#E9AFA3");
+
+          const tooltip = d3.select("#tooltip");
+          tooltip
+            .style("visibility", "visible")
+            .style("left", event.pageX + 5 + "px")
+            .style("top", event.pageY - 35 + "px");
+        })
+        .on("mousemove", function (event) {
+          const tooltip = d3.select("#tooltip");
+          tooltip
+            .style("left", event.pageX + 5 + "px")
+            .style("top", event.pageY - 35 + "px");
+        })
+        .on("mouseout", function () {
+          d3.select(this).style("fill", "#ebded4");
+          d3.select("#tooltip").style("visibility", "hidden");
+        });
+
+      map
+        .append("path")
+        .datum(statesMesh)
+        .attr("class", "outline")
+        .attr("d", path);
+
+      colleges.features.forEach((d) => {
+        const coordinates = d.geometry.coordinates;
+        const projectedPoint = projection(coordinates);
+
+        if (projectedPoint) {
+          map
+            .append("circle")
+            .attr("cx", projectedPoint[0])
+            .attr("cy", projectedPoint[1])
+            .attr("r", 3)
+            .style("fill", "#cb6855")
+            .on("mouseover", function (event) {
+              d3.select(this).attr("r", 5);
+
+              map
+                .append("text")
+                .attr("class", "college-label")
+                .attr("x", projectedPoint[0])
+                .attr("y", projectedPoint[1] - 10)
+                .attr("text-anchor", "middle")
+                .style("font-size", "15px")
+                .style("font-weight", "bold")
+                .style("fill", "black")
+                .text(d.properties.name);
+            })
+            .on("mouseout", function () {
+              d3.select(this).attr("r", 3);
+              map.selectAll(".college-label").remove();
+            });
+        }
+      });
+
+      // pan and zoom
+      var zoom = d3
+        .zoom()
+        .scaleExtent([1, 20])
+        .translateExtent([
+          [-50, -50],
+          [mapWidth + 50, mapHeight + 50],
+        ]) // to lock to edges
+        .on("zoom", mapZoomed);
+
+      svg.call(zoom);
+
+      map.call(zoom.transform, d3.zoomIdentity);
+
+      function mapZoomed({ transform }) {
+        map.attr("transform", transform.toString());
+
+        map.select(".state-outline").style("stroke-width", 2 / transform.k);
+
+        map.selectAll("circle").attr("r", Math.max(3 / transform.k, 1));
+      }
+
+      map.selectAll(".state").on("click", clicked);
+
+      function clicked(event, d) {
+        console.log(d);
+
+        let bounds = path.bounds(d.geometry);
+        let dx = bounds[1][0] - bounds[0][0]; 
+        let dy = bounds[1][1] - bounds[0][1]; 
+        let x = (bounds[0][0] + bounds[1][0]) / 2;
+        let y = (bounds[0][1] + bounds[1][1]) / 2; 
+
+        let scale = Math.max(
+          1,
+          Math.min(10, 0.9 / Math.max(dx / mapWidth, dy / mapHeight))
+        );
+
+        let translate = [mapWidth / 2 - x * scale, mapHeight / 2 - y * scale];
+
+        let newTransform = d3.zoomIdentity
+          .translate(translate[0], translate[1])
+          .scale(scale);
+
+        map.transition().duration(1000).call(zoom.transform, newTransform);
+      }
+    };
+    requestData();
+  </script>
+
+  <!-- SCATTER PLOT -->
+  <script>
+    const smargins = { top: 10, right: 0, bottom: 20, left: 50 };
+    const scatterSVG = d3.select("#scatter-graph");
+
+    const schartWidth = scatterSVG.attr("width") - smargins.left - smargins.right;
+    const schartHeight = scatterSVG.attr("height") - smargins.top - smargins.bottom;
+
+    const xScale = d3.scaleLinear().range([0, schartWidth]);
+    const yScale = d3.scaleLinear().range([schartHeight, 0]);
+
+    d3.csv("top_tier_unis.csv").then(function (data) {
+      data.forEach(function (d) {
+        d.k_median = +d.k_median;
+        d.par_median = +d.par_median;
+      });
+
+      xScale.domain([0, d3.max(data, (d) => d.k_median)]);
+      yScale.domain([0, d3.max(data, (d) => d.par_median)]);
+
+      let leftAxis = d3.axisLeft(yScale);
+      let bottomAxis = d3.axisBottom(xScale).ticks(5);
+
+      scatterSVG.append("g")
+        .attr("class", "y axis")
+        .attr("transform", `translate(${smargins.left},${smargins.top})`)
+        .call(leftAxis);
+
+      scatterSVG.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(${smargins.left},${schartHeight + smargins.top})`)
+        .call(bottomAxis)
+        .append("text")
+        .attr("class", "x-lbl")
+        .attr("x", schartWidth)
+        .attr("y", 40)
+        .style("text-anchor", "middle")
+        .text("Median individual income at age 34 (k_median)");
+
+      scatterSVG.append("g")
+        .attr("transform", `translate(${smargins.left},${smargins.top})`)
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("class", "point")
+        .attr("r", 3)
+        .attr("cx", (d) => xScale(d.k_median))
+        .attr("cy", (d) => yScale(d.par_median))
+        .attr("fill", "gray")
+        .attr("opacity", 0.5)
+        .on("mouseover", function (event, d) {
+          d3.select(this).attr("fill", "red").attr("opacity", 1).attr("r", 5);
+          scatterSVG.append("text")
+            .attr("id", "tooltip")
+            .attr("x", xScale(d.k_median) + smargins.left + 10)
+            .attr("y", yScale(d.par_median) + smargins.top - 10)
+            .text(d.name);
+        })
+        .on("mouseout", function () {
+          d3.select(this).attr("fill", "gray").attr("opacity", 0.5).attr("r", 3);
+          d3.select("#tooltip").remove();
+        });
+    });
+
+  </script>
+</body>
+
+</html>
