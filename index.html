@@ -9,6 +9,7 @@
     <script src="https://d3js.org/topojson.v3.min.js"></script>
     <style>
         body {
+            text-transform: lowercase;
             margin: 0px;
             align-items: center;
             justify-content: center;
@@ -16,6 +17,7 @@
             font-family: whitney;
             margin-right: auto;
             margin-left: auto;
+            color: #283845
         }
 
         .state {
@@ -108,6 +110,12 @@
 
         #choro {
             height: 530px;
+            width: 250px;
+            margin-left: 45px;
+        }
+
+        #lineg {
+            margin-bottom: 50px;
         }
     </style>
 </head>
@@ -131,8 +139,8 @@
             </h3>
 
             <div class="map-parent">
-                <div class=" map">
-                    <svg id="choropleth" height="600" width="1000"></svg>
+                <div class="map">
+                    <svg id="choropleth" height="500" width="1000"></svg>
                     <div class="slider">
                         <input type="range" id="yearSlider" min="2001" max="2021" step="1" value="2001">
                         <span id="sliderYear">2001</span>
@@ -243,7 +251,7 @@
             });
 
             //instructor given code
-            const tooltipWidth = 160; 
+            const tooltipWidth = 160;
             const tooltipHeight = 65;
             const tooltip = map.append("g")
                 .attr("class", "tooltip");
@@ -272,7 +280,7 @@
                 .attr("x", 0)
                 .attr("y", 25);
 
-            let txt3 = tooltip.append("text") 
+            let txt3 = tooltip.append("text")
                 .attr("fill", "white")
                 .attr("text-anchor", "middle")
                 .attr("alignment-baseline", "hanging")
