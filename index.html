@@ -677,7 +677,7 @@
                     .attr("font-weight", "bold")
                     .text("Energy Sources");
 
-                Array.from(visibleData.keys()).forEach((key, index) => {
+                Array.from(visibleData.keys()).sort().forEach((key, index) => {
                     legend.append("line")
                         .attr("x1", 0)
                         .attr("y1", index * 20)
