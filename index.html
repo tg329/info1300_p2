@@ -140,7 +140,7 @@
 
             <div class="map-parent">
                 <div class="map">
-                    <svg id="choropleth" height="500" width="1000"></svg>
+                    <svg id="choropleth" height="600" width="1000"></svg>
                     <div class="slider">
                         <input type="range" id="yearSlider" min="2001" max="2021" step="1" value="2001">
                         <span id="sliderYear">2001</span>
@@ -553,15 +553,28 @@
                 //   console.log("x is too close to the right, x position:", x);
                 // }
 
+                // background-color: #283845;
+                // color: #DFE0E2;
+                const textWidth = labelText.length * 6;
+                const textHeight = 20;
+
+                lineGraph.append("rect")
+                    .attr("id", "energy-generation-box")
+                    .attr("x", x + textXOffset - 5)
+                    .attr("y", y + textYOffset - textHeight + 5)
+                    .attr("width", textWidth + 10)
+                    .attr("height", textHeight + 10)
+                    .attr("opacity", 0.8)
+                    .attr("fill", "#283845");
+
                 lineGraph.append("text")
                     .attr("id", "energy-generation-label")
                     .attr("x", x + textXOffset)
                     .attr("y", y + textYOffset)
                     .attr("font-size", "12px")
-                    .attr("fill", "black")
+                    .attr("fill", "#DFE0E2")
+
                     .text(labelText);
-
-
             })
                 .on("mouseout", function () {
                     d3.select(this)
@@ -569,6 +582,7 @@
                         .attr("fill", "navy");
 
                     d3.select("#energy-generation-label").remove();
+                    d3.select("#energy-generation-box").remove();
                 });
 
 
