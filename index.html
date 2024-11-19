@@ -439,17 +439,18 @@
                 return;
             }
 
-            const energySource = d3.group(stateData, d => d['ENERGY SOURCE']);
+      const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
+      const energySource = d3.group(filtered, d => d['ENERGY SOURCE']);
 
-            // SCALE STUFF
-            const yearExtent = d3.extent(stateData, d => d['YEAR']);
-            const yearScale = d3.scaleLinear()
-                .domain(yearExtent)
-                .range([0, graphWidth]);
-            const genExtent = d3.extent(stateData, d => d['GENERATION (Megawatthours)']);
-            const genScale = d3.scaleLinear()
-                .domain(genExtent)
-                .range([graphHeight, 0]);
+      // SCALE STUFF
+      const yearExtent = d3.extent(filtered, d => d['YEAR']);
+      const yearScale = d3.scaleLinear()
+        .domain(yearExtent)
+        .range([0, graphWidth]);
+      const genExtent = d3.extent(filtered, d => d['GENERATION (Megawatthours)']);
+      const genScale = d3.scaleLinear()
+        .domain(genExtent)
+        .range([graphHeight, 0]);
 
             // AXIS STUFF
             const bottomAxis = d3.axisBottom(yearScale)
@@ -515,6 +516,10 @@
                 .attr("cx", d => yearScale(d['YEAR']))
                 .attr("cy", d => genScale(d['GENERATION (Megawatthours)']));
 
+      circles.on("mouseover", function (event, d) {
+        d3.select(this)
+          .attr("r", 5)
+          .attr("fill", "steelblue");
             circles.on("mouseover", function (event, d) {
                 d3.select(this)
                     .attr("r", 5)
