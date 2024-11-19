@@ -29,8 +29,11 @@
         }
 
         #yearSlider {
-            width: 500px;
+            width: 950px;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
+
 
         #choropleth {
             background-color: white;
@@ -49,10 +52,6 @@
             flex-direction: column;
         }
 
-        .lineg {
-            margin: 0px;
-            margin-top: -50px;
-        }
 
         .tooltip {
             pointer-events: none;
@@ -153,7 +152,7 @@
             <svg id="line-legend" width="200" height="400"></svg>
 
             <h3>
-                graph 2 title
+                State Energy Source and Generation Line Plot
             </h3>
             <div class="graph-desc" id="lineg">
                 <p>blah blah blah add stuff here</p>
@@ -186,7 +185,7 @@
             // aggregate population by state and year
             pop.forEach(d => {
                 populationData[d.States] = {};
-                for (let year = 2000; year <= 2022; year++) {
+                for (let year = 2001; year <= 2023; year++) {
                     populationData[d.States][year] = d[year];
                 }
             });
@@ -201,6 +200,8 @@
                 }
                 energyData[d.State][d.YEAR] += d['GENERATION (Megawatthours)'];
             });
+
+            console.log(energyData['Alabama']);
 
             const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
             const path = d3.geoPath().projection(projection);
@@ -249,12 +250,12 @@
 
             tooltip.append("rect")
                 .attr("fill", "#2D898B")
-                .attr("opacity", 0.9) 
-                .attr("x", -tooltipWidth / 2.0) 
-                .attr("y", 0)  
-                .attr("rx", 5) 
+                .attr("opacity", 0.9)
+                .attr("x", -tooltipWidth / 2.0)
+                .attr("y", 0)
+                .attr("rx", 5)
                 .attr("ry", 5) //border raid  
-                .attr("width", tooltipWidth)  
+                .attr("width", tooltipWidth)
                 .attr("height", tooltipHeight);
 
             let txt = tooltip.append("text")
@@ -315,10 +316,6 @@
             });
 
 
-            statePaths.on("click",function(){
-                //TODO
-            });
-
             // LINE GRAPH CLICK STUFF
             d3.csv("source_years.csv", d3.autoType).then(function (data) {
                 energySourceData = data;
@@ -334,10 +331,13 @@
 
                     updateLineGraph(stateEnergyData); // add new graph + legend
 
+
                 });
             });
 
         };
+
+
 
         // calculate energy per capita for each state per year
         const energyPerState = (state, year) => {
@@ -359,7 +359,7 @@
             });
         };
 
-    
+
         requestData();
     </script>
 
@@ -439,18 +439,18 @@
                 return;
             }
 
-      const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
-      const energySource = d3.group(filtered, d => d['ENERGY SOURCE']);
+            const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
+            const energySource = d3.group(filtered, d => d['ENERGY SOURCE']);
 
-      // SCALE STUFF
-      const yearExtent = d3.extent(filtered, d => d['YEAR']);
-      const yearScale = d3.scaleLinear()
-        .domain(yearExtent)
-        .range([0, graphWidth]);
-      const genExtent = d3.extent(filtered, d => d['GENERATION (Megawatthours)']);
-      const genScale = d3.scaleLinear()
-        .domain(genExtent)
-        .range([graphHeight, 0]);
+            // SCALE STUFF
+            const yearExtent = d3.extent(filtered, d => d['YEAR']);
+            const yearScale = d3.scaleLinear()
+                .domain(yearExtent)
+                .range([0, graphWidth]);
+            const genExtent = d3.extent(filtered, d => d['GENERATION (Megawatthours)']);
+            const genScale = d3.scaleLinear()
+                .domain(genExtent)
+                .range([graphHeight, 0]);
 
             // AXIS STUFF
             const bottomAxis = d3.axisBottom(yearScale)
@@ -516,10 +516,6 @@
                 .attr("cx", d => yearScale(d['YEAR']))
                 .attr("cy", d => genScale(d['GENERATION (Megawatthours)']));
 
-      circles.on("mouseover", function (event, d) {
-        d3.select(this)
-          .attr("r", 5)
-          .attr("fill", "steelblue");
             circles.on("mouseover", function (event, d) {
                 d3.select(this)
                     .attr("r", 5)
@@ -567,7 +563,7 @@
             legend.append("text")
                 .attr("x", 0)
                 .attr("y", -20)
-                .attr("font-size", "14px")
+                .attr("font-size", "20px")
                 .attr("font-weight", "bold")
                 .text("Energy Sources");
 
