@@ -177,18 +177,28 @@
 
     <!-- CHOROPLETH -->
     <script>
+
+        // create svg for chloropleth
         const svg = d3.select("#choropleth");
+
+        // working on margins and svg height, width
         const width = svg.attr("width");
         const height = svg.attr("height");
         const margin = { top: 20, right: 100, bottom: 20, left: 100 };
         const mapWidth = width - margin.left - margin.right;
         const mapHeight = height - margin.top - margin.bottom;
+
+        //append a group element to hold the map, positioned with margins
         const map = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+        
+        //objects to store energy and population data
         let energyData = {};
         let populationData = {};
 
 
         const requestData = async function () {
+
+            //load us json, extract states and the mesh
             const us = await d3.json("us.json");
             const states = topojson.feature(us, us.objects.states);
             const statesMesh = topojson.mesh(us, us.objects.states);
@@ -215,11 +225,11 @@
                 energyData[d.State][d.YEAR] += d['GENERATION (Megawatthours)'];
             });
 
-            console.log(energyData['Alabama']);
-
             const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
             const path = d3.geoPath().projection(projection);
 
+
+            //draw state shapes
             const statePaths = map
                 .selectAll("path.state")
                 .data(states.features)
@@ -227,11 +237,14 @@
                 .attr("class", "state")
                 .attr("d", path);
 
+            //draw state borders
             map.append("path")
                 .datum(statesMesh)
                 .attr("class", "outline")
                 .attr("d", path);
-
+            
+            
+            //create color scale and create legend with it
             const colorScale = d3.scaleThreshold()
                 .domain([0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 190])
                 .range([
@@ -249,8 +262,11 @@
                 ]);
             drawLegend("#map-legend", colorScale);
 
+            //preset data to be the 2001 data
             updateMap(2001, colorScale);
 
+
+            //event listener for slider to update the map dynamically
             d3.select("#yearSlider").on("input", function () {
                 const year = +this.value;
                 d3.select("#sliderYear").text(year);
