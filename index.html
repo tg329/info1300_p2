@@ -30,8 +30,8 @@
 
         #yearSlider {
             width: 950px;
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding-top: 40px;
+            padding-bottom: 40px;
         }
 
 
@@ -45,6 +45,11 @@
             border-radius: 15px;
             margin-top: 100px;
             padding: 50px;
+        }
+
+        #map-legend{
+            margin-left:300px;
+            padding-bottom:40px;
         }
 
         .graph1 {
@@ -147,16 +152,17 @@
         </div>
 
 
+        <div class="graph1">
+        <h3 style="margin-bottom:-80px;">
+            State Energy Source and Generation Line Plot
+        </h3>
         <div class="lineg">
             <svg id="line-graph" width="1100" height="300"></svg>
             <svg id="line-legend" width="200" height="400"></svg>
-
-            <h3>
-                State Energy Source and Generation Line Plot
-            </h3>
             <div class="graph-desc" id="lineg">
                 <p>blah blah blah add stuff here</p>
             </div>
+        </div>
         </div>
     </div>
 
@@ -219,7 +225,7 @@
                 .attr("d", path);
 
             const colorScale = d3.scaleThreshold()
-                .domain([0, 20, 40, 60, 80, 100, 120, 140, 160, 180])
+                .domain([0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 190])
                 .range([
                     "#f7fcb9",
                     "#addd8e",
@@ -230,7 +236,8 @@
                     "#fc8d59",
                     "#e34a33",
                     "#9e3c3e",
-                    "#9e1b32"
+                    "#9e1b32",
+                    "#660000"
                 ]);
             drawLegend("#map-legend", colorScale);
 
@@ -254,7 +261,7 @@
                 .attr("x", -tooltipWidth / 2.0)
                 .attr("y", 0)
                 .attr("rx", 5)
-                .attr("ry", 5) //border radius  
+                .attr("ry", 5) 
                 .attr("width", tooltipWidth)
                 .attr("height", tooltipHeight);
 
