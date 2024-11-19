@@ -190,7 +190,7 @@
 
         //append a group element to hold the map, positioned with margins
         const map = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
-        
+
         //objects to store energy and population data
         let energyData = {};
         let populationData = {};
@@ -242,8 +242,8 @@
                 .datum(statesMesh)
                 .attr("class", "outline")
                 .attr("d", path);
-            
-            
+
+
             //create color scale and create legend with it
             const colorScale = d3.scaleThreshold()
                 .domain([0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 190])
@@ -316,11 +316,12 @@
                 .style("stroke-width", 2)
                 .attr("d", "");
 
+            let selectedStateID = null; // track the currently select state
+
             statePaths.on("mouseover", function (event, d) {
                 const stateName = d.properties.name;
                 const year = +document.getElementById("yearSlider").value;
                 const energyPerCapita = energyPerState(stateName, year);
-                const totalEnergy = energyData[stateName] && energyData[stateName][year] || 0;
                 const totalPopulation = populationData[stateName] && populationData[stateName][year] || 0;
 
                 tooltip.transition()
@@ -339,11 +340,10 @@
                 tooltip.attr("transform", `translate(${xPos},${yPos})`);
 
                 const stateID = d.id;
-                let mo = topojson.mesh(us, us.objects.states, function (a, b) {
-                    return a.id === stateID || b.id === stateID;
-                });
+                const mo = topojson.mesh(us, us.objects.states, (a, b) => a.id === stateID || b.id === stateID);
                 momesh.datum(mo).attr("d", path);
             });
+
 
             statePaths.on("mouseout", function () {
                 tooltip.transition()
@@ -352,345 +352,342 @@
                     .on("end", function () {
                         tooltip.style("visibility", "hidden");
                     });
-
-                momesh.attr("d", "");
             });
 
 
+                // LINE GRAPH CLICK STUFF
+                d3.csv("source_years.csv", d3.autoType).then(function (data) {
+                    energySourceData = data;
 
-            // LINE GRAPH CLICK STUFF
-            d3.csv("source_years.csv", d3.autoType).then(function (data) {
-                energySourceData = data;
+                    statePaths.on("click", function (event, d) {
+                        const stateName = d.properties.name;
+                        const stateEnergyData = energySourceData.filter(d => d.State === stateName);
+                        const linesvg = d3.select("#line-graph");
+                        const legendSvg = d3.select("#line-legend");
 
-                statePaths.on("click", function (event, d) {
-                    const stateName = d.properties.name;
-                    const stateEnergyData = energySourceData.filter(d => d.State === stateName);
-                    const linesvg = d3.select("#line-graph");
-                    const legendSvg = d3.select("#line-legend");
+                        linesvg.selectAll("*").remove(); // remove old graph
+                        legendSvg.selectAll("*").remove(); //remove old legend
 
-                    linesvg.selectAll("*").remove(); // remove old graph
-                    legendSvg.selectAll("*").remove(); //remove old legend
-
-                    updateLineGraph(stateEnergyData); // add new graph + legend
+                        updateLineGraph(stateEnergyData); // add new graph + legend
 
 
+                    });
                 });
-            });
 
-        };
-
+            };
 
 
-        // calculate energy per capita for each state per year
-        const energyPerState = (state, year) => {
-            if (energyData[state] && populationData[state] && populationData[state][year]) {
-                return energyData[state][year] / populationData[state][year];
-            } else {
-                return 0;
-            }
-        };
 
-        const energyArray = (year) => {
-            return Object.keys(populationData).map(state => energyPerState(state, year));
-        };
+            // calculate energy per capita for each state per year
+            const energyPerState = (state, year) => {
+                if (energyData[state] && populationData[state] && populationData[state][year]) {
+                    return energyData[state][year] / populationData[state][year];
+                } else {
+                    return 0;
+                }
+            };
 
-        const updateMap = (year, colorScale) => {
-            map.selectAll("path.state").style("fill", d => {
-                const energyPerCapita = energyPerState(d.properties.name, year);
-                return colorScale(energyPerCapita);
-            });
-        };
+            const energyArray = (year) => {
+                return Object.keys(populationData).map(state => energyPerState(state, year));
+            };
+
+            const updateMap = (year, colorScale) => {
+                map.selectAll("path.state").style("fill", d => {
+                    const energyPerCapita = energyPerState(d.properties.name, year);
+                    return colorScale(energyPerCapita);
+                });
+            };
 
 
-        requestData();
+            requestData();
     </script>
 
 
     <script>
-        //instructor given code
-        function drawLegend(legendSelector, legendColorScale) {
-            const offsets = { width: 10, top: 0, bottom: 25 };
-            const stepSize = 4;
-            const minMaxExtendPercent = 0;
+            //instructor given code
+            function drawLegend(legendSelector, legendColorScale) {
+                const offsets = { width: 10, top: 0, bottom: 25 };
+                const stepSize = 4;
+                const minMaxExtendPercent = 0;
 
-            const legend = d3.select(legendSelector);
-            const legendHeight = legend.attr("height");
-            const legendBarWidth = legend.attr("width") - (offsets.width * 2);
-            const legendMinMax = d3.extent(legendColorScale.domain());
-            const minMaxExtension = (legendMinMax[1] - legendMinMax[0]) * minMaxExtendPercent;
-            const barHeight = legendHeight - offsets.top - offsets.bottom;
+                const legend = d3.select(legendSelector);
+                const legendHeight = legend.attr("height");
+                const legendBarWidth = legend.attr("width") - (offsets.width * 2);
+                const legendMinMax = d3.extent(legendColorScale.domain());
+                const minMaxExtension = (legendMinMax[1] - legendMinMax[0]) * minMaxExtendPercent;
+                const barHeight = legendHeight - offsets.top - offsets.bottom;
 
-            let barScale = d3.scaleLinear()
-                .domain([legendMinMax[0] - minMaxExtension, legendMinMax[1] + minMaxExtension])
-                .range([0, legendBarWidth]);
+                let barScale = d3.scaleLinear()
+                    .domain([legendMinMax[0] - minMaxExtension, legendMinMax[1] + minMaxExtension])
+                    .range([0, legendBarWidth]);
 
-            let barAxis = d3.axisBottom(barScale);
+                let barAxis = d3.axisBottom(barScale);
 
-            let bar = legend.append("g")
-                .attr("transform", `translate(${offsets.width},${offsets.top})`);
+                let bar = legend.append("g")
+                    .attr("transform", `translate(${offsets.width},${offsets.top})`);
 
-            for (let i = 0; i < legendBarWidth; i = i + stepSize) {
-                let center = i + (stepSize / 2);
-                let dataCenter = barScale.invert(center);
-                bar.append("rect")
-                    .attr("x", i)
-                    .attr("y", 0)
-                    .attr("width", stepSize)
-                    .attr("height", barHeight)
-                    .style("fill", legendColorScale(dataCenter));
+                for (let i = 0; i < legendBarWidth; i = i + stepSize) {
+                    let center = i + (stepSize / 2);
+                    let dataCenter = barScale.invert(center);
+                    bar.append("rect")
+                        .attr("x", i)
+                        .attr("y", 0)
+                        .attr("width", stepSize)
+                        .attr("height", barHeight)
+                        .style("fill", legendColorScale(dataCenter));
+                }
+
+                legend.append("g")
+                    .attr("transform", `translate(${offsets.width},${offsets.top + barHeight + 5})`)
+                    .call(barAxis);
+
+                d3.select("#map-legend").attr("height", barHeight + 60);
+                legend.append("text")
+                    .attr("x", legendBarWidth / 2)
+                    .attr("y", barHeight + 50)
+                    .style("text-anchor", "middle")
+                    .style("fill", "black")
+                    .text("Energy per Capita (Megawatthours/MWh)");
             }
-
-            legend.append("g")
-                .attr("transform", `translate(${offsets.width},${offsets.top + barHeight + 5})`)
-                .call(barAxis);
-
-            d3.select("#map-legend").attr("height", barHeight + 60);
-            legend.append("text")
-                .attr("x", legendBarWidth / 2)
-                .attr("y", barHeight + 50)
-                .style("text-anchor", "middle")
-                .style("fill", "black")
-                .text("Energy per Capita (Megawatthours/MWh)");
-        }
 
 
     </script>
 
     <!-- LINE GRAPH UPDATE -->
     <script>
-        const updateLineGraph = (stateData) => {
-            const linesvg = d3.select("#line-graph");
-            const lwidth = linesvg.attr("width");
-            const lheight = linesvg.attr("height");
-            const lmargin = { top: 10, right: 10, bottom: 50, left: 50 };
-            const graphWidth = lwidth - lmargin.left - lmargin.right;
-            const graphHeight = lheight - lmargin.top - lmargin.bottom;
+            const updateLineGraph = (stateData) => {
+                const linesvg = d3.select("#line-graph");
+                const lwidth = linesvg.attr("width");
+                const lheight = linesvg.attr("height");
+                const lmargin = { top: 10, right: 10, bottom: 50, left: 50 };
+                const graphWidth = lwidth - lmargin.left - lmargin.right;
+                const graphHeight = lheight - lmargin.top - lmargin.bottom;
 
-            const annotations = linesvg.append("g").attr("id", "annotations");
-            const lineGraph = linesvg.append("g")
-                .attr("transform", `translate(${lmargin.left},${lmargin.top})`);
+                const annotations = linesvg.append("g").attr("id", "annotations");
+                const lineGraph = linesvg.append("g")
+                    .attr("transform", `translate(${lmargin.left},${lmargin.top})`);
 
-            if (!stateData || stateData.length === 0) {
+                if (!stateData || stateData.length === 0) {
+                    linesvg.append("text")
+                        .attr("x", lwidth / 2)
+                        .attr("y", lheight / 2)
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle")
+                        .attr("class", "default-message")
+                        .text("Click on a state to view energy source data");
+                    return;
+                }
+
+                const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
+                const energySource = d3.group(filtered, d => d['ENERGY SOURCE']);
+
+                // SCALE STUFF
+                const yearExtent = d3.extent(filtered, d => d['YEAR']);
+                const yearScale = d3.scaleLinear()
+                    .domain(yearExtent)
+                    .range([0, graphWidth]);
+                const genExtent = d3.extent(filtered, d => d['GENERATION (Megawatthours)']);
+                const genScale = d3.scaleLinear()
+                    .domain(genExtent)
+                    .range([graphHeight, 0]);
+
+                // AXIS STUFF
+                const bottomAxis = d3.axisBottom(yearScale)
+                    .ticks(24)
+                    .tickFormat(d3.format("d"));
+                const leftAxis = d3.axisLeft(genScale)
+                    .tickFormat(d3.format("~s"))
+                    .ticks(10);
+                annotations.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", `translate(${lmargin.left},${graphHeight + lmargin.top})`)
+                    .call(bottomAxis);
+                annotations.append("g")
+                    .attr("class", "y axis")
+                    .attr("transform", `translate(${lmargin.left},${lmargin.top})`)
+                    .call(leftAxis);
+
+                // LABEL STUFF
                 linesvg.append("text")
+                    .attr("class", "axis-title")
                     .attr("x", lwidth / 2)
-                    .attr("y", lheight / 2)
+                    .attr("y", lheight - 10)
                     .attr("text-anchor", "middle")
-                    .attr("dominant-baseline", "middle")
-                    .attr("class", "default-message")
-                    .text("Click on a state to view energy source data");
-                return;
-            }
-
-            const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
-            const energySource = d3.group(filtered, d => d['ENERGY SOURCE']);
-
-            // SCALE STUFF
-            const yearExtent = d3.extent(filtered, d => d['YEAR']);
-            const yearScale = d3.scaleLinear()
-                .domain(yearExtent)
-                .range([0, graphWidth]);
-            const genExtent = d3.extent(filtered, d => d['GENERATION (Megawatthours)']);
-            const genScale = d3.scaleLinear()
-                .domain(genExtent)
-                .range([graphHeight, 0]);
-
-            // AXIS STUFF
-            const bottomAxis = d3.axisBottom(yearScale)
-                .ticks(24)
-                .tickFormat(d3.format("d"));
-            const leftAxis = d3.axisLeft(genScale)
-                .tickFormat(d3.format("~s"))
-                .ticks(10);
-            annotations.append("g")
-                .attr("class", "x axis")
-                .attr("transform", `translate(${lmargin.left},${graphHeight + lmargin.top})`)
-                .call(bottomAxis);
-            annotations.append("g")
-                .attr("class", "y axis")
-                .attr("transform", `translate(${lmargin.left},${lmargin.top})`)
-                .call(leftAxis);
-
-            // LABEL STUFF
-            linesvg.append("text")
-                .attr("class", "axis-title")
-                .attr("x", lwidth / 2)
-                .attr("y", lheight - 10)
-                .attr("text-anchor", "middle")
-                .attr("font-size", "14px")
-                .attr("font-weight", "bold")
-                .text("Year");
-
-            linesvg.append("text")
-                .attr("class", "axis-title")
-                .attr("x", -lheight / 2 + 15)
-                .attr("y", 10)
-                .attr("transform", "rotate(-90)")
-                .attr("text-anchor", "middle")
-                .attr("font-size", "14px")
-                .attr("font-weight", "bold")
-                .text("Energy Generation (MWh)");
-
-            let visibleSources = [...energySource.keys()];
-
-            const sortedKeys = [...energySource.keys()].sort();
-
-            d3.select("div#toggle-bar").selectAll("button").remove();
-
-            sortedKeys.forEach((source) => {
-                d3.select("div#toggle-bar")
-                    .append("button")
-                    .text(source)
-                    .style("margin", "5px")
-                    .style("padding", "8px")
-                    .style("cursor", "pointer")
-                    .style("background-color", "#f4f4f4") // Active state
-                    .on("click", function () {
-                        // Check if the source is already in visibleSources
-                        const index = visibleSources.indexOf(source);
-                        if (index > -1) {
-                            // If it's visible, remove it
-                            visibleSources.splice(index, 1); // Remove source
-                            d3.select(this).style("background-color", "#ccc"); // Inactive state
-                        } else {
-                            // If it's not visible, add it
-                            visibleSources.push(source); // Add source
-                            d3.select(this).style("background-color", "#f4f4f4"); // Active state
-                        }
-
-                        // Filter energySource to only include visible sources
-                        const filteredEnergySource = new Map(
-                            [...energySource].filter(([key]) => visibleSources.includes(key))
-                        );
-
-                        // Pass the filtered group to the graph update function
-                        updateLines(filteredEnergySource);
-                    });
-            });
-
-
-            function updateLines(visibleData) {
-                lineGraph.selectAll(".line").remove();
-                lineGraph.selectAll("circle").remove();
-
-                // ADDING LINE STUFF
-                const lineGen = d3.line()
-                    .x(d => yearScale(d['YEAR']))
-                    .y(d => genScale(d['GENERATION (Megawatthours)']))
-                // .curve(d3.curveMonotoneX);
-                const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-                lineGraph.selectAll(".line")
-                    .data([...visibleData]) // make into an array so line graph works
-                    .join("path")
-                    .attr("class", "line")
-                    .attr("fill", "none")
-                    .attr("stroke", ([key]) => colorScale(key))
-                    .attr("stroke-width", 2)
-                    .attr("d", ([key, values]) => lineGen(values));
-
-                // CIRCLE/SOME MORE INTERACTIVITY STUFF
-                const nameMapping = {
-                    "Hydroelectric Conventional": "Hydroelectric",
-                    "Wood and Wood Derived Fuels": "Wood",
-                    "Solar Thermal and Photovoltaic": "Solar/Photovoltaic"
-                };
-
-
-                const circles = lineGraph.selectAll("circle").data(Array.from(visibleData.values()).flat())
-                    .join("circle")
-                    .attr("r", 2.5)
-                    .attr("fill", "navy")
-                    .attr("cx", d => yearScale(d['YEAR']))
-                    .attr("cy", d => genScale(d['GENERATION (Megawatthours)']));
-
-                circles.on("mouseover", function (event, d) {
-                    d3.select(this)
-                        .attr("r", 5)
-                        .attr("fill", "orange");
-
-                    const x = yearScale(d['YEAR']) + 10;
-                    const y = genScale(d['GENERATION (Megawatthours)']) - 10; // Position the text above initially
-
-                    const textYOffset = y < 20 ? 20 : -10;
-                    const textXOffset = x > graphWidth - 100 ? -150 : 10;
-                    const labelText = `${d['ENERGY SOURCE']}: ${d['GENERATION (Megawatthours)']} MWh`;
-
-
-                    // for testing
-                    // if (x > graphWidth - 20) {
-                    //   console.log("x is too close to the right, x position:", x);
-                    // }
-
-                    // background-color: #283845;
-                    // color: #DFE0E2;
-                    const textWidth = labelText.length * 6;
-                    const textHeight = 20;
-
-                    lineGraph.append("rect")
-                        .attr("id", "energy-generation-box")
-                        .attr("x", x + textXOffset - 5)
-                        .attr("y", y + textYOffset - textHeight + 5)
-                        .attr("width", textWidth + 10)
-                        .attr("height", textHeight + 10)
-                        .attr("opacity", 0.8)
-                        .attr("fill", "#283845");
-
-                    lineGraph.append("text")
-                        .attr("id", "energy-generation-label")
-                        .attr("x", x + textXOffset)
-                        .attr("y", y + textYOffset)
-                        .attr("font-size", "12px")
-                        .attr("fill", "#DFE0E2")
-
-                        .text(labelText);
-                })
-                    .on("mouseout", function () {
-                        d3.select(this)
-                            .attr("r", 2.5)
-                            .attr("fill", "navy");
-
-                        d3.select("#energy-generation-label").remove();
-                        d3.select("#energy-generation-box").remove();
-                    });
-
-
-                // LEGEND STUFF
-                const legendSvg = d3.select("#line-legend");
-                const legendWidth = legendSvg.attr("width");
-                const legendHeight = legendSvg.attr("height");
-
-                legendSvg.selectAll("*").remove();
-
-                const legend = legendSvg.append("g")
-                    .attr("transform", `translate(20, 120)`);
-
-                legend.append("text")
-                    .attr("x", 0)
-                    .attr("y", -20)
-                    .attr("font-size", "20px")
+                    .attr("font-size", "14px")
                     .attr("font-weight", "bold")
-                    .text("Energy Sources");
+                    .text("Year");
 
-                Array.from(visibleData.keys()).forEach((key, index) => {
-                    legend.append("line")
-                        .attr("x1", 0)
-                        .attr("y1", index * 20)
-                        .attr("x2", 20)
-                        .attr("y2", index * 20)
-                        .attr("stroke", colorScale(key))
-                        .attr("stroke-width", 2);
+                linesvg.append("text")
+                    .attr("class", "axis-title")
+                    .attr("x", -lheight / 2 + 15)
+                    .attr("y", 10)
+                    .attr("transform", "rotate(-90)")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "14px")
+                    .attr("font-weight", "bold")
+                    .text("Energy Generation (MWh)");
+
+                let visibleSources = [...energySource.keys()];
+
+                const sortedKeys = [...energySource.keys()].sort();
+
+                d3.select("div#toggle-bar").selectAll("button").remove();
+
+                sortedKeys.forEach((source) => {
+                    d3.select("div#toggle-bar")
+                        .append("button")
+                        .text(source)
+                        .style("margin", "5px")
+                        .style("padding", "8px")
+                        .style("cursor", "pointer")
+                        .style("background-color", "#f4f4f4") // Active state
+                        .on("click", function () {
+                            // Check if the source is already in visibleSources
+                            const index = visibleSources.indexOf(source);
+                            if (index > -1) {
+                                // If it's visible, remove it
+                                visibleSources.splice(index, 1); // Remove source
+                                d3.select(this).style("background-color", "#ccc"); // Inactive state
+                            } else {
+                                // If it's not visible, add it
+                                visibleSources.push(source); // Add source
+                                d3.select(this).style("background-color", "#f4f4f4"); // Active state
+                            }
+
+                            // Filter energySource to only include visible sources
+                            const filteredEnergySource = new Map(
+                                [...energySource].filter(([key]) => visibleSources.includes(key))
+                            );
+
+                            // Pass the filtered group to the graph update function
+                            updateLines(filteredEnergySource);
+                        });
+                });
+
+
+                function updateLines(visibleData) {
+                    lineGraph.selectAll(".line").remove();
+                    lineGraph.selectAll("circle").remove();
+
+                    // ADDING LINE STUFF
+                    const lineGen = d3.line()
+                        .x(d => yearScale(d['YEAR']))
+                        .y(d => genScale(d['GENERATION (Megawatthours)']))
+                    // .curve(d3.curveMonotoneX);
+                    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+                    lineGraph.selectAll(".line")
+                        .data([...visibleData]) // make into an array so line graph works
+                        .join("path")
+                        .attr("class", "line")
+                        .attr("fill", "none")
+                        .attr("stroke", ([key]) => colorScale(key))
+                        .attr("stroke-width", 2)
+                        .attr("d", ([key, values]) => lineGen(values));
+
+                    // CIRCLE/SOME MORE INTERACTIVITY STUFF
+                    const nameMapping = {
+                        "Hydroelectric Conventional": "Hydroelectric",
+                        "Wood and Wood Derived Fuels": "Wood",
+                        "Solar Thermal and Photovoltaic": "Solar/Photovoltaic"
+                    };
+
+
+                    const circles = lineGraph.selectAll("circle").data(Array.from(visibleData.values()).flat())
+                        .join("circle")
+                        .attr("r", 2.5)
+                        .attr("fill", "navy")
+                        .attr("cx", d => yearScale(d['YEAR']))
+                        .attr("cy", d => genScale(d['GENERATION (Megawatthours)']));
+
+                    circles.on("mouseover", function (event, d) {
+                        d3.select(this)
+                            .attr("r", 5)
+                            .attr("fill", "orange");
+
+                        const x = yearScale(d['YEAR']) + 10;
+                        const y = genScale(d['GENERATION (Megawatthours)']) - 10; // Position the text above initially
+
+                        const textYOffset = y < 20 ? 20 : -10;
+                        const textXOffset = x > graphWidth - 100 ? -150 : 10;
+                        const labelText = `${d['ENERGY SOURCE']}: ${d['GENERATION (Megawatthours)']} MWh`;
+
+
+                        // for testing
+                        // if (x > graphWidth - 20) {
+                        //   console.log("x is too close to the right, x position:", x);
+                        // }
+
+                        // background-color: #283845;
+                        // color: #DFE0E2;
+                        const textWidth = labelText.length * 6;
+                        const textHeight = 20;
+
+                        lineGraph.append("rect")
+                            .attr("id", "energy-generation-box")
+                            .attr("x", x + textXOffset - 5)
+                            .attr("y", y + textYOffset - textHeight + 5)
+                            .attr("width", textWidth + 10)
+                            .attr("height", textHeight + 10)
+                            .attr("opacity", 0.8)
+                            .attr("fill", "#283845");
+
+                        lineGraph.append("text")
+                            .attr("id", "energy-generation-label")
+                            .attr("x", x + textXOffset)
+                            .attr("y", y + textYOffset)
+                            .attr("font-size", "12px")
+                            .attr("fill", "#DFE0E2")
+
+                            .text(labelText);
+                    })
+                        .on("mouseout", function () {
+                            d3.select(this)
+                                .attr("r", 2.5)
+                                .attr("fill", "navy");
+
+                            d3.select("#energy-generation-label").remove();
+                            d3.select("#energy-generation-box").remove();
+                        });
+
+
+                    // LEGEND STUFF
+                    const legendSvg = d3.select("#line-legend");
+                    const legendWidth = legendSvg.attr("width");
+                    const legendHeight = legendSvg.attr("height");
+
+                    legendSvg.selectAll("*").remove();
+
+                    const legend = legendSvg.append("g")
+                        .attr("transform", `translate(20, 120)`);
 
                     legend.append("text")
-                        .attr("x", 30)
-                        .attr("y", index * 20 + 5)
-                        .text(key)
-                        .style("alignment-baseline", "middle");
-                });
-            }
+                        .attr("x", 0)
+                        .attr("y", -20)
+                        .attr("font-size", "20px")
+                        .attr("font-weight", "bold")
+                        .text("Energy Sources");
 
-            updateLines(energySource)
-        };
+                    Array.from(visibleData.keys()).forEach((key, index) => {
+                        legend.append("line")
+                            .attr("x1", 0)
+                            .attr("y1", index * 20)
+                            .attr("x2", 20)
+                            .attr("y2", index * 20)
+                            .attr("stroke", colorScale(key))
+                            .attr("stroke-width", 2);
 
-        updateLineGraph([]);
+                        legend.append("text")
+                            .attr("x", 30)
+                            .attr("y", index * 20 + 5)
+                            .text(key)
+                            .style("alignment-baseline", "middle");
+                    });
+                }
+
+                updateLines(energySource)
+            };
+
+            updateLineGraph([]);
     </script>
 
 </body>
