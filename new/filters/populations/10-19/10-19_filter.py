@@ -2,7 +2,7 @@ import pandas as pd
 
 file_path = 'pre-10-19.csv'
 year10to19 = pd.read_csv(file_path, delimiter=',', skiprows= 
-                         [0,1,2,3,4,5,6,7,8,60,62,63,64,65,66,67,68])
+                         [0,1,2,3,4,5,6,7,60,62,63,64,65,66,67,68])
 
 
 year10to19.columns = ["States", "Estimates1","Estimates2", "2010", "2011", "2012", "2013", 
