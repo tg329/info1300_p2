@@ -132,7 +132,7 @@
             viz story title
         </p>
         <p class="title-desc" id="desc2">
-            shihan gao (tg329), nicole lin (njl55), jolly zheng (jz767), elaine wu (ew457)
+            Shihan Gao (tg329), Nicole Lin (njl55), Jolly Zheng (jz767), Elaine Wu (ew457)
         </p>
     </div>
 
@@ -153,7 +153,15 @@
                 </div>
 
                 <div class="graph-desc" id="choro">
-                    <p>blah blah blah add stuff here. mention on energy produced / population</p>
+                    <p>INSERT THINGS ABOUT WHERE DATA CAME FROM</p>
+                    <p>Certain states (e.g., Wyoming, North Dakota) have significantly higher energy generation per
+                        capita, possibly due to their larger fossil fuel deposits and smaller
+                        populations. Meanwhile, states (e.g., California, Massachusetts) have lower energy generation
+                        per capita, possibly being attributed to their larger populations, less energy-intensive
+                        economies, and/or a reliance on imports from neighboring states. However, an increase of energy
+                        generation per capita has generally been
+                        observed across states over the
+                        time range, aside from a few outliers.</p>
                 </div>
             </div>
         </div>
@@ -168,7 +176,15 @@
                 <svg id="line-legend" width="200" height="500"></svg>
                 <div id="toggle-bar"></div>
                 <div class="graph-desc" id="lineg">
-                    <p>blah blah blah add stuff here</p>
+                    <p>INSERT HERE STUFF ABOUT THE DATA SET</p>
+                    <p>Certain states (e.g., Wyoming and North Dakota) have significantly higher energy generation per
+                        capita, possibly due to their larger fossil fuel deposits and smaller
+                        populations. Meanwhile, states (e.g., California and Massachusetts) have lower energy generation
+                        per capita, possibly being attributed to their larger populations, less energy-intensive
+                        economies, and/or a reliance on imports from neighboring states. However, an increase of energy
+                        generation per capita has generally been
+                        observed across states over the
+                        time range, aside from a few outliers.</p>
                 </div>
             </div>
         </div>
@@ -343,12 +359,12 @@
 
             function mouseLeavesState() {
                 tooltip.transition()
-                    .duration(500) 
-                    .style("opacity", 0);  
+                    .duration(500)
+                    .style("opacity", 0);
                 tooltip.transition()
-                    .duration(0)  
-                    .delay(500)  
-                    .style("visibility", "hidden"); 
+                    .duration(0)
+                    .delay(500)
+                    .style("visibility", "hidden");
             }
 
             // line graph behavior when clicking on a state + momesh application until user clicks on another state
@@ -372,7 +388,7 @@
                     const stateID = d.id;
                     const mo = topojson.mesh(us, us.objects.states, (a, b) => a.id === stateID || b.id === stateID);
                     //update the mesh with the selected state's path
-                    momesh.datum(mo).attr("d", path); 
+                    momesh.datum(mo).attr("d", path);
 
                 });
             });
@@ -592,7 +608,7 @@
                 const lineGen = d3.line()
                     .x(d => yearScale(d['YEAR']))
                     .y(d => genScale(d['GENERATION (Megawatthours)']))
-                
+
                 const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
                 lineGraph.selectAll(".line")
                     .data([...visibleData]) // make into an array so line graph works
@@ -626,7 +642,7 @@
 
                     const x = yearScale(d['YEAR']) + 10;
                     // Position the text above initially
-                    const y = genScale(d['GENERATION (Megawatthours)']) - 10; 
+                    const y = genScale(d['GENERATION (Megawatthours)']) - 10;
 
                     const textYOffset = y < 20 ? 20 : -10;
                     const textXOffset = x > graphWidth - 100 ? -185 : 10;
@@ -635,7 +651,7 @@
 
                     const textWidth = labelText.length * 6;
                     const textHeight = 20;
-                
+
 
                     // display a tooltip with energy source details
                     lineGraph.append("rect")
