@@ -15,6 +15,11 @@ aggregated_data = energy_df.groupby(
     ['STATE', 'YEAR', 'ENERGY SOURCE']
 )['GENERATION (Megawatthours)'].sum().reset_index()
 
+#rename for simplicity
+aggregated_data = aggregated_data.replace('Wood and Wood Derived Fuels', 'Wood')
+aggregated_data = aggregated_data.replace('Hydroelectric Conventional', 'Hydroelectric')
+aggregated_data = aggregated_data.replace('Solar Thermal and Photovoltaic', 'Solar/Photovoltaic')
+
 #prepare for merge. merge left join on state
 states_df = states_df.rename(columns={'Code': 'STATE'})
 yearly_df = states_df.merge(aggregated_data, on = 'STATE', how = 'left')
