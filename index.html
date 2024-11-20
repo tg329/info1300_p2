@@ -317,7 +317,7 @@
                 .style("stroke-width", 2)
                 .attr("d", "");
 
-            let selectedStateID = null; // track the currently select state
+            let selectedStateID = null; // track the currently selected state for momesh
 
             statePaths.on("mouseover", function (event, d) {
                 const stateName = d.properties.name;
@@ -339,10 +339,6 @@
                 const yPos = bounds[0][1] - tooltipHeight;
 
                 tooltip.attr("transform", `translate(${xPos},${yPos})`);
-
-                const stateID = d.id;
-                const mo = topojson.mesh(us, us.objects.states, (a, b) => a.id === stateID || b.id === stateID);
-                momesh.datum(mo).attr("d", path);
             });
 
 
@@ -355,8 +351,7 @@
                     });
             });
 
-
-            // LINE GRAPH CLICK STUFF
+            // line graph behavior when clicking on a state + momesh application until user clicks on another state
             d3.csv("source_years.csv", d3.autoType).then(function (data) {
                 energySourceData = data;
 
@@ -371,13 +366,14 @@
 
                     updateLineGraph(stateEnergyData, stateName); // add new graph + legend
 
+                    const stateID = d.id;
+                    const mo = topojson.mesh(us, us.objects.states, (a, b) => a.id === stateID || b.id === stateID);
+                    momesh.datum(mo).attr("d", path);
 
                 });
             });
 
         };
-
-
 
         // calculate energy per capita for each state per year
         const energyPerState = (state, year) => {
