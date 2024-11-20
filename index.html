@@ -404,6 +404,7 @@
     <script>
         //instructor given code
         function drawLegend(legendSelector, legendColorScale) {
+            // define offsets and step size for the legend layout
             const offsets = { width: 10, top: 0, bottom: 25 };
             const stepSize = 4;
             const minMaxExtendPercent = 0;
@@ -415,15 +416,18 @@
             const minMaxExtension = (legendMinMax[1] - legendMinMax[0]) * minMaxExtendPercent;
             const barHeight = legendHeight - offsets.top - offsets.bottom;
 
+            //reate a scale for the legend bar
             let barScale = d3.scaleLinear()
                 .domain([legendMinMax[0] - minMaxExtension, legendMinMax[1] + minMaxExtension])
                 .range([0, legendBarWidth]);
 
             let barAxis = d3.axisBottom(barScale);
 
+            // append a group to hold the color bars
             let bar = legend.append("g")
                 .attr("transform", `translate(${offsets.width},${offsets.top})`);
 
+            //draw legend boxes
             for (let i = 0; i < legendBarWidth; i = i + stepSize) {
                 let center = i + (stepSize / 2);
                 let dataCenter = barScale.invert(center);
@@ -435,10 +439,12 @@
                     .style("fill", legendColorScale(dataCenter));
             }
 
+            // append the axis below the legend bar
             legend.append("g")
                 .attr("transform", `translate(${offsets.width},${offsets.top + barHeight + 5})`)
                 .call(barAxis);
 
+            // add the label for the legend
             d3.select("#map-legend").attr("height", barHeight + 60);
             legend.append("text")
                 .attr("x", legendBarWidth / 2)
