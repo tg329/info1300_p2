@@ -318,7 +318,6 @@
                 .attr("d", "");
 
             let selectedStateID = null; // track the currently selected state for momesh
-
             statePaths.on("mouseover", function (event, d) {
                 const stateName = d.properties.name;
                 const year = +document.getElementById("yearSlider").value;
@@ -341,7 +340,6 @@
                 tooltip.attr("transform", `translate(${xPos},${yPos})`);
             });
 
-
             statePaths.on("mouseout", function () {
                 tooltip.transition()
                     .duration(300)
@@ -356,7 +354,26 @@
                 energySourceData = data;
 
                 statePaths.on("click", function (event, d) {
-                    const stateName = d.properties.name;
+
+                    var stateName = d.properties.name;
+                    var year = +document.getElementById("yearSlider").value;
+                    var energyPerCapita = energyPerState(stateName, year);
+                    var totalPopulation = populationData[stateName] && populationData[stateName][year] || 0;
+
+                    // add to choro sidebar
+                    var choroDiv = d3.select("#choro");
+
+                    choroDiv.selectAll("*").remove();
+
+                    var statePara = choroDiv.append("p")
+                        .text(stateName);
+
+                    var energyPara = choroDiv.append("p")
+                        .text("Energy per Capita: " + energyPerCapita + " MWh");
+
+                    var populationPara = choroDiv.append("p")
+                        .text("Population: " + totalPopulation);
+
                     const stateEnergyData = energySourceData.filter(d => d.State === stateName);
                     const linesvg = d3.select("#line-graph");
                     const legendSvg = d3.select("#line-legend");
