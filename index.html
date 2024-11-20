@@ -195,7 +195,6 @@
         let energyData = {};
         let populationData = {};
 
-
         const requestData = async function () {
 
             //load us json, extract states and the mesh
@@ -213,6 +212,7 @@
                     populationData[d.States][year] = d[year];
                 }
             });
+            console.log(populationData);
 
             // aggregate energy gen by state and year
             prod.forEach(d => {
@@ -224,10 +224,10 @@
                 }
                 energyData[d.State][d.YEAR] += d['GENERATION (Megawatthours)'];
             });
+            console.log(energyData);
 
             const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
             const path = d3.geoPath().projection(projection);
-
 
             //draw state shapes
             const statePaths = map
@@ -235,14 +235,14 @@
                 .data(states.features)
                 .join("path")
                 .attr("class", "state")
-                .attr("d", path);
+                .attr("d", path)
+                .on('mouseout', mouseLeavesState);
 
             //draw state borders
             map.append("path")
                 .datum(statesMesh)
                 .attr("class", "outline")
                 .attr("d", path);
-
 
             //create color scale and create legend with it
             const colorScale = d3.scaleThreshold()
@@ -265,7 +265,6 @@
 
             //preset data to be the 2001 data
             updateMap(2001, colorScale);
-
 
             //event listener for slider to update the map dynamically
             d3.select("#yearSlider").on("input", function () {
@@ -314,15 +313,14 @@
             const momesh = map.append("path")
                 .attr("class", "mouseover outline")
                 .style("stroke", "black")
-                .style("stroke-width", 2)
+                .style("stroke-width", 2.5)
                 .attr("d", "");
 
-            let selectedStateID = null; // track the currently selected state for momesh
             statePaths.on("mouseover", function (event, d) {
                 const stateName = d.properties.name;
                 const year = +document.getElementById("yearSlider").value;
                 const energyPerCapita = energyPerState(stateName, year);
-                const totalPopulation = populationData[stateName] && populationData[stateName][year] || 0;
+                const totalPopulation = populationData[stateName] && populationData[stateName][year];
 
                 tooltip.transition()
                     .duration(20)
@@ -330,24 +328,24 @@
                     .style("opacity", 1);
 
                 txt.text(stateName);
-                txt2.text(`${energyPerCapita.toFixed(2)} MWh`);
-                txt3.text(`Population: ${totalPopulation.toLocaleString()}`);
+                txt2.text(`${energyPerCapita.toFixed(2)} MWh`); //rounding to two decimal points
+                txt3.text(`Population: ${totalPopulation.toLocaleString()}`); //string formatting for population
 
                 const bounds = path.bounds(d);
                 const xPos = (bounds[0][0] + bounds[1][0]) / 2.0;
                 const yPos = bounds[0][1] - tooltipHeight;
 
-                tooltip.attr("transform", `translate(${xPos},${yPos})`);
             });
 
-            statePaths.on("mouseout", function () {
+            function mouseLeavesState() {
                 tooltip.transition()
-                    .duration(300)
-                    .style("opacity", 0)
-                    .on("end", function () {
-                        tooltip.style("visibility", "hidden");
-                    });
-            });
+                    .duration(500) 
+                    .style("opacity", 0);  
+                tooltip.transition()
+                    .duration(0)  
+                    .delay(500)  
+                    .style("visibility", "hidden"); 
+            }
 
             // line graph behavior when clicking on a state + momesh application until user clicks on another state
             d3.csv("source_years.csv", d3.autoType).then(function (data) {
@@ -356,23 +354,6 @@
                 statePaths.on("click", function (event, d) {
 
                     var stateName = d.properties.name;
-                    var year = +document.getElementById("yearSlider").value;
-                    var energyPerCapita = energyPerState(stateName, year);
-                    var totalPopulation = populationData[stateName] && populationData[stateName][year] || 0;
-
-                    // add to choro sidebar
-                    var choroDiv = d3.select("#choro");
-
-                    choroDiv.selectAll("*").remove();
-
-                    var statePara = choroDiv.append("p")
-                        .text(stateName);
-
-                    var energyPara = choroDiv.append("p")
-                        .text("Energy per Capita: " + energyPerCapita + " MWh");
-
-                    var populationPara = choroDiv.append("p")
-                        .text("Population: " + totalPopulation);
 
                     const stateEnergyData = energySourceData.filter(d => d.State === stateName);
                     const linesvg = d3.select("#line-graph");
@@ -389,10 +370,9 @@
 
                 });
             });
-
         };
 
-        // calculate energy per capita for each state per year
+        // calculate energy per capita for each state per year by dividing energy production by total population
         const energyPerState = (state, year) => {
             if (energyData[state] && populationData[state] && populationData[state][year]) {
                 return energyData[state][year] / populationData[state][year];
@@ -401,17 +381,12 @@
             }
         };
 
-        const energyArray = (year) => {
-            return Object.keys(populationData).map(state => energyPerState(state, year));
-        };
-
         const updateMap = (year, colorScale) => {
             map.selectAll("path.state").style("fill", d => {
                 const energyPerCapita = energyPerState(d.properties.name, year);
                 return colorScale(energyPerCapita);
             });
         };
-
 
         requestData();
     </script>
