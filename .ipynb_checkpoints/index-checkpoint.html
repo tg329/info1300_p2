@@ -132,7 +132,7 @@
             viz story title
         </p>
         <p class="title-desc" id="desc2">
-            shihan gao (tg329), nicole lin (njl55), jolly zheng (jz767), elaine wu (ew457)
+            shihan gao (tg329), nicole lin (njl55), jolly zheng (jz767), elaine wu (457)
         </p>
     </div>
 
@@ -164,8 +164,8 @@
                 State Energy Source and Generation Line Plot
             </h3>
             <div class="lineg">
-                <svg id="line-graph" width="1100" height="400"></svg>
-                <svg id="line-legend" width="200" height="500"></svg>
+                <svg id="line-graph" width="1100" height="300"></svg>
+                <svg id="line-legend" width="200" height="400"></svg>
                 <div id="toggle-bar"></div>
                 <div class="graph-desc" id="lineg">
                     <p>blah blah blah add stuff here</p>
@@ -177,28 +177,18 @@
 
     <!-- CHOROPLETH -->
     <script>
-
-        // create svg for chloropleth
         const svg = d3.select("#choropleth");
-
-        // working on margins and svg height, width
         const width = svg.attr("width");
         const height = svg.attr("height");
         const margin = { top: 20, right: 100, bottom: 20, left: 100 };
         const mapWidth = width - margin.left - margin.right;
         const mapHeight = height - margin.top - margin.bottom;
-
-        //append a group element to hold the map, positioned with margins
         const map = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
-
-        //objects to store energy and population data
         let energyData = {};
         let populationData = {};
 
 
         const requestData = async function () {
-
-            //load us json, extract states and the mesh
             const us = await d3.json("us.json");
             const states = topojson.feature(us, us.objects.states);
             const statesMesh = topojson.mesh(us, us.objects.states);
@@ -225,11 +215,11 @@
                 energyData[d.State][d.YEAR] += d['GENERATION (Megawatthours)'];
             });
 
+            console.log(energyData['Alabama']);
+
             const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], states);
             const path = d3.geoPath().projection(projection);
 
-
-            //draw state shapes
             const statePaths = map
                 .selectAll("path.state")
                 .data(states.features)
@@ -237,37 +227,30 @@
                 .attr("class", "state")
                 .attr("d", path);
 
-            //draw state borders
             map.append("path")
                 .datum(statesMesh)
                 .attr("class", "outline")
                 .attr("d", path);
 
-
-            //create color scale and create legend with it
             const colorScale = d3.scaleThreshold()
                 .domain([0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 190])
                 .range([
-                    "#660000",
-                    // "#901911",
-                    "#B93122",
-                    "#e34a33",
-                    "#fc8d59",
-                    "#fdbb91",
-                    "#fee8c8",
-                    "#f1eef6",
                     "#f7fcb9",
                     "#addd8e",
                     "#31a354",
-                    "#006837"
+                    "#006837",
+                    "#f1eef6",
+                    "#fee8c8",
+                    "#fc8d59",
+                    "#e34a33",
+                    "#9e3c3e",
+                    "#9e1b32",
+                    "#660000"
                 ]);
             drawLegend("#map-legend", colorScale);
 
-            //preset data to be the 2001 data
             updateMap(2001, colorScale);
 
-
-            //event listener for slider to update the map dynamically
             d3.select("#yearSlider").on("input", function () {
                 const year = +this.value;
                 d3.select("#sliderYear").text(year);
@@ -317,11 +300,11 @@
                 .style("stroke-width", 2)
                 .attr("d", "");
 
-            let selectedStateID = null; // track the currently selected state for momesh
             statePaths.on("mouseover", function (event, d) {
                 const stateName = d.properties.name;
                 const year = +document.getElementById("yearSlider").value;
                 const energyPerCapita = energyPerState(stateName, year);
+                const totalEnergy = energyData[stateName] && energyData[stateName][year] || 0;
                 const totalPopulation = populationData[stateName] && populationData[stateName][year] || 0;
 
                 tooltip.transition()
@@ -338,6 +321,12 @@
                 const yPos = bounds[0][1] - tooltipHeight;
 
                 tooltip.attr("transform", `translate(${xPos},${yPos})`);
+
+                const stateID = d.id;
+                let mo = topojson.mesh(us, us.objects.states, function (a, b) {
+                    return a.id === stateID || b.id === stateID;
+                });
+                momesh.datum(mo).attr("d", path);
             });
 
             statePaths.on("mouseout", function () {
@@ -347,33 +336,18 @@
                     .on("end", function () {
                         tooltip.style("visibility", "hidden");
                     });
+
+                momesh.attr("d", "");
             });
 
-            // line graph behavior when clicking on a state + momesh application until user clicks on another state
+
+
+            // LINE GRAPH CLICK STUFF
             d3.csv("source_years.csv", d3.autoType).then(function (data) {
                 energySourceData = data;
 
                 statePaths.on("click", function (event, d) {
-
-                    var stateName = d.properties.name;
-                    var year = +document.getElementById("yearSlider").value;
-                    var energyPerCapita = energyPerState(stateName, year);
-                    var totalPopulation = populationData[stateName] && populationData[stateName][year] || 0;
-
-                    // add to choro sidebar
-                    var choroDiv = d3.select("#choro");
-
-                    choroDiv.selectAll("*").remove();
-
-                    var statePara = choroDiv.append("p")
-                        .text(stateName);
-
-                    var energyPara = choroDiv.append("p")
-                        .text("Energy per Capita: " + energyPerCapita + " MWh");
-
-                    var populationPara = choroDiv.append("p")
-                        .text("Population: " + totalPopulation);
-
+                    const stateName = d.properties.name;
                     const stateEnergyData = energySourceData.filter(d => d.State === stateName);
                     const linesvg = d3.select("#line-graph");
                     const legendSvg = d3.select("#line-legend");
@@ -381,16 +355,15 @@
                     linesvg.selectAll("*").remove(); // remove old graph
                     legendSvg.selectAll("*").remove(); //remove old legend
 
-                    updateLineGraph(stateEnergyData, stateName); // add new graph + legend
+                    updateLineGraph(stateEnergyData); // add new graph + legend
 
-                    const stateID = d.id;
-                    const mo = topojson.mesh(us, us.objects.states, (a, b) => a.id === stateID || b.id === stateID);
-                    momesh.datum(mo).attr("d", path);
 
                 });
             });
 
         };
+
+
 
         // calculate energy per capita for each state per year
         const energyPerState = (state, year) => {
@@ -469,11 +442,11 @@
 
     <!-- LINE GRAPH UPDATE -->
     <script>
-        const updateLineGraph = (stateData, stateName) => {
+        const updateLineGraph = (stateData) => {
             const linesvg = d3.select("#line-graph");
             const lwidth = linesvg.attr("width");
             const lheight = linesvg.attr("height");
-            const lmargin = { top: 50, right: 10, bottom: 50, left: 50 };
+            const lmargin = { top: 10, right: 10, bottom: 50, left: 50 };
             const graphWidth = lwidth - lmargin.left - lmargin.right;
             const graphHeight = lheight - lmargin.top - lmargin.bottom;
 
@@ -490,17 +463,6 @@
                     .attr("class", "default-message")
                     .text("Click on a state to view energy source data");
                 return;
-            }
-            else {
-                linesvg.append("text")
-                    .attr("id", "state-label")
-                    .attr("x", lwidth / 2)
-                    .attr("y", 15)
-                    .attr("text-anchor", "middle")
-                    .attr("font-size", "16px")
-                    .attr("font-weight", "bold")
-                    .attr("fill", "#333")
-                    .text(stateName);
             }
 
             const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
@@ -552,14 +514,12 @@
                 .attr("font-weight", "bold")
                 .text("Energy Generation (MWh)");
 
-            // toggle lines
             let visibleSources = [...energySource.keys()];
 
             const sortedKeys = [...energySource.keys()].sort();
 
             d3.select("div#toggle-bar").selectAll("button").remove();
 
-            // toggle buttons 
             sortedKeys.forEach((source) => {
                 d3.select("div#toggle-bar")
                     .append("button")
@@ -567,23 +527,26 @@
                     .style("margin", "5px")
                     .style("padding", "8px")
                     .style("cursor", "pointer")
-                    .style("background-color", "#fff")
-                    .on("click", function () { // toggle functionality
+                    .style("background-color", "#f4f4f4") // Active state
+                    .on("click", function () {
+                        // Check if the source is already in visibleSources
                         const index = visibleSources.indexOf(source);
                         if (index > -1) {
-                            visibleSources.splice(index, 1);
-                            d3.select(this).style("background-color", "#c8c8c8"); // invisible line
+                            // If it's visible, remove it
+                            visibleSources.splice(index, 1); // Remove source
+                            d3.select(this).style("background-color", "#ccc"); // Inactive state
                         } else {
-                            visibleSources.push(source);
-                            d3.select(this).style("background-color", "#fff"); // visible line
+                            // If it's not visible, add it
+                            visibleSources.push(source); // Add source
+                            d3.select(this).style("background-color", "#f4f4f4"); // Active state
                         }
 
-                        // filter energySource with only visible sources
+                        // Filter energySource to only include visible sources
                         const filteredEnergySource = new Map(
                             [...energySource].filter(([key]) => visibleSources.includes(key))
                         );
 
-                        // update lines with the new visible lines
+                        // Pass the filtered group to the graph update function
                         updateLines(filteredEnergySource);
                     });
             });
@@ -691,7 +654,7 @@
                     .attr("font-weight", "bold")
                     .text("Energy Sources");
 
-                Array.from(visibleData.keys()).sort().forEach((key, index) => {
+                Array.from(visibleData.keys()).forEach((key, index) => {
                     legend.append("line")
                         .attr("x1", 0)
                         .attr("y1", index * 20)
@@ -703,7 +666,7 @@
                     legend.append("text")
                         .attr("x", 30)
                         .attr("y", index * 20 + 5)
-                        .text(nameMapping[key] || key)
+                        .text(key)
                         .style("alignment-baseline", "middle");
                 });
             }
