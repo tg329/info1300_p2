@@ -316,12 +316,16 @@
                 .style("stroke-width", 2.5)
                 .attr("d", "");
 
+            // event listener for mouseover on state paths
             statePaths.on("mouseover", function (event, d) {
                 const stateName = d.properties.name;
                 const year = +document.getElementById("yearSlider").value;
                 const energyPerCapita = energyPerState(stateName, year);
+
+                //retrieve total pop of the state for the selected year
                 const totalPopulation = populationData[stateName] && populationData[stateName][year];
 
+                //tooltip visiblility with transition
                 tooltip.transition()
                     .duration(20)
                     .style("visibility", "visible")
@@ -364,9 +368,11 @@
 
                     updateLineGraph(stateEnergyData, stateName); // add new graph + legend
 
+                    //Highlight the selected state on the map
                     const stateID = d.id;
                     const mo = topojson.mesh(us, us.objects.states, (a, b) => a.id === stateID || b.id === stateID);
-                    momesh.datum(mo).attr("d", path);
+                    //update the mesh with the selected state's path
+                    momesh.datum(mo).attr("d", path); 
 
                 });
             });
@@ -381,9 +387,12 @@
             }
         };
 
+        //function to update the map visualization based on the selected year 
+        //and color scale
         const updateMap = (year, colorScale) => {
             map.selectAll("path.state").style("fill", d => {
                 const energyPerCapita = energyPerState(d.properties.name, year);
+                //color scale to determine the fill color 
                 return colorScale(energyPerCapita);
             });
         };
@@ -445,6 +454,7 @@
     <!-- LINE GRAPH UPDATE -->
     <script>
         const updateLineGraph = (stateData, stateName) => {
+            // set up the SVG container and dimensions
             const linesvg = d3.select("#line-graph");
             const lwidth = linesvg.attr("width");
             const lheight = linesvg.attr("height");
@@ -452,10 +462,12 @@
             const graphWidth = lwidth - lmargin.left - lmargin.right;
             const graphHeight = lheight - lmargin.top - lmargin.bottom;
 
+            //create groups for annotations and the line graph
             const annotations = linesvg.append("g").attr("id", "annotations");
             const lineGraph = linesvg.append("g")
                 .attr("transform", `translate(${lmargin.left},${lmargin.top})`);
 
+            //display a default message if not selected state
             if (!stateData || stateData.length === 0) {
                 linesvg.append("text")
                     .attr("x", lwidth / 2)
@@ -467,6 +479,7 @@
                 return;
             }
             else {
+                //add a title displaying the state name
                 linesvg.append("text")
                     .attr("id", "state-label")
                     .attr("x", lwidth / 2)
@@ -478,10 +491,11 @@
                     .text(stateName);
             }
 
+            //filter data for the years 2001-2021 and group by energy source
             const filtered = stateData.filter(d => d['YEAR'] >= 2001 && d['YEAR'] <= 2021);
             const energySource = d3.group(filtered, d => d['ENERGY SOURCE']);
 
-            // SCALE STUFF
+            // set up scales for the axes
             const yearExtent = d3.extent(filtered, d => d['YEAR']);
             const yearScale = d3.scaleLinear()
                 .domain(yearExtent)
@@ -491,7 +505,7 @@
                 .domain(genExtent)
                 .range([graphHeight, 0]);
 
-            // AXIS STUFF
+            // add axes
             const bottomAxis = d3.axisBottom(yearScale)
                 .ticks(24)
                 .tickFormat(d3.format("d"));
@@ -507,7 +521,7 @@
                 .attr("transform", `translate(${lmargin.left},${lmargin.top})`)
                 .call(leftAxis);
 
-            // LABEL STUFF
+            // add axis labels
             linesvg.append("text")
                 .attr("class", "axis-title")
                 .attr("x", lwidth / 2)
@@ -527,7 +541,7 @@
                 .attr("font-weight", "bold")
                 .text("Energy Generation (MWh)");
 
-            // toggle lines
+            // track visible energy sources and set up toggle buttons
             let visibleSources = [...energySource.keys()];
 
             const sortedKeys = [...energySource.keys()].sort();
@@ -563,16 +577,16 @@
                     });
             });
 
-
+            //function to update the graph with visible energy sources
             function updateLines(visibleData) {
                 lineGraph.selectAll(".line").remove();
                 lineGraph.selectAll("circle").remove();
 
-                // ADDING LINE STUFF
+                //add lines for each energy source
                 const lineGen = d3.line()
                     .x(d => yearScale(d['YEAR']))
                     .y(d => genScale(d['GENERATION (Megawatthours)']))
-                // .curve(d3.curveMonotoneX);
+                
                 const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
                 lineGraph.selectAll(".line")
                     .data([...visibleData]) // make into an array so line graph works
@@ -590,7 +604,7 @@
                     "Solar Thermal and Photovoltaic": "Solar/Photovoltaic"
                 };
 
-
+                // add interactivity with circles on the graph
                 const circles = lineGraph.selectAll("circle").data(Array.from(visibleData.values()).flat())
                     .join("circle")
                     .attr("r", 2.5)
@@ -598,29 +612,26 @@
                     .attr("cx", d => yearScale(d['YEAR']))
                     .attr("cy", d => genScale(d['GENERATION (Megawatthours)']));
 
+                // add hover effects for circles
                 circles.on("mouseover", function (event, d) {
                     d3.select(this)
                         .attr("r", 5)
                         .attr("fill", "orange");
 
                     const x = yearScale(d['YEAR']) + 10;
-                    const y = genScale(d['GENERATION (Megawatthours)']) - 10; // Position the text above initially
+                    // Position the text above initially
+                    const y = genScale(d['GENERATION (Megawatthours)']) - 10; 
 
                     const textYOffset = y < 20 ? 20 : -10;
                     const textXOffset = x > graphWidth - 100 ? -150 : 10;
                     const labelText = `${d['ENERGY SOURCE']}: ${d['GENERATION (Megawatthours)']} MWh`;
 
 
-                    // for testing
-                    // if (x > graphWidth - 20) {
-                    //   console.log("x is too close to the right, x position:", x);
-                    // }
-
-                    // background-color: #283845;
-                    // color: #DFE0E2;
                     const textWidth = labelText.length * 6;
                     const textHeight = 20;
+                
 
+                    // display a tooltip with energy source details
                     lineGraph.append("rect")
                         .attr("id", "energy-generation-box")
                         .attr("x", x + textXOffset - 5)
@@ -649,7 +660,7 @@
                     });
 
 
-                // LEGEND STUFF
+                // add a legend for visible energy sources
                 const legendSvg = d3.select("#line-legend");
                 const legendWidth = legendSvg.attr("width");
                 const legendHeight = legendSvg.attr("height");
@@ -683,7 +694,7 @@
                 });
             }
 
-            updateLines(energySource)
+            updateLines(energySource) // set graph with all energy sources
         };
 
         updateLineGraph([]);
